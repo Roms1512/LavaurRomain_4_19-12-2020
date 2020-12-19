@@ -5,4 +5,16 @@
   box-sizing: border-box;
 }
 
+body {
+  background: #505050;
+}
+
+header {
+  background: #f3e9f1;
+}
+header h1 {
+  text-align: center;
+  line-height: 20vh;
+}
+
 /*# sourceMappingURL=style.css.map */
