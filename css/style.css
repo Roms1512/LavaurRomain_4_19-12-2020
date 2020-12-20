@@ -3,18 +3,81 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 body {
   background: #505050;
+  font-family: "Finger Paint", cursive;
+}
+
+.icone-logo::before {
+  background: linear-gradient(#D6843C, #8F5BFE);
+  background: -webkit-linear-gradient(#D6843C, #8F5BFE);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 header {
+  position: relative;
+  height: 25vh;
+  width: 100%;
   background: #f3e9f1;
 }
-header h1 {
-  text-align: center;
-  line-height: 20vh;
+header .logo a {
+  position: absolute;
+  display: flex;
+  right: 38vw;
+  top: 10%;
+  align-items: center;
+  color: black;
+}
+header .logo a .icone-logo::before {
+  font-size: 100px;
+}
+header .logo a h1 {
+  font-size: xxx-large;
+}
+header .menu-nav {
+  height: 25vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+header .menu-nav ul, header .menu-nav .panier {
+  align-items: center;
+}
+header .menu-nav ul {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 10%;
+  padding-bottom: 40px;
+}
+header .menu-nav ul li {
+  margin-right: 30%;
+  font-size: 25px;
+  list-style-type: none;
+}
+header .menu-nav ul li a {
+  color: black;
+}
+header .menu-nav .panier {
+  justify-content: flex-end;
+  padding-right: 10%;
+  padding-bottom: 40px;
+}
+header .menu-nav .panier a {
+  display: flex;
+  align-items: center;
+}
+header .menu-nav .panier .icone-logo::before {
+  font-size: 30px;
+}
+header .menu-nav .panier p {
+  font-size: 25px;
+  margin-left: 5%;
+  color: black;
 }
 
 /*# sourceMappingURL=style.css.map */

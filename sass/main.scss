@@ -1,19 +1,90 @@
 /*# sourceMappingURL=main.scss.map */
+$color-principal: #f3e9f1;
+$dégradé: #D6843C, #8F5BFE;
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    text-decoration: none;
 }
 
 body {
     background: #505050;
+    font-family: "Finger Paint", cursive;
+}
+
+.icone-logo::before {
+    background: linear-gradient($dégradé);
+    background: -webkit-linear-gradient($dégradé);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
 header {
-    background: #f3e9f1;
-    h1 {
-        text-align: center;
-        line-height: 20vh;
+    position: relative;
+    height: 25vh;
+    width: 100%;
+    background: $color-principal;
+    .logo{
+        a {
+            position: absolute;
+            display: flex;
+            right: 38vw;
+            top: 10%;
+            align-items: center;
+            color: black;
+            .icone-logo::before {
+                font-size: 100px;
+                
+            }
+            h1 {
+                font-size: xxx-large;
+            }
+        }
+    }
+    .menu-nav {
+        height: 25vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        ul, .panier {
+            align-items: center;
+        }
+        
+        ul {
+            display: flex;
+            justify-content: flex-start;
+            padding-left: 10%;
+            padding-bottom: 40px;
+            li {
+                margin-right: 30%;
+                font-size: 25px;
+                list-style-type: none;
+                a {
+                    color: black;
+                }
+            }
+        }
+
+        .panier {
+            justify-content: flex-end;
+            padding-right: 10%;
+            padding-bottom: 40px;
+            a{
+                display: flex;
+                align-items: center;
+            }
+            .icone-logo::before {
+                font-size: 30px;
+            }
+
+            p {
+                font-size: 25px;
+                margin-left: 5%;
+                color: black;
+            }
+        }
     }
 }
