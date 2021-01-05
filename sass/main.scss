@@ -1,17 +1,28 @@
 /*# sourceMappingURL=main.scss.map */
 $color-principal: #f3e9f1;
+$color-secondary: #4d4d4d;
 $dégradé: #D6843C, #8F5BFE;
+
+@mixin boutton {
+    &:hover {
+        transform: scale(1.03);
+    }
+    &:active {
+        transition: 0s;
+        transform: scale(1);
+    }
+}
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     text-decoration: none;
+    font-family: "Finger Paint", cursive;
 }
 
 body {
-    background: #505050;
-    font-family: "Finger Paint", cursive;
+    background: $color-secondary;
 }
 
 .icone-logo::before {
@@ -62,6 +73,8 @@ header {
                 margin-right: 30%;
                 font-size: 25px;
                 list-style-type: none;
+                transition: 0.3s;
+                @include boutton();
                 a {
                     color: black;
                 }
@@ -80,11 +93,70 @@ header {
                 font-size: 30px;
             }
 
-            p {
+            h2 {
                 font-size: 25px;
                 margin-left: 5%;
                 color: black;
             }
         }
     }
+}
+
+section {
+    padding: 20px 40px;
+    .produit {
+        width: 100%;
+        margin-bottom: 50px;
+        padding: 10px;
+        border-radius: 5px;
+        background: lighten($color: $color-secondary, $amount: 10);
+        .titre-produit, .info-produit {
+            color: #f1f1f1;
+        }
+        .titre-produit {
+            text-align: center;
+            font-size: xx-large;
+        }
+
+        .img-produit {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            width: 80%;
+            height: 50%;
+            border-radius: 10px;
+        }
+
+        .info-produit {
+            background: lighten($color: $color-secondary, $amount: 20);
+            border-radius: 5px;
+            .description-produit, .prix-produit, .taille-produit {
+                text-align: left;
+                margin: 10px;
+                font-size: large;
+            }
+            .description-produit {
+                border-bottom: 2px solid lighten($color: $color-secondary, $amount: 10);
+                padding-bottom: 10px;
+            }
+        }
+
+        .button {
+            display: flex;
+            justify-content: flex-end;
+            button{
+                margin-top: 10px;
+                margin-bottom: 10px;
+                padding: 12px 25px;
+                font-size: large;
+                border-radius: 5px;
+                border: none;
+                cursor: pointer;
+                background: $color-principal;
+                transition: 0.3s;
+                @include boutton();
+            }
+        }
+    }
+
 }
