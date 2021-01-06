@@ -95,7 +95,7 @@ section .recherche {
   text-align: right;
   position: relative;
 }
-section .recherche input {
+section .recherche input, section .recherche select {
   padding-left: 5px;
   margin-bottom: 30px;
   border-radius: 5px;
@@ -105,13 +105,24 @@ section .recherche .fa-search {
   top: 13%;
   right: 1%;
   font-size: small;
+  cursor: pointer;
+}
+section .recherche .fa-search:hover {
+  transform: scale(1.03);
+}
+section .recherche .fa-search:active {
+  transition: 0s;
+  transform: scale(1);
 }
 section .produit {
   width: 100%;
   margin-bottom: 50px;
   padding: 10px;
   border-radius: 5px;
-  background: #676767;
+  background: gray;
+}
+section .produit a {
+  color: #f1f1f1;
 }
 section .produit .titre-produit, section .produit .info-produit {
   color: #f1f1f1;
@@ -133,7 +144,7 @@ section .produit .image .img-produit {
   border-radius: 10px;
 }
 section .produit .info-produit {
-  background: gray;
+  background: #9a9a9a;
   border-radius: 5px;
 }
 section .produit .info-produit .description-produit, section .produit .info-produit .prix-produit, section .produit .info-produit .taille-produit {
@@ -142,7 +153,7 @@ section .produit .info-produit .description-produit, section .produit .info-prod
   font-size: large;
 }
 section .produit .info-produit .description-produit {
-  border-bottom: 2px solid #676767;
+  border-bottom: 2px solid gray;
   padding-bottom: 10px;
 }
 section .produit .button {
