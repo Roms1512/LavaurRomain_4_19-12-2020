@@ -104,6 +104,21 @@ header {
 
 section {
     padding: 20px 40px;
+    .recherche {
+        text-align: right;
+        position: relative;
+        input {
+            padding-left: 5px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+        .fa-search {
+            position: absolute;
+            top: 13%;
+            right: 1%;
+            font-size: small;
+        }
+    }
     .produit {
         width: 100%;
         margin-bottom: 50px;
@@ -118,13 +133,17 @@ section {
             font-size: xx-large;
         }
 
-        .img-produit {
-            margin-top: 20px;
-            margin-bottom: 20px;
+        .image {
+            width: 100%;
             text-align: center;
-            width: 80%;
-            height: 50%;
-            border-radius: 10px;
+            .img-produit {
+                margin-top: 20px;
+                margin-bottom: 20px;
+                text-align: center;
+                width: 80%;
+                height: 50%;
+                border-radius: 10px;
+            }
         }
 
         .info-produit {

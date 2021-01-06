@@ -91,6 +91,21 @@ header .menu-nav .panier h2 {
 section {
   padding: 20px 40px;
 }
+section .recherche {
+  text-align: right;
+  position: relative;
+}
+section .recherche input {
+  padding-left: 5px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+}
+section .recherche .fa-search {
+  position: absolute;
+  top: 13%;
+  right: 1%;
+  font-size: small;
+}
 section .produit {
   width: 100%;
   margin-bottom: 50px;
@@ -105,7 +120,11 @@ section .produit .titre-produit {
   text-align: center;
   font-size: xx-large;
 }
-section .produit .img-produit {
+section .produit .image {
+  width: 100%;
+  text-align: center;
+}
+section .produit .image .img-produit {
   margin-top: 20px;
   margin-bottom: 20px;
   text-align: center;
