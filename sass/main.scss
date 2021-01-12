@@ -156,6 +156,7 @@ section {
         .info-produit {
             background: lighten($color: $color-secondary, $amount: 60);
             border-radius: 5px;
+            position: relative;
             .description-produit, .prix-produit, .taille-produit, .choix{
                 text-align: left;
                 margin: 10px;
@@ -171,6 +172,23 @@ section {
                 border: none;
                 border-radius: 10px;
                 padding: 8px 12px;
+            }
+            .voir-plus {
+                position: absolute;
+                right: 5%;
+                width: 20%;
+                text-align: center;
+                color: $color-secondary;
+                padding: 10px;
+                transition: all 0.3s;
+                border: 1px solid black;
+                &:hover {
+                    transform: scale(1.04);
+                    padding-left: -10px;
+                }
+                &:active {
+                    transform: scale(1);
+                }
             }
         }
 
@@ -196,6 +214,9 @@ section {
         .button-panier {
             color: $color-text;
             font-size: 35px;
+            background: lighten($color: $color-secondary, $amount: 30);
+            padding: 7px 50px;
+            border-radius: 10px;
         }
     }
 }

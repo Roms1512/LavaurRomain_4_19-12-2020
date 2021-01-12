@@ -64,48 +64,37 @@ const showAllFurniture = () => {
 // ------------------------------------------------------------------------------------------------
 
 const createCamera = (camera) => {
-  // console.log(camera);
+  console.log(camera);
 
   let firstDiv = document.createElement("div");
   firstDiv.classList.add("produit");
-
   let firstH2 = document.createElement("h2");
   firstH2.classList.add("titre-produit");
-
   let firstImg = document.createElement("img");
   firstImg.classList.add("img-produit");
-
   let firstP = document.createElement("p");
   firstP.classList.add("description-produit");
-
   let firstButton = document.createElement("button");
-
   let secondDiv = document.createElement("div");
   secondDiv.classList.add("image");
-
   let secondP = document.createElement("p");
   secondP.classList.add("prix-produit");
-
   let thirdDiv = document.createElement("div");
   thirdDiv.classList.add("info-produit");
-
-  let firstOption = document.createElement("option");
-  firstOption.classList.add("taille-produit-1");
-  let secondeOption = document.createElement("option");
-  secondeOption.classList.add("taille-produit-1");
-  let thirdOption = document.createElement("option");
-  thirdOption.classList.add("taille-produit-1");
-
   let fourDiv = document.createElement("div");
   fourDiv.classList.add("button");
-
   let firstSelect = document.createElement('select');
   firstSelect.classList.add("choix");
 
+  let firstA = document.createElement('a');
+  firstA.classList.add("voir-plus");
 
   document.getElementById("produits").appendChild(firstDiv);
 
   firstImg.src = camera.imageUrl;
+  
+  firstA.setAttribute('href', './html/produit.html?id=' + camera._id)
+  firstA.innerHTML = 'voir le produit';
 
   firstDiv.appendChild(firstH2);
   firstDiv.appendChild(secondDiv);
@@ -114,24 +103,24 @@ const createCamera = (camera) => {
   secondDiv.appendChild(firstImg);
   thirdDiv.appendChild(firstP);
   thirdDiv.appendChild(secondP);
-  firstSelect.appendChild(firstOption);
-  firstSelect.appendChild(secondeOption)
-  firstSelect.appendChild(thirdOption);
+  thirdDiv.appendChild(firstA)
   fourDiv.appendChild(firstButton);
   thirdDiv.appendChild(firstSelect)
+  camera.lenses.forEach(element => {
+    let option = document.createElement('option')
+    option.innerHTML = `Tailles : ${element}`;
+    firstSelect.appendChild(option);
+  })
 
   firstH2.innerHTML = camera.name;
   firstP.innerHTML = camera.description;
   firstButton.innerHTML = "Ajouter au Panier";
   secondP.innerHTML = `${camera.price} €`;
-  firstOption.innerHTML = `Taille : ${camera.lenses[0]}`;
-  secondeOption.innerHTML = `Taille : ${camera.lenses[1]}`;
-  thirdOption.innerHTML = `Taille : ${camera.lenses[2]}`;
-
 };
 
+
 const createTeddy = (teddy) => {
-  // console.log(teddy);
+  console.log(teddy);
 
   let firstDiv = document.createElement("div");
   firstDiv.classList.add("produit");
@@ -148,15 +137,21 @@ const createTeddy = (teddy) => {
   secondP.classList.add("prix-produit");
   let thirdDiv = document.createElement("div");
   thirdDiv.classList.add("info-produit");
-  let thirdP = document.createElement("p");
-  thirdP.classList.add("taille-produit");
   let fourDiv = document.createElement("div");
   fourDiv.classList.add("button");
-
+  let firstSelect = document.createElement('select');
+  firstSelect.classList.add("choix");
+  let firstA = document.createElement('a');
+  firstA.classList.add("voir-plus");
+  
+  
   document.getElementById("produits").appendChild(firstDiv);
 
   firstImg.src = teddy.imageUrl;
-
+  
+  firstA.setAttribute('href', './html/produit.html?id=' + teddy._id)
+  firstA.innerHTML = 'voir le produit';
+  
   firstDiv.appendChild(firstH2);
   firstDiv.appendChild(secondDiv);
   firstDiv.appendChild(thirdDiv);
@@ -164,14 +159,20 @@ const createTeddy = (teddy) => {
   secondDiv.appendChild(firstImg);
   thirdDiv.appendChild(firstP);
   thirdDiv.appendChild(secondP);
-  thirdDiv.appendChild(thirdP);
+  thirdDiv.appendChild(firstA)
   fourDiv.appendChild(firstButton);
-
+  thirdDiv.appendChild(firstSelect);
+  
   firstH2.innerHTML = teddy.name;
   firstP.innerHTML = teddy.description;
   firstButton.innerHTML = "Ajouter au Panier";
   secondP.innerHTML = `${teddy.price} €`;
-  thirdP.innerHTML = `Couleur : ${teddy.colors[0]}`;
+  
+  teddy.colors.forEach(element => {
+    let option = document.createElement('option')
+    option.innerHTML = `Couleurs : ${element}`;
+    firstSelect.appendChild(option);
+  })
 };
 
 const createFurniture = (furniture) => {
@@ -192,10 +193,17 @@ const createFurniture = (furniture) => {
   secondP.classList.add("prix-produit");
   let thirdDiv = document.createElement("div");
   thirdDiv.classList.add("info-produit");
-  let thirdP = document.createElement("p");
-  thirdP.classList.add("taille-produit");
+  // let thirdP = document.createElement("p");
+  // thirdP.classList.add("taille-produit");
   let fourDiv = document.createElement("div");
   fourDiv.classList.add("button");
+  let firstSelect = document.createElement('select');
+  firstSelect.classList.add("choix");
+  let firstA = document.createElement('a');
+  firstA.classList.add("voir-plus");
+
+  firstA.setAttribute('href', './html/produit.html?id=' + furniture._id)
+  firstA.innerHTML = 'voir le produit';
 
   document.getElementById("produits").appendChild(firstDiv);
 
@@ -208,14 +216,22 @@ const createFurniture = (furniture) => {
   secondDiv.appendChild(firstImg);
   thirdDiv.appendChild(firstP);
   thirdDiv.appendChild(secondP);
-  thirdDiv.appendChild(thirdP);
+  // thirdDiv.appendChild(thirdP);
+  thirdDiv.appendChild(firstA)
   fourDiv.appendChild(firstButton);
+  thirdDiv.appendChild(firstSelect);
 
   firstH2.innerHTML = furniture.name;
   firstP.innerHTML = furniture.description;
   firstButton.innerHTML = "Ajouter au Panier";
   secondP.innerHTML = `${furniture.price} €`;
-  thirdP.innerHTML = `Matière : ${furniture.varnish[0]}`;
+  // thirdP.innerHTML = `Matière : ${furniture.varnish[0]}`;
+
+  furniture.varnish.forEach(element => {
+    let option = document.createElement('option')
+    option.innerHTML = `Couleurs : ${element}`;
+    firstSelect.appendChild(option);
+  })
 };
 
 
@@ -247,30 +263,34 @@ selectElement.addEventListener("change", (event) => {
   }
 });
 
+  // je crée 3 constantes
+  // une qui prend l'élement avec la balise 'produit1'
+  // une autre qui prend l'élement avec la balise 'produit2'
+  // et une autre qui prend l'élement avec la balise 'produit3'
+  const allProduct = document.getElementById('all-product');
+  const camera = document.getElementById('produit1');
+  const ours = document.getElementById('produit2');
+  const meuble = document.getElementById('produit3');
+  
+  allProduct.addEventListener('click', () => {
+    result.innerHTML = `${showAllCamera()} ${showAllTeddy()} ${showAllFurniture()}`;
 
-// je crée 3 constantes
-// une qui prend l'élement avec la balise 'produit1'
-// une autre qui prend l'élement avec la balise 'produit2'
-// et une autre qui prend l'élement avec la balise 'produit3'
-const camera = document.getElementById('produit1');
-const ours = document.getElementById('produit2');
-const meuble = document.getElementById('produit3');
-
-// si on selectione l'élement avec la valeur camera 
+  })
+  // si on selectione l'élement avec la valeur camera 
   // alors toutes les camera s'affiche
-camera.addEventListener('click', () => {
+  camera.addEventListener('click', () => {
     result.innerHTML = showAllCamera();
-})
-// si on selectione l'élement avec la valeur teddy 
+  })
+  // si on selectione l'élement avec la valeur teddy 
   // alors tous les teddys s'affiche
-ours.addEventListener('click', ()=>{
+  ours.addEventListener('click', ()=>{
     result.innerHTML = showAllTeddy();
-})
-// si on selectione l'élement avec la valeur furniture 
-// alors toutes les furnitures s'affiche
-meuble.addEventListener('click', ()=> {
+  })
+  // si on selectione l'élement avec la valeur furniture 
+  // alors toutes les furnitures s'affiche
+  meuble.addEventListener('click', ()=> {
     result.innerHTML = showAllFurniture();
-})
+  })
 
 
 // ------------------------------------------------------------------------------------------------

@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Orinoco</title>
-    
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <title>Document</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+
 </head>
 <body>
     <header>
@@ -19,7 +18,7 @@
         </div>
         <div class="menu-nav">
             <ul>
-                <li><a href="./produit.html">Produits</a></li>
+                <li><a href="./produits.html" id="all-product">Produits</a></li>
                 <li><a href="./contact.html">Contact</a></li>
             </ul>
             <div class="panier">
@@ -32,52 +31,8 @@
         </div>
     </header>
 
-    <section id="produits">
-        <div class="recherche">
-            <select name="produit" id="product" class="button">
-                <option value="">Choisiser un produit</option>
-                <option value="camera">Caméra</option>
-                <option value="teddy">Ours en peluche</option>
-                <option value="furniture">Meuble en bois</option>
-            </select>
-        </div>
-    
-        <div class="produits">
-            <div class="produit">
-                <a href="#" id="produit1">
-                    <h2 class="">Caméras vintage</h2>
-                    <div class="image">
-                        <img src="../images/vcam_3.jpg" class="img-produit" alt="">
-                    </div>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio laboriosam tenetur, accusamus dicta eligendi pariatur sapiente ex, nisi animi quas aliquam aspernatur ab similique at fuga quo. Numquam, unde in!
-                    Distinctio modi beatae molestias. Tempore sapiente id odio culpa dignissimos, consequuntur natus ex alias, error pariatur earum! Non dolor animi quo reprehenderit, exercitationem recusandae deleniti,</p>
-                </a>
-            </div>
+    <section class="produits"></section>
 
-            <div class="produit">
-                <a href="#" id="produit2">
-                    <h2>Ours en peluche faits main</h2>
-                    <div class="image">
-                        <img src="../images/teddy_3.jpg" class="img-produit" alt="">
-                    </div>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio laboriosam tenetur, accusamus dicta eligendi pariatur sapiente ex, nisi animi quas aliquam aspernatur ab similique at fuga quo. Numquam, unde in!
-                    Distinctio modi beatae molestias. Tempore sapiente id odio culpa dignissimos, consequuntur natus ex alias, error pariatur earum! Non dolor animi quo reprehenderit, exercitationem recusandae deleniti,</p>
-                </a>
-            </div>
-            
-            <div class="produit">
-                <a href="#" id="produit3">
-                    <h2>Meubles en chêne</h2>
-                    <div class="image">
-                        <img src="../images/oak_2.jpg" class="img-produit" alt="">
-                    </div>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio laboriosam tenetur, accusamus dicta eligendi pariatur sapiente ex, nisi animi quas aliquam aspernatur ab similique at fuga quo. Numquam, unde in!
-                    Distinctio modi beatae molestias. Tempore sapiente id odio culpa dignissimos, consequuntur natus ex alias, error pariatur earum! Non dolor animi quo reprehenderit, exercitationem recusandae deleniti,</p>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <script src="../index.js"></script>
+    <script src="../produit.js"></script>
 </body>
 </html>
