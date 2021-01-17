@@ -91,6 +91,10 @@ header .menu-nav .panier h2 {
 section {
   padding: 20px 40px;
 }
+section .intro {
+  font-size: xx-large;
+  color: #f1f1f1;
+}
 section .recherche {
   text-align: right;
   position: relative;
