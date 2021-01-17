@@ -1,11 +1,17 @@
+/*-------------- récuperation de l'ID --------------*/
+
+
+/*****  *****/
+
 const parametre = new URLSearchParams(window.location.search).get("id");
 console.log(parametre);
 
-// ------------------------------------------------------------------------------------------------
+
+
+/*-------------- récuperation de l'ID --------------*/
 
 const getProductCamera = async () => {
   let response = await fetch(`http://localhost:3000/api/cameras/ ${parametre}`);
-  // On vérifie si la réponse du server et OK
   if (response.ok) {
     return response.json();
   } else {
@@ -15,7 +21,6 @@ const getProductCamera = async () => {
 
 const getProductTeddy = async () => {
   let response = await fetch(`http://localhost:3000/api/teddies/ ${parametre}`);
-  // On vérifie si la réponse du server et OK
   if (response.ok) {
     return response.json();
   } else {
@@ -25,7 +30,6 @@ const getProductTeddy = async () => {
 
 const getProductFurniture = async () => {
   let response = await fetch(`http://localhost:3000/api/furniture/ ${parametre}`);
-  // On vérifie si la réponse du server et OK
   if (response.ok) {
     return response.json();
   } else {
@@ -33,7 +37,12 @@ const getProductFurniture = async () => {
   }
 };
 
-//   ----------------------------------------------------------------------------------------------
+
+
+/*-------------- Récupérer un Objet JSON --------------*/
+
+
+/***** JSON Camera *****/
 
 const showCamera = () => {
   getProductCamera().then((json) => {
@@ -43,6 +52,9 @@ const showCamera = () => {
   });
 };
 
+
+/***** JSON Teddy *****/
+
 const showTeddy = () => {
   getProductTeddy().then((json) => {
     json.forEach((element) => {
@@ -50,6 +62,10 @@ const showTeddy = () => {
     });
   });
 };
+
+
+/***** JSON Furniture *****/
+
 const showFurniture = () => {
   getProductFurniture().then((json) => {
     json.forEach((element) => {
@@ -60,7 +76,9 @@ const showFurniture = () => {
 
 showCamera();
 
-// ------------------------------------------------------------------------------------------------
+
+
+/*-------------- Créations des Objets --------------*/
 
 const cameras = (camera) => {
   console.log(camera);
@@ -74,6 +92,9 @@ const furnitures = (furniture) => {
   console.log(furniture);
 };
 
-// ------------------------------------------------------------------------------------------------
+
+
+
+/*--------------  --------------*/
 
 const result = document.getElementById("produits");

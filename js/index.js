@@ -38,7 +38,7 @@ const getAllFurniture = async () => {
 
 
 
-/*-------------- Afficher en JSON --------------*/
+/*-------------- Récupérer un Objet JSON --------------*/
 
 
 /***** JSON Camera *****/
@@ -75,7 +75,7 @@ const showAllFurniture = () => {
 
 
 
-/*-------------- création des objets --------------*/
+/*-------------- création des Objets --------------*/
 
 
 /***** Objet Camera *****/
