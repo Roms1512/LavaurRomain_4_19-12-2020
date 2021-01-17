@@ -1,6 +1,5 @@
 /*-------------- récuperation des API --------------*/
 
-
 /***** API Camera *****/
 
 const getAllCamera = async () => {
@@ -11,7 +10,6 @@ const getAllCamera = async () => {
     console.error("server return", response.status);
   }
 };
-
 
 /***** API teddy *****/
 
@@ -24,7 +22,6 @@ const getAllTeddy = async () => {
   }
 };
 
-
 /***** API Furniture *****/
 
 const getAllFurniture = async () => {
@@ -36,10 +33,7 @@ const getAllFurniture = async () => {
   }
 };
 
-
-
 /*-------------- Récupérer un Objet JSON --------------*/
-
 
 /***** JSON Camera *****/
 
@@ -51,7 +45,6 @@ const showAllCamera = () => {
   });
 };
 
-
 /***** JSON Teddy *****/
 
 const showAllTeddy = () => {
@@ -61,7 +54,6 @@ const showAllTeddy = () => {
     });
   });
 };
-
 
 /***** JSON Furniture *****/
 
@@ -73,10 +65,7 @@ const showAllFurniture = () => {
   });
 };
 
-
-
 /*-------------- création des Objets --------------*/
-
 
 /***** Objet Camera *****/
 
@@ -135,7 +124,6 @@ const createCamera = (camera) => {
   secondP.innerHTML = `${camera.price} €`;
 };
 
-
 /***** Objet Teddy *****/
 
 const createTeddy = (teddy) => {
@@ -192,7 +180,6 @@ const createTeddy = (teddy) => {
     firstSelect.appendChild(option);
   });
 };
-
 
 /***** Objet Furniture *****/
 
@@ -251,9 +238,7 @@ const createFurniture = (furniture) => {
   });
 };
 
-
-
-/*-------------- récuperation des API --------------*/
+/*-------------- Afficher les Objets --------------*/
 
 /***** Barre de recherche *****/
 
@@ -276,7 +261,7 @@ selectElement.addEventListener("change", (event) => {
     event.target.value === "Oursons" ||
     event.target.value === "oursons" ||
     event.target.value === "peluches" ||
-    event.target.value === "peluche"  ||
+    event.target.value === "peluche" ||
     event.target.value === "Peluches" ||
     event.target.value === "peluches"
   ) {
@@ -293,7 +278,6 @@ selectElement.addEventListener("change", (event) => {
   }
 });
 
-
 /***** Au click *****/
 
 const allProduct = document.getElementById("all-product");
@@ -301,7 +285,6 @@ const allProduct = document.getElementById("all-product");
 allProduct.addEventListener("click", () => {
   result.innerHTML = `${showAllCamera()} ${showAllTeddy()} ${showAllFurniture()}`;
 });
-
 
 const camera = document.getElementById("produit1");
 const ours = document.getElementById("produit2");
@@ -317,3 +300,17 @@ meuble.addEventListener("click", () => {
   result.innerHTML = showAllFurniture();
 });
 
+/*-------------- Ajout au Panier --------------*/
+
+window.onload = ()=> {
+  if(localStorage.prenom != null) {
+    var prenom = localStorage.prenom
+  } else {
+    var prenom = prompt('Entrez votre Prénom ici 😜')
+    localStorage.prenom = prenom 
+  }
+
+  const utilisateur = document.getElementById('utlisateur').innerText = `${prenom}`;
+  utilisateur.style.fontWeight = "bold";
+  utilisateur.style.color = "#000";
+}

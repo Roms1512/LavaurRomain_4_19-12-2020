@@ -21,6 +21,9 @@ $dégradé: #D6843C, #8F5BFE;
     text-decoration: none;
     font-family: "Finger Paint", cursive;
 }
+img {
+    object-fit: cover;
+}
 
 body {
     background: $color-secondary;
@@ -105,11 +108,16 @@ header {
 
 section {
     padding: 20px 40px;
+    display: flex;
+    flex-wrap: wrap;
     .intro {
+        width: 100%;
+        text-align: center;
         font-size: xx-large;
         color: #f1f1f1;
     }
     .recherche {
+        width: 100%;
         text-align: right;
         position: relative;
         input, select {
@@ -126,16 +134,38 @@ section {
             @include boutton();
         }
     }
-    .produit {
+    .produits {
         width: 100%;
-        margin-bottom: 50px;
+        display: flex;
+        justify-content: center;
+        #info {
+            width: 30%; 
+            padding: 0 20px;  
+        }
+    }
+    .produit {
+        width: 30%;
+        margin: 40px 20px 40px 20px;
         padding: 10px;
-        border-radius: 5px;
-        background: lighten($color: $color-secondary, $amount: 20);
+        border-radius: 15px;
+        background: lighten($color: $color-secondary, $amount: 20); 
+        cursor: pointer;
+        transition: all 0.5s ease-out;
+        &:hover {
+            transform: scale(1.06);
+            box-shadow: 10px 20px 10px 1px;
+        } 
         a {
             color: $color-text;
+            h2 {
+                padding-top: 10px;
+                padding-left: 20px;
+            }
+            p {
+                padding: 20px 20px;
+            }
         }
-
+        
         .titre-produit, .info-produit {
             color: black;
         }
@@ -143,7 +173,7 @@ section {
             text-align: center;
             font-size: xx-large;
         }
-
+        
         .image {
             width: 100%;
             text-align: center;
@@ -152,13 +182,14 @@ section {
                 margin-bottom: 20px;
                 text-align: center;
                 width: 80%;
-                height: 50%;
+                height: 250px;
                 border-radius: 10px;
             }
         }
-
+        
         .info-produit {
-            background: lighten($color: $color-secondary, $amount: 60);
+            background: linear-gradient(to top,transparent 10%, lighten($color: $color-secondary, $amount: 100) 80%,transparent);
+            border: 0.1px solid black;
             border-radius: 5px;
             position: relative;
             .description-produit, .prix-produit, .taille-produit, .choix{
@@ -173,15 +204,19 @@ section {
                 
             }
             .choix {
+                opacity: 0;
+                z-index: -1000;
                 border: none;
                 border-radius: 10px;
                 padding: 8px 12px;
             }
             .voir-plus {
+                z-index: 10;
                 position: absolute;
                 right: 5%;
-                width: 20%;
+                width: 80%;
                 text-align: center;
+                background: #fff;
                 color: $color-secondary;
                 padding: 10px;
                 transition: all 0.3s;
@@ -195,7 +230,7 @@ section {
                 }
             }
         }
-
+        
         .button {
             display: flex;
             justify-content: flex-end;
@@ -213,6 +248,7 @@ section {
             }
         }
     }
+    
     .panier {
         text-align: center;
         .button-panier {
@@ -221,6 +257,47 @@ section {
             background: lighten($color: $color-secondary, $amount: 30);
             padding: 7px 50px;
             border-radius: 10px;
+        }
+    }
+}
+
+@media screen and(max-width: 1024px){
+    section {
+        padding: 0;
+        input, select {
+            padding-left: 5px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+        .produits {
+            flex-wrap: wrap;
+            #info {
+                width: 80%;
+                margin: 40px 20px 40px 20px;
+            }
+            .produit {
+                width: 80%;
+            }
+        }
+    }
+}
+@media screen and(max-width: 768px){
+    section {
+        input, select {
+            padding-left: 5px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+        padding: 0;
+        .produits {
+            flex-wrap: wrap;
+            #info {
+                width: 100%;
+            }
+            .produit {
+                width: 100%;
+                margin: 0;
+            }
         }
     }
 }

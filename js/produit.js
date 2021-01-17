@@ -1,16 +1,13 @@
 /*-------------- récuperation de l'ID --------------*/
 
-
 /*****  *****/
 
 const parametre = new URLSearchParams(window.location.search).get("id");
 console.log(parametre);
 
-
-
 /*-------------- récuperation de l'ID --------------*/
 
-const getProductCamera = async () => {
+const getProductCamera = async() => {
   let response = await fetch(`http://localhost:3000/api/cameras/ ${parametre}`);
   if (response.ok) {
     return response.json();
@@ -29,7 +26,9 @@ const getProductTeddy = async () => {
 };
 
 const getProductFurniture = async () => {
-  let response = await fetch(`http://localhost:3000/api/furniture/ ${parametre}`);
+  let response = await fetch(
+    `http://localhost:3000/api/furniture/ ${parametre}`
+  );
   if (response.ok) {
     return response.json();
   } else {
@@ -37,10 +36,7 @@ const getProductFurniture = async () => {
   }
 };
 
-
-
 /*-------------- Récupérer un Objet JSON --------------*/
-
 
 /***** JSON Camera *****/
 
@@ -52,7 +48,6 @@ const showCamera = () => {
   });
 };
 
-
 /***** JSON Teddy *****/
 
 const showTeddy = () => {
@@ -62,7 +57,6 @@ const showTeddy = () => {
     });
   });
 };
-
 
 /***** JSON Furniture *****/
 
@@ -74,9 +68,9 @@ const showFurniture = () => {
   });
 };
 
-showCamera();
-
-
+// showCamera();
+// showTeddy();
+// showFurniture();
 
 /*-------------- Créations des Objets --------------*/
 
@@ -92,9 +86,5 @@ const furnitures = (furniture) => {
   console.log(furniture);
 };
 
-
-
-
-/*--------------  --------------*/
-
+/*-------------- Afficher les différents Objets --------------*/
 const result = document.getElementById("produits");
