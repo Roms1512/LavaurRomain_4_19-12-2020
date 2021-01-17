@@ -302,15 +302,18 @@ meuble.addEventListener("click", () => {
 
 /*-------------- Ajout au Panier --------------*/
 
-window.onload = ()=> {
-  if(localStorage.prenom != null) {
-    var prenom = localStorage.prenom
+window.onload = () => {
+  if (localStorage.prenom != null) {
+    var prenom = localStorage.prenom;
   } else {
-    var prenom = prompt('Entrez votre Prénom ici 😜')
-    localStorage.prenom = prenom 
+    var prenom = prompt("Entrez votre Prénom ici 😜");
+    localStorage.prenom = prenom;
   }
 
-  const utilisateur = document.getElementById('utlisateur').innerText = `${prenom}`;
-  utilisateur.style.fontWeight = "bold";
-  utilisateur.style.color = "#000";
-}
+  let utilisateur = (document.getElementById(
+    "utlisateur"
+    ).innerText = `${prenom}`);
+    utilisateur.style.fontWeight = "bold";
+    utilisateur.style.fontSize = "50px";
+    utilisateur.style.backgroundColor = "blue";
+};

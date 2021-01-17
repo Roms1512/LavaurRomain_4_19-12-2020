@@ -14,6 +14,7 @@ $dégradé: #D6843C, #8F5BFE;
     }
 }
 
+
 * {
     padding: 0;
     margin: 0;
@@ -110,30 +111,55 @@ section {
     padding: 20px 40px;
     display: flex;
     flex-wrap: wrap;
-    .intro {
+    main {
         width: 100%;
-        text-align: center;
-        font-size: xx-large;
-        color: #f1f1f1;
+        margin-top: 30px;
+        .intro {
+            width: 100%;
+            text-align: center;
+            font-size: 50px;
+            color: #f1f1f1;
+        }
+        p {
+            margin-bottom: 20px;
+            color: #f1f1f1;
+            text-align: center;
+            font-size: 20px;
+        }
     }
+
     .recherche {
         width: 100%;
+        padding-right: 20px;
         text-align: right;
         position: relative;
         input, select {
+            margin-top: 20px;
             padding-left: 5px;
             margin-bottom: 30px;
             border-radius: 5px;
+            outline: none;
         }
         .fa-search {
             position: absolute;
-            top: 13%;
-            right: 1%;
+            top: 26px;
+            right: 1.5%;
             font-size: small;
             cursor: pointer;
             @include boutton();
         }
+        @media screen and(max-width: 1500px){
+            .fa-search {
+                right: 2.5%;
+            }
+        }
+        @media screen and(max-width: 840px){
+            .fa-search {
+                right: 3.8%;
+            }
+        }
     }
+
     .produits {
         width: 100%;
         display: flex;
@@ -251,6 +277,9 @@ section {
     
     .panier {
         text-align: center;
+        line-height: 100vh;
+        height: 100vh;
+        width: 100%;
         .button-panier {
             color: $color-text;
             font-size: 35px;
