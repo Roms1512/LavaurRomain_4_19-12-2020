@@ -2,13 +2,16 @@
 
 /*****  *****/
 
-const parametre = new URLSearchParams(window.location.search).get("id");
-console.log(parametre);
+const id = new URLSearchParams(window.location.search).get("id");
+const type = new URLSearchParams(window.location.search).get("type");
+
+console.log(id);
+console.log(type);
 
 /*-------------- récuperation de l'ID --------------*/
 
 const getProductCamera = async() => {
-  let response = await fetch(`http://localhost:3000/api/cameras/ ${parametre}`);
+  let response = await fetch(`http://localhost:3000/api/cameras/${id}`);
   if (response.ok) {
     return response.json();
   } else {
@@ -17,7 +20,7 @@ const getProductCamera = async() => {
 };
 
 const getProductTeddy = async () => {
-  let response = await fetch(`http://localhost:3000/api/teddies/ ${parametre}`);
+  let response = await fetch(`http://localhost:3000/api/teddies/${id}`);
   if (response.ok) {
     return response.json();
   } else {
@@ -27,7 +30,7 @@ const getProductTeddy = async () => {
 
 const getProductFurniture = async () => {
   let response = await fetch(
-    `http://localhost:3000/api/furniture/ ${parametre}`
+    `http://localhost:3000/api/furniture/${id}`
   );
   if (response.ok) {
     return response.json();
@@ -42,9 +45,7 @@ const getProductFurniture = async () => {
 
 const showCamera = () => {
   getProductCamera().then((json) => {
-    json.foreach((element) => {
-      cameras(element);
-    });
+      cameras(json);
   });
 };
 
@@ -52,9 +53,7 @@ const showCamera = () => {
 
 const showTeddy = () => {
   getProductTeddy().then((json) => {
-    json.forEach((element) => {
-      teddys(element);
-    });
+      teddys(json);
   });
 };
 
@@ -62,29 +61,23 @@ const showTeddy = () => {
 
 const showFurniture = () => {
   getProductFurniture().then((json) => {
-    json.forEach((element) => {
-      furnitures(element);
-    });
+      furnitures(json);
   });
 };
 
-// showCamera();
-// showTeddy();
-// showFurniture();
-
-/*-------------- Créations des Objets --------------*/
-
-const cameras = (camera) => {
-  console.log(camera);
-};
-
-const teddys = (teddy) => {
-  console.log(teddy);
-};
-
-const furnitures = (furniture) => {
-  console.log(furniture);
-};
+switch (type) {
+  case "cam":
+    showCamera();
+    break;
+  case "teddy":
+    showTeddy();
+    break;
+  case "furniture":
+    showFurniture();
+  break
+  default: 
+    console.error("no type found")
+    break;
+}
 
 /*-------------- Afficher les différents Objets --------------*/
-const result = document.getElementById("produits");

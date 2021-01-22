@@ -65,179 +65,6 @@ const showAllFurniture = () => {
   });
 };
 
-/*-------------- création des Objets --------------*/
-
-/***** Objet Camera *****/
-
-const createCamera = (camera) => {
-  console.log(camera);
-
-  let firstDiv = document.createElement("div");
-  firstDiv.classList.add("produit");
-  let firstH2 = document.createElement("h2");
-  firstH2.classList.add("titre-produit");
-  let firstImg = document.createElement("img");
-  firstImg.classList.add("img-produit");
-  let firstP = document.createElement("p");
-  firstP.classList.add("description-produit");
-  let firstButton = document.createElement("button");
-  let secondDiv = document.createElement("div");
-  secondDiv.classList.add("image");
-  let secondP = document.createElement("p");
-  secondP.classList.add("prix-produit");
-  let thirdDiv = document.createElement("div");
-  thirdDiv.classList.add("info-produit");
-  let fourDiv = document.createElement("div");
-  fourDiv.classList.add("button");
-  let firstSelect = document.createElement("select");
-  firstSelect.classList.add("choix");
-
-  let firstA = document.createElement("a");
-  firstA.classList.add("voir-plus");
-
-  document.getElementById("produits").appendChild(firstDiv);
-
-  firstImg.src = camera.imageUrl;
-
-  firstA.setAttribute(`href`, `../html/produit.html?id= ${camera._id}`);
-  firstA.innerHTML = "voir le produit";
-
-  firstDiv.appendChild(firstH2);
-  firstDiv.appendChild(secondDiv);
-  firstDiv.appendChild(thirdDiv);
-  firstDiv.appendChild(fourDiv);
-  secondDiv.appendChild(firstImg);
-  thirdDiv.appendChild(firstP);
-  thirdDiv.appendChild(secondP);
-  thirdDiv.appendChild(firstA);
-  fourDiv.appendChild(firstButton);
-  thirdDiv.appendChild(firstSelect);
-  camera.lenses.forEach((element) => {
-    let option = document.createElement("option");
-    option.innerHTML = `Tailles : ${element}`;
-    firstSelect.appendChild(option);
-  });
-
-  firstH2.innerHTML = camera.name;
-  firstP.innerHTML = camera.description;
-  firstButton.innerHTML = "Ajouter au Panier";
-  secondP.innerHTML = `${camera.price} €`;
-};
-
-/***** Objet Teddy *****/
-
-const createTeddy = (teddy) => {
-  console.log(teddy);
-
-  let firstDiv = document.createElement("div");
-  firstDiv.classList.add("produit");
-  let firstH2 = document.createElement("h2");
-  firstH2.classList.add("titre-produit");
-  let firstImg = document.createElement("img");
-  firstImg.classList.add("img-produit");
-  let firstP = document.createElement("p");
-  firstP.classList.add("description-produit");
-  let firstButton = document.createElement("button");
-  let secondDiv = document.createElement("div");
-  secondDiv.classList.add("image");
-  let secondP = document.createElement("p");
-  secondP.classList.add("prix-produit");
-  let thirdDiv = document.createElement("div");
-  thirdDiv.classList.add("info-produit");
-  let fourDiv = document.createElement("div");
-  fourDiv.classList.add("button");
-  let firstSelect = document.createElement("select");
-  firstSelect.classList.add("choix");
-  let firstA = document.createElement("a");
-  firstA.classList.add("voir-plus");
-
-  document.getElementById("produits").appendChild(firstDiv);
-
-  firstImg.src = teddy.imageUrl;
-
-  firstA.setAttribute(`href`, `../html/produit.html?id= ${teddy._id}`);
-  firstA.innerHTML = "voir le produit";
-
-  firstDiv.appendChild(firstH2);
-  firstDiv.appendChild(secondDiv);
-  firstDiv.appendChild(thirdDiv);
-  firstDiv.appendChild(fourDiv);
-  secondDiv.appendChild(firstImg);
-  thirdDiv.appendChild(firstP);
-  thirdDiv.appendChild(secondP);
-  thirdDiv.appendChild(firstA);
-  fourDiv.appendChild(firstButton);
-  thirdDiv.appendChild(firstSelect);
-
-  firstH2.innerHTML = teddy.name;
-  firstP.innerHTML = teddy.description;
-  firstButton.innerHTML = "Ajouter au Panier";
-  secondP.innerHTML = `${teddy.price} €`;
-
-  teddy.colors.forEach((element) => {
-    let option = document.createElement("option");
-    option.innerHTML = `Couleurs : ${element}`;
-    firstSelect.appendChild(option);
-  });
-};
-
-/***** Objet Furniture *****/
-
-const createFurniture = (furniture) => {
-  console.log(furniture);
-
-  let firstDiv = document.createElement("div");
-  firstDiv.classList.add("produit");
-  let firstH2 = document.createElement("h2");
-  firstH2.classList.add("titre-produit");
-  let firstImg = document.createElement("img");
-  firstImg.classList.add("img-produit");
-  let firstP = document.createElement("p");
-  firstP.classList.add("description-produit");
-  let firstButton = document.createElement("button");
-  let secondDiv = document.createElement("div");
-  secondDiv.classList.add("image");
-  let secondP = document.createElement("p");
-  secondP.classList.add("prix-produit");
-  let thirdDiv = document.createElement("div");
-  thirdDiv.classList.add("info-produit");
-  let fourDiv = document.createElement("div");
-  fourDiv.classList.add("button");
-  let firstSelect = document.createElement("select");
-  firstSelect.classList.add("choix");
-  let firstA = document.createElement("a");
-  firstA.classList.add("voir-plus");
-
-  firstA.setAttribute(`href`, `../html/produit.html?id= ${furniture._id}`);
-  firstA.innerHTML = "voir le produit";
-
-  document.getElementById("produits").appendChild(firstDiv);
-
-  firstImg.src = furniture.imageUrl;
-
-  firstDiv.appendChild(firstH2);
-  firstDiv.appendChild(secondDiv);
-  firstDiv.appendChild(thirdDiv);
-  firstDiv.appendChild(fourDiv);
-  secondDiv.appendChild(firstImg);
-  thirdDiv.appendChild(firstP);
-  thirdDiv.appendChild(secondP);
-  thirdDiv.appendChild(firstA);
-  fourDiv.appendChild(firstButton);
-  thirdDiv.appendChild(firstSelect);
-
-  firstH2.innerHTML = furniture.name;
-  firstP.innerHTML = furniture.description;
-  firstButton.innerHTML = "Ajouter au Panier";
-  secondP.innerHTML = `${furniture.price} €`;
-
-  furniture.varnish.forEach((element) => {
-    let option = document.createElement("option");
-    option.innerHTML = `Couleurs : ${element}`;
-    firstSelect.appendChild(option);
-  });
-};
-
 /*-------------- Afficher les Objets --------------*/
 
 /***** Barre de recherche *****/
@@ -289,18 +116,23 @@ allProduct.addEventListener("click", () => {
 const camera = document.getElementById("produit1");
 const ours = document.getElementById("produit2");
 const meuble = document.getElementById("produit3");
+let produit1 = document.createElement('div');
+let section1 = document.getElementsByClassName('create-element');
+section1.appendchild(produit1);
 
 camera.addEventListener("click", () => {
-  result.innerHTML = showAllCamera();
+  produit1.innerHTML = showAllCamera();
 });
 ours.addEventListener("click", () => {
-  result.innerHTML = showAllTeddy();
+  showAllTeddy();
 });
 meuble.addEventListener("click", () => {
-  result.innerHTML = showAllFurniture();
+  showAllFurniture();
 });
 
 /*-------------- Ajout au Panier --------------*/
+
+/*-------------- Petit localStorage --------------*/
 
 window.onload = () => {
   if (localStorage.prenom != null) {
@@ -312,8 +144,5 @@ window.onload = () => {
 
   let utilisateur = (document.getElementById(
     "utlisateur"
-    ).innerText = `${prenom}`);
-    utilisateur.style.fontWeight = "bold";
-    utilisateur.style.fontSize = "50px";
-    utilisateur.style.backgroundColor = "blue";
+  ).innerText = `${prenom}`);
 };

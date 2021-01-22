@@ -1,42 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
-
-</head>
-<body>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+      integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
     <!-- En tête -->
     <header>
-        <!-- logo -->
-            <div class="logo">
-                <a href="../index.html" class="logo">
-                    <i class="fas fa-shopping-cart icone-logo"></i>
-                    <h1>Orinoco</h1>
-                </a>
-            </div>
-        <!-- nav -->
-            <div class="menu-nav">
-                <ul>
-                    <li><a href="./produits.html" id="all-product">Produits</a></li>
-                    <li><a href="./contact.html">Contact</a></li>
-                </ul>
-                <!-- panier -->
-                    <div class="panier">
-                        <a href="./panier.html">
-                            <i class="fas fa-shopping-cart icone-logo"></i>
-                            <h2>Panier</h2>
-                        </a>
-                    </div>
-            </div>
+      <!-- logo -->
+      <div class="logo">
+        <a href="../index.html" class="logo">
+          <i class="fas fa-shopping-cart icone-logo"></i>
+          <h1>Orinoco</h1>
+        </a>
+      </div>
+      <!-- nav -->
+      <div class="menu-nav">
+        <ul>
+          <li><a href="./produits.html" id="all-product">Produits</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+        </ul>
+        <!-- panier -->
+        <div class="panier">
+          <a href="./panier.html">
+            <i class="fas fa-shopping-cart icone-logo"></i>
+            <h2>Panier</h2>
+          </a>
+        </div>
+      </div>
     </header>
 
     <!-- Section produit -->
-        <section class="produits"></section>
+    <section class="produits">
+        <main>
+            <h1 class="intro">Produit</h1>
+            <p>Voici le produit que vous avez choisi</p>
+        </main>
+    </section>
 
+    <footer>
+        <nav class="nav-footer">
+            <ul>
+                <li><a href="./contact.html">Contactez - nous</a></li>
+                <li><a href="">À propos</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+    <script src="../js/creationProduit.js"></script>
     <script src="../js/produit.js"></script>
-</body>
+  </body>
 </html>
