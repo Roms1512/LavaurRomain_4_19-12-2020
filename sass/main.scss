@@ -102,7 +102,7 @@ header, footer {
                 font-size: 30px;
             }
 
-            h2 {
+            h2, .h2 {
                 font-size: 25px;
                 margin-left: 5%;
                 color: black;
@@ -112,6 +112,7 @@ header, footer {
 }
 
 section {
+    width: 100%;
     padding: 20px 40px;
     display: flex;
     flex-wrap: wrap;
@@ -132,7 +133,7 @@ section {
             margin-bottom: 20px;
             color: #f1f1f1;
             text-align: center;
-            font-size: 20px;
+            font-size: 35px;
         }
     }
 
@@ -143,16 +144,24 @@ section {
         position: relative;
         input, select {
             margin-top: 20px;
-            padding-left: 5px;
             margin-bottom: 30px;
-            border-radius: 5px;
+            border-radius: 12px;
             outline: none;
+            padding: 7px 30px;
+            font-size: 18px;
+            transition: all 0.3s;
+            &:hover {
+                transform: scale(0.95);
+            }
+        }
+        select.button {
+            cursor: pointer;
         }
         .fa-search {
             position: absolute;
-            top: 26px;
+            top: 32px;
             right: 1.5%;
-            font-size: small;
+            font-size: larger;
             cursor: pointer;
             @include boutton();
         }
@@ -177,7 +186,7 @@ section {
             padding: 0 20px;  
         }
     }
-
+    
     
     .produit {
         width: 30%;
@@ -237,11 +246,11 @@ section {
             .description-produit, .prix-produit, .taille-produit, .choix{
                 text-align: left;
                 margin: 10px;
-                font-size: large;
+                font-size: 25px;
             }
             .description-produit {
                 border-bottom: 2px solid lighten($color: $color-secondary, $amount: 20);
-                padding-bottom: 10px;
+                padding: 15px 40px;
                 text-align: center;
                 
             }
@@ -257,31 +266,15 @@ section {
             .dif-choix {
                 display: none;
             }
-            .voir-plus {
-                position: relative;
-                top: -20px;
-                right: -76%;
-                width: 80%;
-                text-align: center;
-                background: #fff;
-                color: $color-secondary;
-                padding: 10px;
-                transition: all 0.3s;
-                border: 1px solid black;
-                &:hover {
-                    transform: scale(1.04);
-                    padding-left: -10px;
-                }
-                &:active {
-                    transform: scale(1);
-                }
-            }
+
+                
+            
             .prix-produit {
-                margin-bottom: 20px;
+                margin-bottom: 40px;
             }
             .prix-produits {
                 font-size: 30px;
-                margin: 10px 20px -8px;
+                margin: 10px 20px;
             }
         }
         
@@ -300,7 +293,37 @@ section {
                 transition: 0.3s;
                 @include boutton();
             }
+            .voir-plus {
+                width: 50%;
+                border: 1px solid black;
+                text-align: center;
+                color: $color-secondary;
+                margin: 20px 0;
+                padding: 10px;
+                background: #fff;
+                transition: all 0.3s;
+                &:hover {
+                    transform: scale(1.04);
+                    padding-left: -10px;
+                }
+                &:active {
+                    transform: scale(1);
+                }
+            }
         }
+    }
+    .seul {
+        width: 80%;
+        margin: 50px auto;
+        .image {
+            .img {
+                height: 60vh;
+            }
+        }
+        &:hover {
+            transform: none;
+            box-shadow: 10px 20px 10px 1px;
+        } 
     }
     
     .panier {
@@ -363,6 +386,13 @@ footer {
             }
             .produit {
                 width: 80%;
+            }
+            .seul {
+                .image {
+                    .img {
+                        height: 20vh !important;
+                    }
+                }
             }
         }
     }

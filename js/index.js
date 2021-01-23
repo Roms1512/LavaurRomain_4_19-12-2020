@@ -116,18 +116,15 @@ allProduct.addEventListener("click", () => {
 const camera = document.getElementById("produit1");
 const ours = document.getElementById("produit2");
 const meuble = document.getElementById("produit3");
-let produit1 = document.createElement('div');
-let section1 = document.getElementsByClassName('create-element');
-section1.appendchild(produit1);
 
 camera.addEventListener("click", () => {
-  produit1.innerHTML = showAllCamera();
+  result.innerHTML = showAllCamera();
 });
 ours.addEventListener("click", () => {
-  showAllTeddy();
+  result.innerHTML = showAllTeddy();
 });
 meuble.addEventListener("click", () => {
-  showAllFurniture();
+  result.innerHTML = showAllFurniture();
 });
 
 /*-------------- Ajout au Panier --------------*/
@@ -142,7 +139,8 @@ window.onload = () => {
     localStorage.prenom = prenom;
   }
 
-  let utilisateur = (document.getElementById(
-    "utlisateur"
-  ).innerText = `${prenom}`);
+  let utilisateur = document.getElementById("utlisateur");
+  utilisateur.innerText = `${prenom}`;
 };
+
+/*-------------- Ajout au Panier --------------*/

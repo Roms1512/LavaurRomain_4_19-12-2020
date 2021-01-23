@@ -41,8 +41,8 @@ const createCamera = (Camera) => {
   firstDiv.appendChild(fourDiv);
   secondDiv.appendChild(firstImg);
   thirdDiv.appendChild(secondP);
-  thirdDiv.appendChild(firstA);
-  
+  fourDiv.appendChild(firstA);
+
   firstH2.innerHTML = Camera.name;
   secondP.innerHTML = `${Camera.price} €`;
 
@@ -84,7 +84,10 @@ const createTeddy = (Teddy) => {
 
   firstImg.src = Teddy.imageUrl;
 
-  firstA.setAttribute(`href`, `../html/produit.html?id=${Teddy._id}&type=teddy`);
+  firstA.setAttribute(
+    `href`,
+    `../html/produit.html?id=${Teddy._id}&type=teddy`
+  );
   firstA.innerHTML = "voir le produit";
 
   firstDiv.appendChild(firstH2);
@@ -93,7 +96,7 @@ const createTeddy = (Teddy) => {
   firstDiv.appendChild(fourDiv);
   secondDiv.appendChild(firstImg);
   thirdDiv.appendChild(secondP);
-  thirdDiv.appendChild(firstA);
+  fourDiv.appendChild(firstA);
 
   firstH2.innerHTML = Teddy.name;
   secondP.innerHTML = `${Teddy.price} €`;
@@ -132,7 +135,10 @@ const createFurniture = (Furniture) => {
   let firstA = document.createElement("a");
   firstA.classList.add("voir-plus");
 
-  firstA.setAttribute(`href`, `../html/produit.html?id=${Furniture._id}&type=furniture`);
+  firstA.setAttribute(
+    `href`,
+    `../html/produit.html?id=${Furniture._id}&type=furniture`
+  );
   firstA.innerHTML = "voir le produit";
 
   document.getElementById("produits").appendChild(firstDiv);
@@ -145,7 +151,7 @@ const createFurniture = (Furniture) => {
   firstDiv.appendChild(fourDiv);
   secondDiv.appendChild(firstImg);
   thirdDiv.appendChild(secondP);
-  thirdDiv.appendChild(firstA);
+  fourDiv.appendChild(firstA);
 
   firstH2.innerHTML = Furniture.name;
   secondP.innerHTML = `${Furniture.price} €`;
@@ -157,7 +163,6 @@ const createFurniture = (Furniture) => {
   });
 };
 
-
 /*-------------- création d'un Objets --------------*/
 
 /***** Objet Camera *****/
@@ -167,13 +172,16 @@ const cameras = (camera) => {
 
   let firstDiv = document.createElement("div");
   firstDiv.classList.add("produit");
+  firstDiv.classList.add("seul");
   let firstH2 = document.createElement("h2");
   firstH2.classList.add("titre-produit");
   let firstImg = document.createElement("img");
   firstImg.classList.add("img-produit");
+  firstImg.classList.add("img");
   let firstP = document.createElement("p");
   firstP.classList.add("description-produit");
   let firstButton = document.createElement("button");
+  firstButton.classList.add('ajouter-panier');
   let secondDiv = document.createElement("div");
   secondDiv.classList.add("image");
   let secondP = document.createElement("p");
@@ -217,13 +225,16 @@ const teddys = (teddy) => {
 
   let firstDiv = document.createElement("div");
   firstDiv.classList.add("produit");
+  firstDiv.classList.add("seul");
   let firstH2 = document.createElement("h2");
   firstH2.classList.add("titre-produit");
   let firstImg = document.createElement("img");
   firstImg.classList.add("img-produit");
+  firstImg.classList.add("img");
   let firstP = document.createElement("p");
   firstP.classList.add("description-produit");
   let firstButton = document.createElement("button");
+  firstButton.classList.add('ajouter-panier');
   let secondDiv = document.createElement("div");
   secondDiv.classList.add("image");
   let secondP = document.createElement("p");
@@ -267,13 +278,16 @@ const furnitures = (furniture) => {
 
   let firstDiv = document.createElement("div");
   firstDiv.classList.add("produit");
+  firstDiv.classList.add("seul");
   let firstH2 = document.createElement("h2");
   firstH2.classList.add("titre-produit");
   let firstImg = document.createElement("img");
   firstImg.classList.add("img-produit");
+  firstImg.classList.add("img");
   let firstP = document.createElement("p");
   firstP.classList.add("description-produit");
   let firstButton = document.createElement("button");
+  firstButton.classList.add('ajouter-panier');
   let secondDiv = document.createElement("div");
   secondDiv.classList.add("image");
   let secondP = document.createElement("p");
@@ -309,3 +323,5 @@ const furnitures = (furniture) => {
   firstButton.innerHTML = "Ajouter au Panier";
   secondP.innerHTML = `${furniture.price} €`;
 };
+
+
