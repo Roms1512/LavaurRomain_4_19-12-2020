@@ -13,7 +13,7 @@ const createCamera = (Camera) => {
   firstImg.classList.add("img-produit");
   let firstP = document.createElement("p");
   firstP.classList.add("description-produit");
-  let firstButton = document.createElement("button");
+  // let firstButton = document.createElement("button");
   let secondDiv = document.createElement("div");
   secondDiv.classList.add("image");
   let secondP = document.createElement("p");
@@ -66,7 +66,7 @@ const createTeddy = (Teddy) => {
   firstImg.classList.add("img-produit");
   let firstP = document.createElement("p");
   firstP.classList.add("description-produit");
-  let firstButton = document.createElement("button");
+  // let firstButton = document.createElement("button");
   let secondDiv = document.createElement("div");
   secondDiv.classList.add("image");
   let secondP = document.createElement("p");
@@ -121,7 +121,7 @@ const createFurniture = (Furniture) => {
   firstImg.classList.add("img-produit");
   let firstP = document.createElement("p");
   firstP.classList.add("description-produit");
-  let firstButton = document.createElement("button");
+  // let firstButton = document.createElement("button");
   let secondDiv = document.createElement("div");
   secondDiv.classList.add("image");
   let secondP = document.createElement("p");

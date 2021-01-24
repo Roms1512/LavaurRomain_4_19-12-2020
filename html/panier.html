@@ -50,33 +50,54 @@
             </div>   
             
         <!-- formulaire de remplissage -->
-            <form class="formulaire">
+            <form class="formulaire" id="valid">
                     <h2>Passez votre commande</h2>
         
                     <div class="form">
                         <div class="commande">
-                            <p>Nom : </p>
-                            <input type="text" required minlength="3" placeholder="Dupont, ...">
+                            <label>Nom : </label>
+                            <input 
+                                type="text" 
+                                required 
+                                minlength="3" placeholder="Dupont, ..."
+                                id="lastName">
                         </div>
                         <div class="commande">
-                            <p>Prénom : </p>
-                            <input type="text" required minlength="3" placeholder="Pierre, ...">
+                            <label>Prénom : </label>
+                            <input 
+                                type="text" 
+                                required 
+                                minlength="3" placeholder="Pierre, ..."
+                                id="firstName">
                         </div>
                         <div class="commande">
-                            <p>adresse : </p>
-                            <input type="text" required minlength="3" placeholder="7 rue les plaines, ...">
+                            <label>adresse : </label>
+                            <input 
+                                type="text" 
+                                required 
+                                minlength="3" 
+                                placeholder="7 rue les plaines, ..."
+                                id="adress">
                         </div>
                         <div class="commande">
-                            <p>Ville : </p>
-                            <input type="text" required minlength="3" placeholder="Paris, ...">
+                            <label>Ville : </label>
+                            <input 
+                                type="text" 
+                                required 
+                                minlength="3" 
+                                placeholder="Paris, ..."
+                                id="city">
                         </div>
                         <div class="commande">
-                            <p>adresse mail : </p>
-                            <input type="email" required placeholder="exemple-1234@gmail.com, ...">
+                            <label>adresse mail : </label>
+                            <input 
+                                type="email" 
+                                required placeholder="exemple-1234@gmail.com, ..."
+                                id="mail">
                         </div>
                     </div>
                     <div class="passez-commande">
-                        <button>Passer la commande</button>
+                        <button type="submit">Passer la commande</button>
                     </div>
             </form>
         

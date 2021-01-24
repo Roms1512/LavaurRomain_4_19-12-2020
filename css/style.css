@@ -188,6 +188,7 @@ section .produit {
   width: 30%;
   margin: 40px 20px 40px 20px;
   padding: 10px;
+  border: 5px solid #f3e9f1;
   border-radius: 15px;
   background: gray;
   cursor: pointer;
@@ -392,7 +393,7 @@ section .formulaire .form .commande, section .produit-ajouter .form .commande {
   margin-left: 10%;
   margin-right: 10%;
 }
-section .formulaire .form .commande p, section .produit-ajouter .form .commande p {
+section .formulaire .form .commande label, section .produit-ajouter .form .commande label {
   color: white;
   font-size: x-large;
 }

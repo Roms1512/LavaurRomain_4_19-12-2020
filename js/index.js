@@ -153,8 +153,3 @@ meuble.addEventListener("click", () => {
   result.innerHTML = showAllFurniture();
 });
 
-/*-------------- Ajout au Panier --------------*/
-
-
-
-/*-------------- Ajout au Panier --------------*/
