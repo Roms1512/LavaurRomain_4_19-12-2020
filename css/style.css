@@ -1,4 +1,8 @@
+@charset "UTF-8";
 /*# sourceMappingURL=main.scss.map */
+/*-------- Variables --------*/
+/*-------- Mixins --------*/
+/*-------- Mise en Forme Génerale --------*/
 * {
   padding: 0;
   margin: 0;
@@ -7,25 +11,27 @@
   font-family: "Finger Paint", cursive;
 }
 
-img {
-  object-fit: cover;
-}
-
 body {
   background: #4d4d4d;
 }
 
+img {
+  object-fit: cover;
+}
+
 .icone-logo::before {
-  background: linear-gradient(#D6843C, #8F5BFE);
-  background: -webkit-linear-gradient(#D6843C, #8F5BFE);
+  background: linear-gradient(-20deg, #D6843C, #8F5BFE);
+  background: -webkit-linear-gradient(-20deg, #D6843C, #8F5BFE);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
 }
 
+/*-------- Balise Génerique  --------*/
+/********** header **********/
 header, footer {
   position: relative;
-  height: 25vh;
+  height: 20vh;
   width: 100%;
   background: #f3e9f1;
 }
@@ -48,7 +54,7 @@ header .logo a h1, footer .logo a h1 {
   font-size: xxx-large;
 }
 header .menu-nav, footer .menu-nav {
-  height: 25vh;
+  height: 20vh;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -96,19 +102,21 @@ header .menu-nav .panier h2, header .menu-nav .panier .h2, footer .menu-nav .pan
   color: black;
 }
 
+/********** Section **********/
 section {
   width: 100%;
   padding: 20px 40px;
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 100px;
 }
-section main {
+section .main {
   width: 100%;
   margin: auto 80px;
 }
-section main .intro {
+section .main .intro {
   margin-top: 30px;
-  margin-bottom: 20px;
+  margin-bottom: 100px;
   border: 5px solid #f3e9f1;
   text-align: center;
   font-size: 60px;
@@ -116,7 +124,7 @@ section main .intro {
   border-radius: 30px;
   box-shadow: 10px 10px 30px black;
 }
-section main p {
+section .main p {
   margin-bottom: 20px;
   color: #f1f1f1;
   text-align: center;
@@ -189,12 +197,16 @@ section .produit:hover {
   transform: scale(1.06);
   box-shadow: 10px 20px 10px 1px;
 }
+@media screen and (max-width: 1024px) {
+  section .produit .produit {
+    width: 80%;
+  }
+}
 section .produit a {
   color: #f1f1f1;
 }
 section .produit a h2 {
-  padding-top: 10px;
-  padding-left: 20px;
+  padding: 10px 20px;
 }
 section .produit a p {
   padding: 20px 20px;
@@ -223,6 +235,11 @@ section .produit .img-pdrt {
 }
 section .produit .img-pdrt .img {
   height: 420px;
+}
+@media screen and (max-width: 768px) {
+  section .produit .img-pdrt {
+    display: none;
+  }
 }
 section .produit .info-produit {
   background: linear-gradient(to top, transparent 10%, white 80%, transparent);
@@ -317,9 +334,8 @@ section .seul:hover {
 }
 section .panier {
   text-align: center;
-  line-height: 100vh;
-  height: 100vh;
   width: 100%;
+  margin: 50px 0;
 }
 section .panier .button-panier {
   color: #f1f1f1;
@@ -328,7 +344,93 @@ section .panier .button-panier {
   padding: 7px 50px;
   border-radius: 10px;
 }
+section .produit-ajouter {
+  width: 100%;
+}
+section .produit-ajouter .pdrt-ajouter {
+  margin-bottom: 50px;
+}
+section .produit-ajouter p {
+  color: #f1f1f1;
+  text-align: right;
+  padding-bottom: 20px;
+  padding-right: 20px;
+  font-size: large;
+}
+section .formulaire, section .produit-ajouter {
+  width: 60%;
+  margin: 25px auto;
+  padding-top: 30px;
+  border-radius: 30px;
+  background: gray;
+}
+@media screen and (max-width: 1024px) {
+  section .formulaire .formulaire, section .formulaire .produit-ajouter, section .produit-ajouter .formulaire, section .produit-ajouter .produit-ajouter {
+    width: 75%;
+  }
+}
+@media screen and (max-width: 768px) {
+  section .formulaire .formulaire, section .formulaire .produit-ajouter, section .produit-ajouter .formulaire, section .produit-ajouter .produit-ajouter {
+    width: 90%;
+  }
+}
+section .formulaire h2, section .produit-ajouter h2 {
+  margin: auto;
+  width: 60%;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  border: 3px solid #f3e9f1;
+  font-size: xx-large;
+}
+section .formulaire .form, section .produit-ajouter .form {
+  margin-top: 50px;
+}
+section .formulaire .form .commande, section .produit-ajouter .form .commande {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+section .formulaire .form .commande p, section .produit-ajouter .form .commande p {
+  color: white;
+  font-size: x-large;
+}
+section .formulaire .form .commande input, section .produit-ajouter .form .commande input {
+  margin-bottom: 30px;
+  padding: 5px 20px;
+  border-radius: 20px;
+}
+section .formulaire .passez-commande, section .produit-ajouter .passez-commande {
+  width: 100%;
+  text-align: center;
+}
+section .formulaire .passez-commande button, section .produit-ajouter .passez-commande button {
+  cursor: pointer;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 10px 25px;
+  border-radius: 15px;
+  font-size: large;
+  background-color: #f3e9f1;
+  transition: all 0.4s;
+  border: none;
+}
+section .formulaire .passez-commande button:hover, section .produit-ajouter .passez-commande button:hover {
+  transform: scale(1.03);
+}
+section .formulaire .passez-commande button:active, section .produit-ajouter .passez-commande button:active {
+  transition: 0s;
+  transform: scale(1);
+}
+section .formulaire .passez-commande button:hover, section .produit-ajouter .passez-commande button:hover {
+  box-shadow: 10px 10px 20px;
+}
+section .contact .info-contact p {
+  font-size: x-large;
+}
 
+/********** Footer **********/
 footer {
   height: 12vh;
 }
@@ -357,7 +459,14 @@ footer .nav-footer ul li a {
 footer .nav-footer ul li:hover {
   box-shadow: 7px 5px 20px black;
 }
+@media screen and (max-width: 768px) {
+  footer .nav-footer ul li {
+    margin: 0 20px;
+  }
+}
 
+/*-------- Media Screen  --------*/
+/********** Tablette **********/
 @media screen and (max-width: 1024px) {
   section {
     padding: 0;
@@ -374,13 +483,15 @@ footer .nav-footer ul li:hover {
     width: 80%;
     margin: 40px 20px 40px 20px;
   }
-  section .produits .produit {
-    width: 80%;
-  }
   section .produits .seul .image .img {
     height: 20vh !important;
   }
+  section .produit {
+    width: 80%;
+    margin: 25px auto;
+  }
 }
+/********** Téléphone **********/
 @media screen and (max-width: 768px) {
   section {
     padding: 0;

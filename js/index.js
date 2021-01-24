@@ -77,16 +77,30 @@ selectElement.addEventListener("change", (event) => {
     event.target.value === "camera" ||
     event.target.value === "cameras" ||
     event.target.value === "Camera" ||
-    event.target.value === "Cameras"
+    event.target.value === "Cameras" ||
+    event.target.value === "Zurss" ||
+    event.target.value === "zurss" ||
+    event.target.value === "Hirsch" ||
+    event.target.value === "hirsch" ||
+    event.target.value === "Franck" ||
+    event.target.value === "franck" ||
+    event.target.value === "Kuros" ||
+    event.target.value === "kuros" ||
+    event.target.value === "Katatone" ||
+    event.target.value === "katatone"
   ) {
     result.innerHTML = showAllCamera();
   }
+
   if (
     event.target.value === "teddy" ||
+    event.target.value === "Teddy" ||
     event.target.value === "ours" ||
     event.target.value === "Ours" ||
     event.target.value === "Oursons" ||
     event.target.value === "oursons" ||
+    event.target.value === "Ourson" ||
+    event.target.value === "ourson" ||
     event.target.value === "peluches" ||
     event.target.value === "peluche" ||
     event.target.value === "Peluches" ||
@@ -94,11 +108,23 @@ selectElement.addEventListener("change", (event) => {
   ) {
     result.innerHTML = showAllTeddy();
   }
+
   if (
     event.target.value === "furniture" ||
+    event.target.value === "furnitures" ||
+    event.target.value === "Furniture" ||
+    event.target.value === "Furnitures" ||
     event.target.value === "meuble" ||
+    event.target.value === "meubles" ||
+    event.target.value === "Meuble" ||
+    event.target.value === "Meubles" ||
     event.target.value === "table" ||
+    event.target.value === "Table" ||
     event.target.value === "tables" ||
+    event.target.value === "Tables" ||
+    event.target.value === "chaise" ||
+    event.target.value === "chaises" ||
+    event.target.value === "Chaises" ||
     event.target.value === "chaise"
   ) {
     result.innerHTML = showAllFurniture();
@@ -129,18 +155,6 @@ meuble.addEventListener("click", () => {
 
 /*-------------- Ajout au Panier --------------*/
 
-/*-------------- Petit localStorage --------------*/
 
-window.onload = () => {
-  if (localStorage.prenom != null) {
-    var prenom = localStorage.prenom;
-  } else {
-    var prenom = prompt("Entrez votre Prénom ici 😜");
-    localStorage.prenom = prenom;
-  }
-
-  let utilisateur = document.getElementById("utlisateur");
-  utilisateur.innerText = `${prenom}`;
-};
 
 /*-------------- Ajout au Panier --------------*/

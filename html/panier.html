@@ -37,47 +37,50 @@
     
     <!-- Section Panier -->
     <section>
-        <main>
+        <div class="main">
             <h1 class="intro">Panier</h1>
             <p>Voici tous vos produits</p>
-        </main>
+        </div>
         
-        <div class="produit-ajouter">
-            <div id="pdrt-ajouter"></div>
+        <!-- Produit ajouter au panier -->
+            <div class="produit-ajouter">
+                <h2>Produit(s) Ajouté(s)</h2>
+                <div id="pdrt-ajouter" class="pdrt-ajouter"></div>
+                <p>Prix Total de votre commande : <span id="prixTotal"></span></p>
+            </div>   
             
-            <!-- formulaire de remplissage -->
-                <form class="formulaire">
+        <!-- formulaire de remplissage -->
+            <form class="formulaire">
                     <h2>Passez votre commande</h2>
         
                     <div class="form">
-                        <div>
+                        <div class="commande">
                             <p>Nom : </p>
                             <input type="text" required minlength="3" placeholder="Dupont, ...">
                         </div>
-                        <div>
+                        <div class="commande">
                             <p>Prénom : </p>
                             <input type="text" required minlength="3" placeholder="Pierre, ...">
                         </div>
-                        <div>
+                        <div class="commande">
                             <p>adresse : </p>
                             <input type="text" required minlength="3" placeholder="7 rue les plaines, ...">
                         </div>
-                        <div>
+                        <div class="commande">
                             <p>Ville : </p>
                             <input type="text" required minlength="3" placeholder="Paris, ...">
                         </div>
-                        <div>
+                        <div class="commande">
                             <p>adresse mail : </p>
                             <input type="email" required placeholder="exemple-1234@gmail.com, ...">
                         </div>
                     </div>
-                    <button>Passer la commande</button>
-                </form>
-        </div>
-        
+                    <div class="passez-commande">
+                        <button>Passer la commande</button>
+                    </div>
+            </form>
         
         <div class="panier">
-            <p id="log" class="log"></p>
             <a href="./produits.html" class="button-panier">Boutique</a>
         </div>
     </section>
