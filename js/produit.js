@@ -1,3 +1,5 @@
+let currentProduct = null;
+
 /*-------------- récuperation de l'ID --------------*/
 
 /*****  *****/
@@ -10,7 +12,7 @@ console.log(type);
 
 /*-------------- récuperation de l'ID --------------*/
 
-const getProductCamera = async() => {
+const getProductCamera = async () => {
   let response = await fetch(`http://localhost:3000/api/cameras/${id}`);
   if (response.ok) {
     return response.json();
@@ -29,9 +31,7 @@ const getProductTeddy = async () => {
 };
 
 const getProductFurniture = async () => {
-  let response = await fetch(
-    `http://localhost:3000/api/furniture/${id}`
-  );
+  let response = await fetch(`http://localhost:3000/api/furniture/${id}`);
   if (response.ok) {
     return response.json();
   } else {
@@ -45,7 +45,8 @@ const getProductFurniture = async () => {
 
 const showCamera = () => {
   getProductCamera().then((json) => {
-      cameras(json);
+    currentProduct = json;
+    cameras(json);
   });
 };
 
@@ -53,7 +54,8 @@ const showCamera = () => {
 
 const showTeddy = () => {
   getProductTeddy().then((json) => {
-      teddys(json);
+    currentProduct = json;
+    teddys(json);
   });
 };
 
@@ -61,7 +63,8 @@ const showTeddy = () => {
 
 const showFurniture = () => {
   getProductFurniture().then((json) => {
-      furnitures(json);
+    currentProduct = json;
+    furnitures(json);
   });
 };
 
@@ -74,11 +77,98 @@ switch (type) {
     break;
   case "furniture":
     showFurniture();
-  break
-  default: 
-    console.error("no type found")
+    break;
+  default:
+    console.error("no type found");
     break;
 }
 
+/*-------------- LocalStorage pour le panier --------------*/
+
+const createButton = () => {
+  const button = document.createElement("button");
+  button.classList.add("button");
+  button.setAttribute("id", "bouttonPanier");
+  button.innerHTML = `Ajoutez au panier`;
+
+  const buttonContainer = document.getElementById("buttonContainer");
+  
+  /*-------------- écoute de l'événement --------------*/
+  
+  button.addEventListener("click", (e) => {
+    /***** garder un element dans le local storage *****/
+    const ajouté = () => {
+      let equivalence = false;
+      let currentBasket = JSON.parse(localStorage.getItem("produit"));
+      
+      // condition si null //
+      if (currentBasket == null) {
+        let basket = [];
+        let product = {
+          name: currentProduct.name,
+          image: currentProduct.imageUrl,
+          id: currentProduct._id,
+          price: currentProduct.price,
+          quantity: 1
+        };
+        console.log('nouveau produit');
+        basket.push(product);
+        localStorage.setItem("produit", JSON.stringify(basket));
+        
+        // sinon parcourrir le tableau //
+      } else {
+        currentBasket.forEach((element) => {
+          // si equivalant
+          if (element.name === currentProduct.name) {
+            element.quantity++;
+            localStorage.setItem("produit", JSON.stringify(currentBasket));
+            console.log('produit existant');
+            equivalence = false;
+            return;
+          } else {
+            equivalence = true;
+          }
+        });
+
+        if(equivalence){
+          // pas d'equivalance
+          let product = {
+            name: currentProduct.name,
+            image: currentProduct.imageUrl,
+            id: currentProduct._id,
+            price: currentProduct.price,
+            quantity: 1
+          };
+          currentBasket.push(product);
+          console.log('ajout panier');
+          localStorage.setItem("produit", JSON.stringify(currentBasket));
+        }
+      };
+    };
+    ajouté();
+
+    /***** Afficher le nombre de produit dans le panier *****/
+    
+    let panier = document.getElementById("nombreDeProduit");
+    panier.innerHTML = localStorage.getItem("quantité de produit");
+    let quantitéStorage = localStorage.getItem("quantité de produit");
+    
+    quantitéStorage++;
+    localStorage.setItem("quantité de produit", quantitéStorage);
+    if(!quantitéStorage){
+      panier.innerHTML = "";
+    } else {
+      panier.innerHTML = `(${quantitéStorage})`;
+    }
+    console.log(quantitéStorage);
+    
+  });
+  buttonContainer.appendChild(button);
+};
+
+createButton();
+
 /*-------------- Afficher les différents Objets --------------*/
+
+
 

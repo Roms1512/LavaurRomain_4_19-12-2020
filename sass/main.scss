@@ -1,574 +1,647 @@
 /*# sourceMappingURL=main.scss.map */
 
+/*------------------ Variables ------------------*/
 
-/*-------- Variables --------*/
+$color-principal: #f3e9f1;
+$color-secondary: #4d4d4d;
+$color-text: #f1f1f1;
+$dégradé: #d6843c, #8f5bfe;
 
-    $color-principal: #f3e9f1;
-    $color-secondary: #4d4d4d;
-    $color-text: #f1f1f1;
-    $dégradé: #D6843C, #8F5BFE;
+/*------------------ Mixins ------------------*/
 
-/*-------- Mixins --------*/
+@mixin boutton {
+  &:hover {
+    transform: scale(1.03);
+  }
+  &:active {
+    transition: 0s;
+    transform: scale(1);
+  }
+}
 
-    @mixin boutton {
+/*------------------ Mise en Forme Génerale ------------------*/
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Finger Paint", cursive;
+}
+
+body {
+  background: $color-secondary;
+}
+
+img {
+  object-fit: cover;
+}
+
+.icone-logo::before {
+  background: linear-gradient(-20deg, $dégradé);
+  background: -webkit-linear-gradient(-20deg, $dégradé);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/*------------------ Balise Génerique ------------------*/
+
+/********** header **********/
+
+header,
+footer {
+  position: relative;
+  height: 20vh;
+  width: 100%;
+  background: $color-principal;
+
+  //* Logo *//
+  .logo {
+    a {
+      transition: all 0.4s;
+      &:hover {
+        transform: scale(0.85);
+      }
+      position: absolute;
+      display: flex;
+      right: 38vw;
+      top: 10%;
+      align-items: center;
+      color: black;
+      .icone-logo::before {
+        font-size: 100px;
+      }
+      h1 {
+        font-size: xxx-large;
+      }
+    }
+  }
+
+  //* menu de navigation *//
+  .menu-nav {
+    height: 20vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    ul,
+    .panier {
+      align-items: center;
+    }
+
+    ul {
+      display: flex;
+      justify-content: flex-start;
+      padding-left: 10%;
+      padding-bottom: 40px;
+      li {
+        margin-right: 30%;
+        font-size: 35px;
+        list-style-type: none;
+        transition: 0.3s;
+        @include boutton();
+        a {
+          color: black;
+        }
+      }
+    }
+
+    .panier {
+      justify-content: flex-end;
+      padding-right: 10%;
+      padding-bottom: 40px;
+      a {
+        display: flex;
+        align-items: center;
+      }
+      .icone-logo::before {
+        font-size: 30px;
+      }
+
+      h2,
+      .h2 {
+        font-size: 35px;
+        margin-left: 5%;
+        color: black;
+      }
+    }
+  }
+}
+
+/********** Section **********/
+
+section {
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  flex-wrap: wrap;
+
+  //* En tête *//
+  .main {
+    width: 100%;
+    margin: auto 80px;
+    .intro {
+      margin-top: 30px;
+      margin-bottom: 100px;
+      border: 5px solid $color-principal;
+      text-align: center;
+      font-size: 60px;
+      color: #f1f1f1;
+      border-radius: 30px;
+      box-shadow: 10px 10px 30px black;
+    }
+
+    @media screen and(max-width: 768px) {
+      .intro {
+        font-size: 40px;
+      }
+    }
+
+    p {
+      margin-bottom: 20px;
+      color: #f1f1f1;
+      text-align: center;
+      font-size: 35px;
+    }
+  }
+
+  //* Barre de recherche -  Barre de selection *//
+  .recherche {
+    width: 100%;
+    padding-right: 20px;
+    text-align: right;
+    position: relative;
+    input,
+    select {
+      margin-top: 20px;
+      border-radius: 12px;
+      outline: none;
+      padding: 7px 30px;
+      font-size: 18px;
+      transition: all 0.3s;
+      &:hover {
+        transform: scale(0.95);
+      }
+    }
+    select.button {
+      cursor: pointer;
+    }
+    .fa-search {
+      position: absolute;
+      top: 32px;
+      right: 1.5%;
+      font-size: larger;
+      cursor: pointer;
+      @include boutton();
+    }
+    @media screen and(max-width: 1500px) {
+      .fa-search {
+        right: 2.5%;
+      }
+    }
+
+    @media screen and(max-width: 1024px) {
+      text-align: center;
+      input,
+      select {
+        width: 40%;
+      }
+      .fa-search {
+        right: 33%;
+      }
+    }
+
+    @media screen and(max-width: 840px) {
+      text-align: right;
+      .fa-search {
+        right: 5%;
+        top: 33px;
+      }
+    }
+  }
+
+  //* Section des produits *//
+  .produits {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    #info {
+      width: 30%;
+      padding: 0 20px;
+    }
+  }
+
+  //* Mise en force des Produits *//
+  .produit {
+    width: 30%;
+    margin: 40px 20px 40px 20px;
+    padding: 10px;
+    border: 5px solid $color-principal;
+    border-radius: 15px;
+    background: lighten($color: $color-secondary, $amount: 20);
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+    &:hover {
+      transform: scale(1.06);
+      box-shadow: 10px 20px 10px 1px;
+    }
+
+    @media screen and(max-width: 1024px) {
+      width: 80%;
+    }
+
+    a {
+      color: $color-text;
+      h2 {
+        padding: 10px 20px;
+      }
+      p {
+        padding: 20px 20px;
+      }
+    }
+
+    .titre-produit,
+    .info-produit {
+      color: black;
+    }
+    .titre-produit {
+      text-align: center;
+      font-size: xx-large;
+    }
+
+    .image {
+      width: 100%;
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      .img-produit {
+        text-align: center;
+        width: 80%;
+        height: 250px;
+        border-radius: 10px;
+      }
+      .img {
+        height: 420px;
+        width: 70%;
+      }
+      .img-pdrt {
+        height: 500px;
+      }
+    }
+
+    .quantiter {
+      text-align: left;
+      color: white;
+      font-size: xx-large;
+    }
+    .suprimer {
+      display: flex;
+      justify-content: center;
+      button {
+        margin-top: 30px;
+        padding: 5px 20px;
+        cursor: pointer;
+        transition: all 0.3s;
+        @include boutton;
+      }
+
+    }
+
+    @media screen and(max-width: 1024px) {
+        .img {
+          width: 100%;
+        }
+    }
+
+    @media screen and(max-width: 768px) {
+      .img-pdrt {
+        display: none;
+      }
+    }
+
+    .info-produit {
+      background: linear-gradient(
+        to top,
+        transparent 10%,
+        lighten($color: $color-secondary, $amount: 100) 80%,
+        transparent
+      );
+      border: 0.1px solid black;
+      border-radius: 5px;
+      position: relative;
+      .description-produit,
+      .prix-produit,
+      .taille-produit,
+      .choix {
+        text-align: left;
+        margin: 10px;
+        font-size: 25px;
+      }
+      .description-produit {
+        border-bottom: 2px solid lighten($color: $color-secondary, $amount: 20);
+        padding: 15px 40px;
+        text-align: center;
+      }
+      .choix {
+        border: none;
+        border-radius: 10px;
+        padding: 8px 12px;
+        margin-top: -20px;
+        transition: all 0.3s;
+        @include boutton();
+        cursor: pointer;
+      }
+      .dif-choix {
+        display: none;
+      }
+
+      .prix-produit {
+        margin-bottom: 40px;
+      }
+      .prix-produits {
+        font-size: 30px;
+        margin: 10px 20px;
+      }
+    }
+
+    #buttonContainer {
+      display: flex;
+      justify-content: flex-end;
+      .button {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+        padding: 12px 25px;
+        font-size: large;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        background: $color-principal;
+        transition: 0.3s;
+        @include boutton();
+      }
+      .voir-plus {
+        width: 50%;
+        border: 1px solid black;
+        text-align: center;
+        color: $color-secondary;
+        margin: 20px 0;
+        padding: 10px;
+        background: #fff;
+        transition: all 0.3s;
         &:hover {
-            transform: scale(1.03);
+          transform: scale(1.04);
+          padding-left: -10px;
         }
         &:active {
-            transition: 0s;
-            transform: scale(1);
+          transform: scale(1);
         }
+      }
+    }
+  }
+
+  //* Mise en forme d'un seul produit *//
+  .seul {
+    width: 80% !important;
+    margin: 50px auto;
+    .image {
+      .img {
+        height: 60vh;
+      }
+    }
+    &:hover {
+      transform: none;
+      box-shadow: 10px 20px 10px 1px;
     }
 
-/*-------- Mise en Forme Génerale --------*/
+    @media screen and(max-width:1024px) {
+    }
+  }
 
-    * {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-        text-decoration: none;
-        font-family: "Finger Paint", cursive;
+  //* Le Panier *//
+  .panier {
+    text-align: center;
+    width: 100%;
+    margin: 50px 0;
+    .button-panier {
+      color: $color-text;
+      font-size: 35px;
+      background: lighten($color: $color-secondary, $amount: 30);
+      padding: 7px 50px;
+      border-radius: 10px;
+    }
+  }
+
+  //* mise en forme des produits dans le panier *//
+  .produit-ajouter {
+    width: 100%;
+
+    // Produit ajouter au panier
+    .pdrt-ajouter {
+      margin: 50px 10px;
     }
 
-    body {
-        background: $color-secondary;
+    .pdrt-ajouter  p {
+      color: white;
+      text-align: center;
+      font-size: larger;
     }
 
-    img {
-        object-fit: cover;
+    p.prix-total {
+      color: $color-text;
+      text-align: right;
+      padding-bottom: 20px;
+      padding-right: 20px;
+      font-size: large;
+    }
+  }
+
+  //* Formulaire de Commande *//
+  .formulaire,
+  .produit-ajouter {
+    width: 60%;
+    margin: 25px auto;
+    padding-top: 30px;
+    border-radius: 30px;
+    background: lighten($color-secondary, 20);
+
+    @media screen and(max-width: 1024px) {
+      .formulaire,
+      .produit-ajouter {
+        width: 75%;
+      }
     }
 
-    .icone-logo::before {
-        background: linear-gradient(-20deg, $dégradé);
-        background: -webkit-linear-gradient(-20deg, $dégradé);
-        background-clip: text;
-        -webkit-background-clip: text;
-        color: transparent;
+    @media screen and(max-width: 768px) {
+      .formulaire,
+      .produit-ajouter {
+        width: 90%;
+      }
     }
 
-/*-------- Balise Génerique  --------*/
-
-    /********** header **********/
-
-        header, footer {
-            position: relative;
-            height: 20vh;
-            width: 100%;
-            background: $color-principal;
-
-            // Logo
-            .logo{
-                a {
-                    transition: all 0.4s;
-                    &:hover {
-                        transform: scale(0.85);
-                    }
-                    position: absolute;
-                    display: flex;
-                    right: 38vw;
-                    top: 10%;
-                    align-items: center;
-                    color: black;
-                    .icone-logo::before {
-                        font-size: 100px;
-                    }
-                    h1 {
-                        font-size: xxx-large;
-                    }
-                }
-                
-            }
-
-            // menu de navigation
-            .menu-nav {
-                height: 20vh;
-                display: flex;
-                justify-content: space-between;
-                align-items: flex-end;
-                ul, .panier {
-                    align-items: center;
-                }
-                
-                ul {
-                    display: flex;
-                    justify-content: flex-start;
-                    padding-left: 10%;
-                    padding-bottom: 40px;
-                    li {
-                        margin-right: 30%;
-                        font-size: 25px;
-                        list-style-type: none;
-                        transition: 0.3s;
-                        @include boutton();
-                        a {
-                            color: black;
-                        }
-                    }
-                }
-
-                .panier {
-                    justify-content: flex-end;
-                    padding-right: 10%;
-                    padding-bottom: 40px;
-                    a{
-                        display: flex;
-                        align-items: center;
-                    }
-                    .icone-logo::before {
-                        font-size: 30px;
-                    }
-
-                    h2, .h2 {
-                        font-size: 25px;
-                        margin-left: 5%;
-                        color: black;
-                    }
-                }
-            }
+    h2 {
+      margin: auto;
+      width: 60%;
+      color: white;
+      text-align: center;
+      border-radius: 10px;
+      border: 3px solid $color-principal;
+      font-size: xx-large;
+    }
+    .form {
+      margin-top: 50px;
+      .commande {
+        display: flex;
+        justify-content: space-between;
+        margin-left: 10%;
+        margin-right: 10%;
+        label {
+          color: white;
+          font-size: x-large;
         }
-
-
-    /********** Section **********/
-
-        section {
-            width: 100%;
-            padding: 20px 40px;
-            display: flex;
-            flex-wrap: wrap;
-            margin-bottom: 100px;
-
-            // En tête
-                .main {
-                    width: 100%;
-                    margin: auto 80px;
-                    .intro {
-                        margin-top: 30px;
-                        margin-bottom: 100px;
-                        border: 5px solid $color-principal;
-                        text-align: center;
-                        font-size: 60px;
-                        color: #f1f1f1;
-                        border-radius: 30px;
-                        box-shadow: 10px 10px 30px black;
-                    }
-                    p {
-                        margin-bottom: 20px;
-                        color: #f1f1f1;
-                        text-align: center;
-                        font-size: 35px;
-                    }
-                }
-
-            // Barre de recherche -  Barre de selection 
-                .recherche {
-                    width: 100%;
-                    padding-right: 20px;
-                    text-align: right;
-                    position: relative;
-                    input, select {
-                        margin-top: 20px;
-                        margin-bottom: 30px;
-                        border-radius: 12px;
-                        outline: none;
-                        padding: 7px 30px;
-                        font-size: 18px;
-                        transition: all 0.3s;
-                        &:hover {
-                            transform: scale(0.95);
-                        }
-                    }
-                    select.button {
-                        cursor: pointer;
-                    }
-                    .fa-search {
-                        position: absolute;
-                        top: 32px;
-                        right: 1.5%;
-                        font-size: larger;
-                        cursor: pointer;
-                        @include boutton();
-                    }
-                    @media screen and(max-width: 1500px){
-                        .fa-search {
-                            right: 2.5%;
-                        }
-                    }
-                    @media screen and(max-width: 840px){
-                        .fa-search {
-                            right: 3.8%;
-                        }
-                    }
-                }
-
-            // Section des produits
-                .produits {
-                    width: 100%;
-                    display: flex;
-                    justify-content: center;
-                    #info {
-                        width: 30%; 
-                        padding: 0 20px;  
-                    }
-                }
-            
-            // Mise en force des Produits
-                .produit {
-                    width: 30%;
-                    margin: 40px 20px 40px 20px;
-                    padding: 10px;
-                    border: 5px solid $color-principal;
-                    border-radius: 15px;
-                    background: lighten($color: $color-secondary, $amount: 20); 
-                    cursor: pointer;
-                    transition: all 0.5s ease-out;
-                    &:hover {
-                        transform: scale(1.06);
-                        box-shadow: 10px 20px 10px 1px;
-                    } 
-
-                    @media screen and(max-width: 1024px){
-                        .produit {
-                            width: 80%;
-                        }
-                    }
-
-                    a {
-                        color: $color-text;
-                        h2 {
-                            padding: 10px 20px;
-                        }
-                        p {
-                            padding: 20px 20px;
-                        }
-                    }
-                    
-                    .titre-produit, .info-produit {
-                        color: black;
-                    }
-                    .titre-produit {
-                        text-align: center;
-                        font-size: xx-large;
-                    }
-                    
-                    .image {
-                        width: 100%;
-                        text-align: center;
-                        .img-produit {
-                            margin-top: 20px;
-                            margin-bottom: 20px;
-                            text-align: center;
-                            width: 80%;
-                            height: 250px;
-                            border-radius: 10px;
-                        }
-                    }
-                    .img-pdrt {
-                        height: 500px ;
-                        .img {
-                            height: 420px;
-                        }
-                    }
-
-                    @media screen and(max-width: 768px){
-                        .img-pdrt {
-                            display: none;
-                        }
-                    }
-                    
-                    .info-produit {
-                        background: linear-gradient(to top,transparent 10%, lighten($color: $color-secondary, $amount: 100) 80%,transparent);
-                        border: 0.1px solid black;
-                        border-radius: 5px;
-                        position: relative;
-                        .description-produit, .prix-produit, .taille-produit, .choix{
-                            text-align: left;
-                            margin: 10px;
-                            font-size: 25px;
-                        }
-                        .description-produit {
-                            border-bottom: 2px solid lighten($color: $color-secondary, $amount: 20);
-                            padding: 15px 40px;
-                            text-align: center;
-                            
-                        }
-                        .choix {
-                            border: none;
-                            border-radius: 10px;
-                            padding: 8px 12px;
-                            margin-top: -20px;
-                            transition: all 0.3s;
-                            @include boutton();
-                            cursor: pointer;
-                        }
-                        .dif-choix {
-                            display: none;
-                        }
-
-                            
-                        
-                        .prix-produit {
-                            margin-bottom: 40px;
-                        }
-                        .prix-produits {
-                            font-size: 30px;
-                            margin: 10px 20px;
-                        }
-                    }
-                    
-                    .button {
-                        display: flex;
-                        justify-content: flex-end;
-                        button{
-                            margin-top: 10px;
-                            margin-bottom: 10px;
-                            padding: 12px 25px;
-                            font-size: large;
-                            border-radius: 5px;
-                            border: none;
-                            cursor: pointer;
-                            background: $color-principal;
-                            transition: 0.3s;
-                            @include boutton();
-                        }
-                        .voir-plus {
-                            width: 50%;
-                            border: 1px solid black;
-                            text-align: center;
-                            color: $color-secondary;
-                            margin: 20px 0;
-                            padding: 10px;
-                            background: #fff;
-                            transition: all 0.3s;
-                            &:hover {
-                                transform: scale(1.04);
-                                padding-left: -10px;
-                            }
-                            &:active {
-                                transform: scale(1);
-                            }
-                        }
-                    }
-                }
-
-            // Mise en forme d'un seul produit
-                .seul {
-                    width: 80%;
-                    margin: 50px auto;
-                    .image {
-                        .img {
-                            height: 60vh;
-                        }
-                    }
-                    &:hover {
-                        transform: none;
-                        box-shadow: 10px 20px 10px 1px;
-                    } 
-                }
-            
-            // Le Panier
-                .panier {
-                    text-align: center;
-                    width: 100%;
-                    margin: 50px 0;
-                    .button-panier {
-                        color: $color-text;
-                        font-size: 35px;
-                        background: lighten($color: $color-secondary, $amount: 30);
-                        padding: 7px 50px;
-                        border-radius: 10px;
-                    }
-                }
-
-            // mise en forme des produits dans le panier
-                .produit-ajouter {
-                    width: 100%;
-                    
-                    // Produit ajouter au panier
-                    .pdrt-ajouter {
-                        margin-bottom: 50px;
-                    }
-
-                    p {
-                        color: $color-text;
-                        text-align: right;
-                        padding-bottom: 20px;
-                        padding-right: 20px;
-                        font-size: large;
-                    }
-                    
-                }
-                
-                // Formulaire de Commande
-                .formulaire, .produit-ajouter {
-                    width: 60%;
-                    margin: 25px auto;
-                    padding-top: 30px;
-                    border-radius: 30px;
-                    background: lighten($color-secondary, 20);
-
-                    @media screen and(max-width: 1024px){
-                        .formulaire, .produit-ajouter {
-                            width: 75%;
-                        }
-                    }
-
-                    @media screen and(max-width: 768px){
-                        .formulaire, .produit-ajouter {
-                            width: 90%;
-                        }
-                    }
-
-                    h2 {
-                        margin: auto;
-                        width: 60%;
-                        color: white;
-                        text-align: center;
-                        border-radius: 10px;
-                        border: 3px solid $color-principal;
-                        font-size: xx-large;
-                    }
-                    .form {
-                        margin-top: 50px;
-                        .commande {
-                            display: flex;
-                            justify-content: space-between;
-                            margin-left: 10%;
-                            margin-right: 10%;
-                            label {
-                                color: white;
-                                font-size: x-large;
-                            }
-                            input {
-                                margin-bottom: 30px;
-                                padding: 5px 20px;
-                                border-radius: 20px;
-                            }
-                        }
-                    }
-                    .passez-commande {
-                        width: 100%;
-                        text-align: center;
-                        button {
-                            cursor: pointer;
-                            margin-top: 30px;
-                            margin-bottom: 30px;
-                            padding: 10px 25px;
-                            border-radius: 15px;
-                            font-size: large;
-                            background-color: $color-principal;
-                            transition: all 0.4s;
-                            @include boutton();
-                            border: none;
-                            &:hover {
-                                box-shadow: 10px 10px 20px ;
-                            }
-                        }
-                    }
-                }
-
-                // Contact
-                .contact {
-                    .info-contact {
-                        p {
-                            font-size: x-large;
-                        }
-                    }
-                }
-            }
-            
-            
-            /********** Footer **********/
-            
-            footer {
-                height: 12vh;
-                
-                // Navigation footer
-                .nav-footer {
-                    width: 100%;
-                    height: 100%;
-                    ul {
-                        height: 100%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-between;
-                        li {
-                            margin: 0 50px;
-                            list-style-type: none;
-                            font-size: 25px;
-                            border: 1px solid black;
-                            border-radius: 20px;
-                            transition: all 0.2s;
-                            padding: 2px 15px;
-                            a {
-                                color: black;
-                            }
-                            &:hover {
-                                box-shadow: 7px 5px 20px black;
-                            }
-                        }
-
-                        @media screen and(max-width: 768px) {
-                            li {
-                                margin: 0 20px;
-                            }
-                        }
-                    }
-                }
-            }
-            
-            
-/*-------- Media Screen  --------*/
-
-    /********** Tablette **********/
-
-    @media screen and(max-width: 1024px){
-        section {
-            padding: 0;
-            input, select {
-                padding-left: 5px;
-                margin-bottom: 30px;
-                border-radius: 5px;
-            }
-            .produits {
-                flex-wrap: wrap;
-                #info {
-                    width: 80%;
-                    margin: 40px 20px 40px 20px;
-                }
-                .seul {
-                    .image {
-                        .img {
-                            height: 20vh !important;
-                        }
-                    }
-                }
-            }
-            .produit {
-                width: 80%;
-                margin: 25px auto;
-            }
+        input {
+          margin-bottom: 30px;
+          padding: 5px 20px;
+          border-radius: 20px;
         }
+      }
     }
-
-    /********** Téléphone **********/
-
-    @media screen and(max-width: 768px){
-        section {
-            input, select {
-                padding-left: 5px;
-                margin-bottom: 30px;
-                border-radius: 5px;
-            }
-            padding: 0;
-            .produits {
-                flex-wrap: wrap;
-                #info {
-                    width: 100%;
-                }
-                .produit {
-                    width: 100%;
-                    margin: 0;
-                }
-            }
+    .passez-commande {
+      width: 100%;
+      text-align: center;
+      button {
+        cursor: pointer;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        padding: 10px 25px;
+        border-radius: 15px;
+        font-size: large;
+        background-color: $color-principal;
+        transition: all 0.4s;
+        @include boutton();
+        border: none;
+        &:hover {
+          box-shadow: 10px 10px 20px;
         }
+      }
     }
+  }
+
+  @media screen and(max-width: 768px) {
+    .produit-ajouter,
+    .formulaire {
+      width: 90%;
+    }
+  }
+
+  //* Contact *//
+  .contact {
+    .info-contact {
+        margin-bottom: 190px;
+      p {
+        font-size: x-large;
+      }
+    }
+  }
+}
+
+/********** Footer **********/
+
+footer {
+  height: 12vh;
+
+  //* Navigation footer *//
+  .nav-footer {
+    width: 100%;
+    height: 100%;
+    ul {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      li {
+        margin: 0 50px;
+        list-style-type: none;
+        font-size: 25px;
+        border: 1px solid black;
+        border-radius: 20px;
+        transition: all 0.2s;
+        padding: 2px 15px;
+        a {
+          color: black;
+        }
+        &:hover {
+          box-shadow: 7px 5px 20px black;
+        }
+      }
+
+      @media screen and(max-width: 768px) {
+        li {
+          margin: 0 20px;
+        }
+      }
+    }
+  }
+}
+
+/*------------------ Media Screen ------------------*/
+
+@media screen and(max-width: 1279px) {
+  section {
+    .produit {
+      width: 45%;
+      margin: 25px auto;
+    }
+  }
+}
+
+/********** Tablette **********/
+
+@media screen and(max-width: 1024px) {
+  section {
+    padding: 0;
+    input,
+    select {
+      padding-left: 5px;
+      margin-bottom: 30px;
+      border-radius: 5px;
+    }
+    .produits {
+      flex-wrap: wrap;
+      #info {
+        width: 80%;
+        margin: 40px 20px 40px 20px;
+      }
+      .seul {
+        .image {
+          .img {
+            height: 20vh !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+/********** Téléphone **********/
+
+@media screen and(max-width: 768px) {
+  section {
+    input,
+    select {
+      padding-left: 5px;
+      margin-bottom: 30px;
+      border-radius: 5px;
+    }
+    padding: 0;
+    .produits {
+      flex-wrap: wrap;
+      #info {
+        width: 100%;
+      }
+    }
+    .produit {
+      width: 90%;
+    }
+  }
+}

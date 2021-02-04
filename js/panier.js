@@ -1,29 +1,29 @@
-// /*-------------- Petit localStorage --------------*/
+/***** mettre les produits dans le panier *****/
 
-// window.onload = () => {
-//   if (localStorage.prenom != null) {
-//     var prenom = localStorage.prenom;
-//   } else {
-//     var prenom = prompt("Entrez votre Prénom ici 😜");
-//     localStorage.prenom = prenom;
-//   }
+let produitAjouter = document.getElementById("pdrt-ajouter");
+let boutton = document.querySelector("#submit");
 
-//   let utilisateur = document.getElementById("utlisateur");
-//   utilisateur.innerText = `${prenom}`;
-// };
+function getProduct() {
+  let produit = JSON.parse(localStorage.getItem("produit"));
+  // pas d'objet dans le panier
+  if (!produit) {
+    produitAjouter.innerHTML = "<p>Aucun produit dans le panier</p>";
+    console.log("pas de produit dans le panier");
+  }
 
+  /***** Afficher le prix *****/
+  let prixTotal = document.getElementById("prixTotal");
 
+  produit.forEach((element) => {
+    prixTotal.innerHTML = `${element.price * element.quantity} €`;
+    
+    produitAjouter.innerHTML = `<div class="produit seul" id="produitSeul"><h3 class="titre-produit">${element.name}</h3><div class="image">${element.image}</div><div class="suprimer"><button id="suprimer">Suprimer</button></div></div>`;
 
-// /*-------------- localStorage --------------*/
+    let div1 = document.createElement('div');
+    div1.classList('quantiter')
+    let pdrt = document.getElementById('produitSeul');
+    pdrt.appendChild(div1);
 
-// const ajouter = document.getElementsByClassName("ajouter-panier");
-// const nombreDeProduit = document.querySelector("span#nombreDeProduit");
-// const produitAjouter = document.getElementById("pdrt-ajouter");
-// let nombre = 0;
-
-
-// // ajouter un element
-// ajouter.addEventListener("click", () => {
-//   nombreDeProduit.innerHTML += `(${nombre})`;
-// });
-
+  });
+}
+getProduct();

@@ -1,8 +1,8 @@
 @charset "UTF-8";
 /*# sourceMappingURL=main.scss.map */
-/*-------- Variables --------*/
-/*-------- Mixins --------*/
-/*-------- Mise en Forme Génerale --------*/
+/*------------------ Variables ------------------*/
+/*------------------ Mixins ------------------*/
+/*------------------ Mise en Forme Génerale ------------------*/
 * {
   padding: 0;
   margin: 0;
@@ -20,22 +20,24 @@ img {
 }
 
 .icone-logo::before {
-  background: linear-gradient(-20deg, #D6843C, #8F5BFE);
-  background: -webkit-linear-gradient(-20deg, #D6843C, #8F5BFE);
+  background: linear-gradient(-20deg, #d6843c, #8f5bfe);
+  background: -webkit-linear-gradient(-20deg, #d6843c, #8f5bfe);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
 }
 
-/*-------- Balise Génerique  --------*/
+/*------------------ Balise Génerique ------------------*/
 /********** header **********/
-header, footer {
+header,
+footer {
   position: relative;
   height: 20vh;
   width: 100%;
   background: #f3e9f1;
 }
-header .logo a, footer .logo a {
+header .logo a,
+footer .logo a {
   transition: all 0.4s;
   position: absolute;
   display: flex;
@@ -44,60 +46,78 @@ header .logo a, footer .logo a {
   align-items: center;
   color: black;
 }
-header .logo a:hover, footer .logo a:hover {
+header .logo a:hover,
+footer .logo a:hover {
   transform: scale(0.85);
 }
-header .logo a .icone-logo::before, footer .logo a .icone-logo::before {
+header .logo a .icone-logo::before,
+footer .logo a .icone-logo::before {
   font-size: 100px;
 }
-header .logo a h1, footer .logo a h1 {
+header .logo a h1,
+footer .logo a h1 {
   font-size: xxx-large;
 }
-header .menu-nav, footer .menu-nav {
+header .menu-nav,
+footer .menu-nav {
   height: 20vh;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
 }
-header .menu-nav ul, header .menu-nav .panier, footer .menu-nav ul, footer .menu-nav .panier {
+header .menu-nav ul,
+header .menu-nav .panier,
+footer .menu-nav ul,
+footer .menu-nav .panier {
   align-items: center;
 }
-header .menu-nav ul, footer .menu-nav ul {
+header .menu-nav ul,
+footer .menu-nav ul {
   display: flex;
   justify-content: flex-start;
   padding-left: 10%;
   padding-bottom: 40px;
 }
-header .menu-nav ul li, footer .menu-nav ul li {
+header .menu-nav ul li,
+footer .menu-nav ul li {
   margin-right: 30%;
-  font-size: 25px;
+  font-size: 35px;
   list-style-type: none;
   transition: 0.3s;
 }
-header .menu-nav ul li:hover, footer .menu-nav ul li:hover {
+header .menu-nav ul li:hover,
+footer .menu-nav ul li:hover {
   transform: scale(1.03);
 }
-header .menu-nav ul li:active, footer .menu-nav ul li:active {
+header .menu-nav ul li:active,
+footer .menu-nav ul li:active {
   transition: 0s;
   transform: scale(1);
 }
-header .menu-nav ul li a, footer .menu-nav ul li a {
+header .menu-nav ul li a,
+footer .menu-nav ul li a {
   color: black;
 }
-header .menu-nav .panier, footer .menu-nav .panier {
+header .menu-nav .panier,
+footer .menu-nav .panier {
   justify-content: flex-end;
   padding-right: 10%;
   padding-bottom: 40px;
 }
-header .menu-nav .panier a, footer .menu-nav .panier a {
+header .menu-nav .panier a,
+footer .menu-nav .panier a {
   display: flex;
   align-items: center;
 }
-header .menu-nav .panier .icone-logo::before, footer .menu-nav .panier .icone-logo::before {
+header .menu-nav .panier .icone-logo::before,
+footer .menu-nav .panier .icone-logo::before {
   font-size: 30px;
 }
-header .menu-nav .panier h2, header .menu-nav .panier .h2, footer .menu-nav .panier h2, footer .menu-nav .panier .h2 {
-  font-size: 25px;
+header .menu-nav .panier h2,
+header .menu-nav .panier .h2,
+footer .menu-nav .panier h2,
+footer .menu-nav .panier .h2 {
+  font-size: 35px;
   margin-left: 5%;
   color: black;
 }
@@ -108,7 +128,6 @@ section {
   padding: 20px 40px;
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 100px;
 }
 section .main {
   width: 100%;
@@ -124,6 +143,11 @@ section .main .intro {
   border-radius: 30px;
   box-shadow: 10px 10px 30px black;
 }
+@media screen and (max-width: 768px) {
+  section .main .intro {
+    font-size: 40px;
+  }
+}
 section .main p {
   margin-bottom: 20px;
   color: #f1f1f1;
@@ -136,16 +160,17 @@ section .recherche {
   text-align: right;
   position: relative;
 }
-section .recherche input, section .recherche select {
+section .recherche input,
+section .recherche select {
   margin-top: 20px;
-  margin-bottom: 30px;
   border-radius: 12px;
   outline: none;
   padding: 7px 30px;
   font-size: 18px;
   transition: all 0.3s;
 }
-section .recherche input:hover, section .recherche select:hover {
+section .recherche input:hover,
+section .recherche select:hover {
   transform: scale(0.95);
 }
 section .recherche select.button {
@@ -170,9 +195,25 @@ section .recherche .fa-search:active {
     right: 2.5%;
   }
 }
-@media screen and (max-width: 840px) {
+@media screen and (max-width: 1024px) {
+  section .recherche {
+    text-align: center;
+  }
+  section .recherche input,
+section .recherche select {
+    width: 40%;
+  }
   section .recherche .fa-search {
-    right: 3.8%;
+    right: 33%;
+  }
+}
+@media screen and (max-width: 840px) {
+  section .recherche {
+    text-align: right;
+  }
+  section .recherche .fa-search {
+    right: 5%;
+    top: 33px;
   }
 }
 section .produits {
@@ -199,7 +240,7 @@ section .produit:hover {
   box-shadow: 10px 20px 10px 1px;
 }
 @media screen and (max-width: 1024px) {
-  section .produit .produit {
+  section .produit {
     width: 80%;
   }
 }
@@ -212,7 +253,8 @@ section .produit a h2 {
 section .produit a p {
   padding: 20px 20px;
 }
-section .produit .titre-produit, section .produit .info-produit {
+section .produit .titre-produit,
+section .produit .info-produit {
   color: black;
 }
 section .produit .titre-produit {
@@ -222,20 +264,48 @@ section .produit .titre-produit {
 section .produit .image {
   width: 100%;
   text-align: center;
-}
-section .produit .image .img-produit {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+section .produit .image .img-produit {
   text-align: center;
   width: 80%;
   height: 250px;
   border-radius: 10px;
 }
-section .produit .img-pdrt {
+section .produit .image .img {
+  height: 420px;
+  width: 70%;
+}
+section .produit .image .img-pdrt {
   height: 500px;
 }
-section .produit .img-pdrt .img {
-  height: 420px;
+section .produit .quantiter {
+  text-align: left;
+  color: white;
+  font-size: xx-large;
+}
+section .produit .suprimer {
+  display: flex;
+  justify-content: center;
+}
+section .produit .suprimer button {
+  margin-top: 30px;
+  padding: 5px 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+section .produit .suprimer button:hover {
+  transform: scale(1.03);
+}
+section .produit .suprimer button:active {
+  transition: 0s;
+  transform: scale(1);
+}
+@media screen and (max-width: 1024px) {
+  section .produit .img {
+    width: 100%;
+  }
 }
 @media screen and (max-width: 768px) {
   section .produit .img-pdrt {
@@ -248,7 +318,10 @@ section .produit .info-produit {
   border-radius: 5px;
   position: relative;
 }
-section .produit .info-produit .description-produit, section .produit .info-produit .prix-produit, section .produit .info-produit .taille-produit, section .produit .info-produit .choix {
+section .produit .info-produit .description-produit,
+section .produit .info-produit .prix-produit,
+section .produit .info-produit .taille-produit,
+section .produit .info-produit .choix {
   text-align: left;
   margin: 10px;
   font-size: 25px;
@@ -283,13 +356,14 @@ section .produit .info-produit .prix-produits {
   font-size: 30px;
   margin: 10px 20px;
 }
-section .produit .button {
+section .produit #buttonContainer {
   display: flex;
   justify-content: flex-end;
 }
-section .produit .button button {
+section .produit #buttonContainer .button {
   margin-top: 10px;
   margin-bottom: 10px;
+  margin-right: 10px;
   padding: 12px 25px;
   font-size: large;
   border-radius: 5px;
@@ -298,14 +372,14 @@ section .produit .button button {
   background: #f3e9f1;
   transition: 0.3s;
 }
-section .produit .button button:hover {
+section .produit #buttonContainer .button:hover {
   transform: scale(1.03);
 }
-section .produit .button button:active {
+section .produit #buttonContainer .button:active {
   transition: 0s;
   transform: scale(1);
 }
-section .produit .button .voir-plus {
+section .produit #buttonContainer .voir-plus {
   width: 50%;
   border: 1px solid black;
   text-align: center;
@@ -315,15 +389,15 @@ section .produit .button .voir-plus {
   background: #fff;
   transition: all 0.3s;
 }
-section .produit .button .voir-plus:hover {
+section .produit #buttonContainer .voir-plus:hover {
   transform: scale(1.04);
   padding-left: -10px;
 }
-section .produit .button .voir-plus:active {
+section .produit #buttonContainer .voir-plus:active {
   transform: scale(1);
 }
 section .seul {
-  width: 80%;
+  width: 80% !important;
   margin: 50px auto;
 }
 section .seul .image .img {
@@ -349,16 +423,22 @@ section .produit-ajouter {
   width: 100%;
 }
 section .produit-ajouter .pdrt-ajouter {
-  margin-bottom: 50px;
+  margin: 50px 10px;
 }
-section .produit-ajouter p {
+section .produit-ajouter .pdrt-ajouter p {
+  color: white;
+  text-align: center;
+  font-size: larger;
+}
+section .produit-ajouter p.prix-total {
   color: #f1f1f1;
   text-align: right;
   padding-bottom: 20px;
   padding-right: 20px;
   font-size: large;
 }
-section .formulaire, section .produit-ajouter {
+section .formulaire,
+section .produit-ajouter {
   width: 60%;
   margin: 25px auto;
   padding-top: 30px;
@@ -366,16 +446,23 @@ section .formulaire, section .produit-ajouter {
   background: gray;
 }
 @media screen and (max-width: 1024px) {
-  section .formulaire .formulaire, section .formulaire .produit-ajouter, section .produit-ajouter .formulaire, section .produit-ajouter .produit-ajouter {
+  section .formulaire .formulaire,
+section .formulaire .produit-ajouter,
+section .produit-ajouter .formulaire,
+section .produit-ajouter .produit-ajouter {
     width: 75%;
   }
 }
 @media screen and (max-width: 768px) {
-  section .formulaire .formulaire, section .formulaire .produit-ajouter, section .produit-ajouter .formulaire, section .produit-ajouter .produit-ajouter {
+  section .formulaire .formulaire,
+section .formulaire .produit-ajouter,
+section .produit-ajouter .formulaire,
+section .produit-ajouter .produit-ajouter {
     width: 90%;
   }
 }
-section .formulaire h2, section .produit-ajouter h2 {
+section .formulaire h2,
+section .produit-ajouter h2 {
   margin: auto;
   width: 60%;
   color: white;
@@ -384,29 +471,35 @@ section .formulaire h2, section .produit-ajouter h2 {
   border: 3px solid #f3e9f1;
   font-size: xx-large;
 }
-section .formulaire .form, section .produit-ajouter .form {
+section .formulaire .form,
+section .produit-ajouter .form {
   margin-top: 50px;
 }
-section .formulaire .form .commande, section .produit-ajouter .form .commande {
+section .formulaire .form .commande,
+section .produit-ajouter .form .commande {
   display: flex;
   justify-content: space-between;
   margin-left: 10%;
   margin-right: 10%;
 }
-section .formulaire .form .commande label, section .produit-ajouter .form .commande label {
+section .formulaire .form .commande label,
+section .produit-ajouter .form .commande label {
   color: white;
   font-size: x-large;
 }
-section .formulaire .form .commande input, section .produit-ajouter .form .commande input {
+section .formulaire .form .commande input,
+section .produit-ajouter .form .commande input {
   margin-bottom: 30px;
   padding: 5px 20px;
   border-radius: 20px;
 }
-section .formulaire .passez-commande, section .produit-ajouter .passez-commande {
+section .formulaire .passez-commande,
+section .produit-ajouter .passez-commande {
   width: 100%;
   text-align: center;
 }
-section .formulaire .passez-commande button, section .produit-ajouter .passez-commande button {
+section .formulaire .passez-commande button,
+section .produit-ajouter .passez-commande button {
   cursor: pointer;
   margin-top: 30px;
   margin-bottom: 30px;
@@ -417,15 +510,27 @@ section .formulaire .passez-commande button, section .produit-ajouter .passez-co
   transition: all 0.4s;
   border: none;
 }
-section .formulaire .passez-commande button:hover, section .produit-ajouter .passez-commande button:hover {
+section .formulaire .passez-commande button:hover,
+section .produit-ajouter .passez-commande button:hover {
   transform: scale(1.03);
 }
-section .formulaire .passez-commande button:active, section .produit-ajouter .passez-commande button:active {
+section .formulaire .passez-commande button:active,
+section .produit-ajouter .passez-commande button:active {
   transition: 0s;
   transform: scale(1);
 }
-section .formulaire .passez-commande button:hover, section .produit-ajouter .passez-commande button:hover {
+section .formulaire .passez-commande button:hover,
+section .produit-ajouter .passez-commande button:hover {
   box-shadow: 10px 10px 20px;
+}
+@media screen and (max-width: 768px) {
+  section .produit-ajouter,
+section .formulaire {
+    width: 90%;
+  }
+}
+section .contact .info-contact {
+  margin-bottom: 190px;
 }
 section .contact .info-contact p {
   font-size: x-large;
@@ -466,13 +571,20 @@ footer .nav-footer ul li:hover {
   }
 }
 
-/*-------- Media Screen  --------*/
+/*------------------ Media Screen ------------------*/
+@media screen and (max-width: 1279px) {
+  section .produit {
+    width: 45%;
+    margin: 25px auto;
+  }
+}
 /********** Tablette **********/
 @media screen and (max-width: 1024px) {
   section {
     padding: 0;
   }
-  section input, section select {
+  section input,
+section select {
     padding-left: 5px;
     margin-bottom: 30px;
     border-radius: 5px;
@@ -487,17 +599,14 @@ footer .nav-footer ul li:hover {
   section .produits .seul .image .img {
     height: 20vh !important;
   }
-  section .produit {
-    width: 80%;
-    margin: 25px auto;
-  }
 }
 /********** Téléphone **********/
 @media screen and (max-width: 768px) {
   section {
     padding: 0;
   }
-  section input, section select {
+  section input,
+section select {
     padding-left: 5px;
     margin-bottom: 30px;
     border-radius: 5px;
@@ -508,9 +617,8 @@ footer .nav-footer ul li:hover {
   section .produits #info {
     width: 100%;
   }
-  section .produits .produit {
-    width: 100%;
-    margin: 0;
+  section .produit {
+    width: 90%;
   }
 }
 

@@ -2,6 +2,8 @@
 
 /***** Objets Cameras *****/
 
+// create and insert HTML
+
 const createCamera = (Camera) => {
   // console.log(camera);
 
@@ -22,6 +24,7 @@ const createCamera = (Camera) => {
   thirdDiv.classList.add("info-produit");
   let fourDiv = document.createElement("div");
   fourDiv.classList.add("button");
+  fourDiv.setAttribute('id', 'buttonContainer');
   let firstSelect = document.createElement("select");
   firstSelect.classList.add("dif-choix");
 
@@ -51,6 +54,7 @@ const createCamera = (Camera) => {
     option.innerHTML = `Tailles : ${element}`;
     firstSelect.appendChild(option);
   });
+  
 };
 
 /***** Objets Teddys *****/
@@ -66,7 +70,6 @@ const createTeddy = (Teddy) => {
   firstImg.classList.add("img-produit");
   let firstP = document.createElement("p");
   firstP.classList.add("description-produit");
-  // let firstButton = document.createElement("button");
   let secondDiv = document.createElement("div");
   secondDiv.classList.add("image");
   let secondP = document.createElement("p");
@@ -75,6 +78,7 @@ const createTeddy = (Teddy) => {
   thirdDiv.classList.add("info-produit");
   let fourDiv = document.createElement("div");
   fourDiv.classList.add("button");
+  fourDiv.setAttribute('id', 'buttonContainer');
   let firstSelect = document.createElement("select");
   firstSelect.classList.add("choix");
   let firstA = document.createElement("a");
@@ -121,7 +125,6 @@ const createFurniture = (Furniture) => {
   firstImg.classList.add("img-produit");
   let firstP = document.createElement("p");
   firstP.classList.add("description-produit");
-  // let firstButton = document.createElement("button");
   let secondDiv = document.createElement("div");
   secondDiv.classList.add("image");
   let secondP = document.createElement("p");
@@ -130,6 +133,7 @@ const createFurniture = (Furniture) => {
   thirdDiv.classList.add("info-produit");
   let fourDiv = document.createElement("div");
   fourDiv.classList.add("button");
+  fourDiv.setAttribute('id', 'buttonContainer');
   let firstSelect = document.createElement("select");
   firstSelect.classList.add("choix");
   let firstA = document.createElement("a");
@@ -170,42 +174,18 @@ const createFurniture = (Furniture) => {
 const cameras = (camera) => {
   console.log(camera);
 
-  let firstDiv = document.createElement("div");
-  firstDiv.classList.add("produit");
-  firstDiv.classList.add("seul");
-  let firstH2 = document.createElement("h2");
-  firstH2.classList.add("titre-produit");
-  let firstImg = document.createElement("img");
-  firstImg.classList.add("img-produit");
-  firstImg.classList.add("img");
-  let firstP = document.createElement("p");
-  firstP.classList.add("description-produit");
-  let firstButton = document.createElement("button");
-  firstButton.classList.add('ajouter-panier');
-  let secondDiv = document.createElement("div");
-  secondDiv.classList.add("image");
-  let secondP = document.createElement("p");
-  secondP.classList.add("prix-produit");
-  let thirdDiv = document.createElement("div");
-  thirdDiv.classList.add("info-produit");
-  let fourDiv = document.createElement("div");
-  fourDiv.classList.add("button");
-  let firstSelect = document.createElement("select");
-  firstSelect.classList.add("choix");
-
-  document.querySelector(".produits").appendChild(firstDiv);
+  let firstDiv = document.querySelector('.produit.seul');
+  let firstH2 = document.querySelector('.titre-produit');
+  let firstImg = document.querySelector('.img');
+  let firstP = document.querySelector('.description-produit');
+  let secondDiv = document.querySelector('.image');
+  let secondP = document.querySelector('.prix-produit');
+  let thirdDiv = document.querySelector('.info-produit');
+  let fourDiv = document.getElementById('buttonContainer');
+  let firstSelect = document.querySelector('.choix');
 
   firstImg.src = camera.imageUrl;
 
-  firstDiv.appendChild(firstH2);
-  firstDiv.appendChild(secondDiv);
-  firstDiv.appendChild(thirdDiv);
-  firstDiv.appendChild(fourDiv);
-  secondDiv.appendChild(firstImg);
-  thirdDiv.appendChild(firstP);
-  thirdDiv.appendChild(secondP);
-  fourDiv.appendChild(firstButton);
-  thirdDiv.appendChild(firstSelect);
   camera.lenses.forEach((element) => {
     let option = document.createElement("option");
     option.innerHTML = `Tailles : ${element}`;
@@ -214,7 +194,6 @@ const cameras = (camera) => {
 
   firstH2.innerHTML = camera.name;
   firstP.innerHTML = camera.description;
-  firstButton.innerHTML = "Ajouter au Panier";
   secondP.innerHTML = `${camera.price} €`;
 };
 
@@ -223,42 +202,18 @@ const cameras = (camera) => {
 const teddys = (teddy) => {
   console.log(teddy);
 
-  let firstDiv = document.createElement("div");
-  firstDiv.classList.add("produit");
-  firstDiv.classList.add("seul");
-  let firstH2 = document.createElement("h2");
-  firstH2.classList.add("titre-produit");
-  let firstImg = document.createElement("img");
-  firstImg.classList.add("img-produit");
-  firstImg.classList.add("img");
-  let firstP = document.createElement("p");
-  firstP.classList.add("description-produit");
-  let firstButton = document.createElement("button");
-  firstButton.classList.add('ajouter-panier');
-  let secondDiv = document.createElement("div");
-  secondDiv.classList.add("image");
-  let secondP = document.createElement("p");
-  secondP.classList.add("prix-produit");
-  let thirdDiv = document.createElement("div");
-  thirdDiv.classList.add("info-produit");
-  let fourDiv = document.createElement("div");
-  fourDiv.classList.add("button");
-  let firstSelect = document.createElement("select");
-  firstSelect.classList.add("choix");
-
-  document.querySelector(".produits").appendChild(firstDiv);
+  let firstDiv = document.querySelector('.produit.seul');
+  let firstH2 = document.querySelector('.titre-produit');
+  let firstImg = document.querySelector('.img');
+  let firstP = document.querySelector('.description-produit');
+  let secondDiv = document.querySelector('.image');
+  let secondP = document.querySelector('.prix-produit');
+  let thirdDiv = document.querySelector('.info-produit');
+  let fourDiv = document.getElementById('buttonContainer');
+  let firstSelect = document.querySelector('.choix');
 
   firstImg.src = teddy.imageUrl;
 
-  firstDiv.appendChild(firstH2);
-  firstDiv.appendChild(secondDiv);
-  firstDiv.appendChild(thirdDiv);
-  firstDiv.appendChild(fourDiv);
-  secondDiv.appendChild(firstImg);
-  thirdDiv.appendChild(firstP);
-  thirdDiv.appendChild(secondP);
-  fourDiv.appendChild(firstButton);
-  thirdDiv.appendChild(firstSelect);
   teddy.colors.forEach((element) => {
     let option = document.createElement("option");
     option.innerHTML = `Tailles : ${element}`;
@@ -267,7 +222,6 @@ const teddys = (teddy) => {
 
   firstH2.innerHTML = teddy.name;
   firstP.innerHTML = teddy.description;
-  firstButton.innerHTML = "Ajouter au Panier";
   secondP.innerHTML = `${teddy.price} €`;
 };
 
@@ -276,42 +230,18 @@ const teddys = (teddy) => {
 const furnitures = (furniture) => {
   console.log(furniture);
 
-  let firstDiv = document.createElement("div");
-  firstDiv.classList.add("produit");
-  firstDiv.classList.add("seul");
-  let firstH2 = document.createElement("h2");
-  firstH2.classList.add("titre-produit");
-  let firstImg = document.createElement("img");
-  firstImg.classList.add("img-produit");
-  firstImg.classList.add("img");
-  let firstP = document.createElement("p");
-  firstP.classList.add("description-produit");
-  let firstButton = document.createElement("button");
-  firstButton.classList.add('ajouter-panier');
-  let secondDiv = document.createElement("div");
-  secondDiv.classList.add("image");
-  let secondP = document.createElement("p");
-  secondP.classList.add("prix-produit");
-  let thirdDiv = document.createElement("div");
-  thirdDiv.classList.add("info-produit");
-  let fourDiv = document.createElement("div");
-  fourDiv.classList.add("button");
-  let firstSelect = document.createElement("select");
-  firstSelect.classList.add("choix");
-
-  document.querySelector(".produits").appendChild(firstDiv);
+  let firstDiv = document.querySelector('.produit.seul');
+  let firstH2 = document.querySelector('.titre-produit');
+  let firstImg = document.querySelector('.img');
+  let firstP = document.querySelector('.description-produit');
+  let secondDiv = document.querySelector('.image');
+  let secondP = document.querySelector('.prix-produit');
+  let thirdDiv = document.querySelector('.info-produit');
+  let fourDiv = document.getElementById('buttonContainer');
+  let firstSelect = document.querySelector('.choix');
 
   firstImg.src = furniture.imageUrl;
 
-  firstDiv.appendChild(firstH2);
-  firstDiv.appendChild(secondDiv);
-  firstDiv.appendChild(thirdDiv);
-  firstDiv.appendChild(fourDiv);
-  secondDiv.appendChild(firstImg);
-  thirdDiv.appendChild(firstP);
-  thirdDiv.appendChild(secondP);
-  fourDiv.appendChild(firstButton);
-  thirdDiv.appendChild(firstSelect);
   furniture.varnish.forEach((element) => {
     let option = document.createElement("option");
     option.innerHTML = `Tailles : ${element}`;
@@ -320,8 +250,9 @@ const furnitures = (furniture) => {
 
   firstH2.innerHTML = furniture.name;
   firstP.innerHTML = furniture.description;
-  firstButton.innerHTML = "Ajouter au Panier";
   secondP.innerHTML = `${furniture.price} €`;
 };
 
+/*-------------- création du boutton ajouter au panier --------------*/
 
+/***** Boutton *****/

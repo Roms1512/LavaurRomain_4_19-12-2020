@@ -67,10 +67,10 @@ const showAllFurniture = () => {
 
 /*-------------- Afficher les Objets --------------*/
 
+
 /***** Barre de recherche *****/
 
 const selectElement = document.getElementById("product");
-const result = document.getElementById("produits");
 
 selectElement.addEventListener("change", (event) => {
   if (
@@ -89,7 +89,7 @@ selectElement.addEventListener("change", (event) => {
     event.target.value === "Katatone" ||
     event.target.value === "katatone"
   ) {
-    result.innerHTML = showAllCamera();
+    showAllCamera();
   }
 
   if (
@@ -106,7 +106,7 @@ selectElement.addEventListener("change", (event) => {
     event.target.value === "Peluches" ||
     event.target.value === "peluches"
   ) {
-    result.innerHTML = showAllTeddy();
+    showAllTeddy();
   }
 
   if (
@@ -127,29 +127,28 @@ selectElement.addEventListener("change", (event) => {
     event.target.value === "Chaises" ||
     event.target.value === "chaise"
   ) {
-    result.innerHTML = showAllFurniture();
+    showAllFurniture();
   }
 });
 
 /***** Au click *****/
 
-const allProduct = document.getElementById("all-product");
+// const prdt = document.querySelectorAll("#info");
 
-allProduct.addEventListener("click", () => {
-  result.innerHTML = `${showAllCamera()} ${showAllTeddy()} ${showAllFurniture()}`;
-});
+// prdt.forEach((element) => {
+//   element.addEventListener('click', (e) => {
+//     let camera = document.querySelector(".produit1")
+//     let teddy = document.querySelector(".produit2")
+//     let furniture = document.querySelector(".produit3")
+//     if (camera) {
+//       return showAllCamera();
+//     } else if (teddy) {
+//       return showAllTeddy();
+//     } else if (furniture){
+//       return showAllFurniture();
+//     };
+//     console.log(camera);
+//   });
+// });
 
-const camera = document.getElementById("produit1");
-const ours = document.getElementById("produit2");
-const meuble = document.getElementById("produit3");
-
-camera.addEventListener("click", () => {
-  result.innerHTML = showAllCamera();
-});
-ours.addEventListener("click", () => {
-  result.innerHTML = showAllTeddy();
-});
-meuble.addEventListener("click", () => {
-  result.innerHTML = showAllFurniture();
-});
-
+// console.log(prdt);
