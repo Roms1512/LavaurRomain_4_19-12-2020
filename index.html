@@ -44,7 +44,8 @@
           </div>
         </div>
       </header>
-  
+
+      
       <!-- Section produits -->
       <section id="produits">
         <div class="main">
@@ -52,41 +53,33 @@
             Bienvenu chez Orinoco !
           </h1>
         </div>
-  
+        
         <div class="recherche">
-          <select name="produit" id="product" class="button">
-            <option value="">Choisissez un produit</option>
-            <a href="./html/idx1.html"></a><option value="camera">Caméra</option></a>
-            <a href="./html/idx1.html"></a><option value="teddy">Ours en peluche</option></a>
-            <a href="./html/idx1.html"></a><option value="furniture">Meuble en bois</option></a>
-          </select>
+          <input
+            type="search"
+            name="search"
+            id="product"
+            placeholder="Rechercher"
+          />
+          <i class="fas fa-search"></i>
         </div>
-  
+
         <div class="produits">
           <div class="produit" id="info">
             <a href="#" id="produit1">
               <h2 class="">Caméras vintage</h2>
-              <div class="image img-pdrt img-intro">
-                <img src="../images/vcam_3.jpg" class="img-produit img" alt="" />
-              </div>
             </a>
           </div>
   
           <div class="produit" id="info">
             <a href="#" id="produit2">
               <h2>Ours en peluche faits main</h2>
-              <div class="image img-pdrt img-intro">
-                <img src="../images/teddy_3.jpg" class="img-produit img" alt="" />
-              </div>
             </a>
           </div>
   
           <div class="produit" id="info">
             <a href="#" id="produit3">
               <h2>Meubles en chêne</h2>
-              <div class="image img-pdrt img-intro">
-                <img src="../images/oak_2.jpg" class="img-produit img" alt="" />
-              </div>
             </a>
           </div>
         </div>
@@ -108,5 +101,6 @@
   </script>
     <script src="./js/creationProduit.js"></script>
     <script src="./js/index.js"></script>
+    <script src="./js/pdrt-Index.js"></script>
   </body>
 </html>

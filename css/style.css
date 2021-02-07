@@ -220,6 +220,7 @@ section .produits {
   width: 100%;
   display: flex;
   justify-content: center;
+  margin-bottom: 20vh;
 }
 section .produits #info {
   width: 30%;
@@ -515,8 +516,8 @@ section .produit-ajouter .passez-commande {
   width: 100%;
   text-align: center;
 }
-section .formulaire .passez-commande button,
-section .produit-ajouter .passez-commande button {
+section .formulaire .passez-commande .button,
+section .produit-ajouter .passez-commande .button {
   cursor: pointer;
   margin-top: 30px;
   margin-bottom: 30px;
@@ -527,17 +528,17 @@ section .produit-ajouter .passez-commande button {
   transition: all 0.4s;
   border: none;
 }
-section .formulaire .passez-commande button:hover,
-section .produit-ajouter .passez-commande button:hover {
+section .formulaire .passez-commande .button:hover,
+section .produit-ajouter .passez-commande .button:hover {
   transform: scale(1.03);
 }
-section .formulaire .passez-commande button:active,
-section .produit-ajouter .passez-commande button:active {
+section .formulaire .passez-commande .button:active,
+section .produit-ajouter .passez-commande .button:active {
   transition: 0s;
   transform: scale(1);
 }
-section .formulaire .passez-commande button:hover,
-section .produit-ajouter .passez-commande button:hover {
+section .formulaire .passez-commande .button:hover,
+section .produit-ajouter .passez-commande .button:hover {
   box-shadow: 10px 10px 20px;
 }
 @media screen and (max-width: 768px) {

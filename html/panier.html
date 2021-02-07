@@ -52,7 +52,7 @@
                 </div>   
                 
             <!-- formulaire de remplissage -->
-                <form class="formulaire" id="valid">
+                <form class="formulaire" id="valid" name="commande">
                         <h2>Passez votre commande</h2>
             
                         <div class="form">
@@ -62,7 +62,8 @@
                                     type="text" 
                                     required 
                                     minlength="3" placeholder="Dupont, ..."
-                                    id="lastName">
+                                    id="lastName"
+                                    name="lastName">
                             </div>
                             <div class="commande">
                                 <label>Prénom : </label>
@@ -70,7 +71,8 @@
                                     type="text" 
                                     required 
                                     minlength="3" placeholder="Pierre, ..."
-                                    id="firstName">
+                                    id="firstName"
+                                    name="firstName">
                             </div>
                             <div class="commande">
                                 <label>adresse : </label>
@@ -79,7 +81,8 @@
                                     required 
                                     minlength="3" 
                                     placeholder="7 rue les plaines, ..."
-                                    id="adress">
+                                    id="adress"
+                                    name="adress">
                             </div>
                             <div class="commande">
                                 <label>Ville : </label>
@@ -88,18 +91,20 @@
                                     required 
                                     minlength="3" 
                                     placeholder="Paris, ..."
-                                    id="city">
+                                    id="city"
+                                    name="city">
                             </div>
                             <div class="commande">
                                 <label>adresse mail : </label>
                                 <input 
                                     type="email" 
                                     required placeholder="exemple-1234@gmail.com, ..."
-                                    id="mail">
+                                    id="mail"
+                                    name="mail">
                             </div>
                         </div>
                         <div class="passez-commande">
-                            <button id="submit" type="submit">Passer la commande</button>
+                            <input id="submit" type="submit" value="Passer la commande" class="button">
                         </div>
                 </form>
             
