@@ -425,10 +425,27 @@ section .produit-ajouter {
 section .produit-ajouter .pdrt-ajouter {
   margin: 50px 10px;
 }
+section .produit-ajouter .pdrt-ajouter .Suprimer {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 30px;
+}
+section .produit-ajouter .pdrt-ajouter .Suprimer .quant {
+  width: 80px;
+}
+section .produit-ajouter .pdrt-ajouter .Suprimer .supre {
+  padding: 0 20px;
+}
 section .produit-ajouter .pdrt-ajouter p {
   color: white;
   text-align: center;
   font-size: larger;
+}
+section .produit-ajouter .supr {
+  margin-left: 10px;
+  padding: 5px 15px;
 }
 section .produit-ajouter p.prix-total {
   color: #f1f1f1;
@@ -580,6 +597,7 @@ footer .nav-footer ul li:hover {
 }
 /********** Tablette **********/
 @media screen and (max-width: 1024px) {
+  /***** Section *****/
   section {
     padding: 0;
   }
@@ -602,6 +620,7 @@ section select {
 }
 /********** Téléphone **********/
 @media screen and (max-width: 768px) {
+  /***** Section *****/
   section {
     padding: 0;
   }
