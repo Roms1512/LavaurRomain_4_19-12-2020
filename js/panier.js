@@ -27,7 +27,7 @@ function getProduct() {
           element.quantity -= 1;
           console.log("produit suprimer");
         } else if (element.quantity === 0) {
-          localStorage.removeItem("produit");
+          localStorage.clear("produit", JSON.stringify(element[i]));
           console.log("le produit n'est plus dans le panier");
           return;
         }

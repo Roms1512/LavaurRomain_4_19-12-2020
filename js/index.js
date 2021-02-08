@@ -64,27 +64,3 @@ const showAllFurniture = () => {
     });
   });
 };
-
-/***** Barre de recherche *****/
-
-const selectElement = document.getElementById("product");
-
-selectElement.addEventListener("change", (event) => {
-  if (/(cameras?|zurss?|hirsch?|franck?|kuros?|katatone?)/i) {
-    showAllCamera();
-    return;
-  } 
-  
-  if (
-    /(teddy|ours|oursons?|peluches?|norbert|arnold|lenny and carl|gustav|garfunkel)/i
-  ) {
-    showAllTeddy();
-    return;
-  }
-  
-  if (/(furnitures?|meubles?|tables?|chaises?|planches?)/i) {
-    showAllFurniture();
-    return;
-  }
-});
-
