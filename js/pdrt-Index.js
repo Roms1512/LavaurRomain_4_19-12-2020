@@ -2,49 +2,34 @@
 
 /***** Au click *****/
 
-const allProduct = document.querySelectorAll('#info');
+function addEvent() {
+  let camera = document.getElementById("produit1");
+  let teddy = document.getElementById("produit2");
+  let furniture = document.getElementById("produit3");
 
-allProduct.forEach(element => {
-  element.addEventListener('click', (e)=> {
-    e.preventDefault();
-    let camera = document.getElementById('produit1');
-    let teddy = document.getElementById('produit2');
-    let furniture = document.getElementById('produit3');
-
-    if (camera) {
-      showAllCamera();
-      return
-    } 
-    if (teddy) {
-      showAllTeddy();
-      return
-    } 
-    if (furniture) {
-      showAllFurniture();
-      return
-    }
-  });
-})
+  camera.addEventListener("click", () => showAllCamera());
+  teddy.addEventListener("click", () => showAllTeddy());
+  furniture.addEventListener("click", () => showAllFurniture());
+}
+addEvent();
 
 /***** Barre de recherche *****/
 
 const selectElement = document.getElementById("product");
 
+const regCamera = /(cameras?|zurss?|hirsch?|franck?|kuros?|katatone?)/i;
+const regTeddy = /(teddy?|ours?|oursons?|peluches?|norbert?|arnold?|lenny and carl|gustav?|garfunkel?)/i;
+const regFurniture = /(furnitures?|meubles?|tables?|chaises?|planches?)/i;
+
 selectElement.addEventListener("change", (event) => {
   event.preventDefault();
-  if (/(cameras?|zurss?|hirsch?|franck?|kuros?|katatone?)/i) {
+  if (regCamera.test(selectElement.value)) {
     showAllCamera();
     return;
-  } 
-  
-  else if (
-    /(teddy|ours|oursons?|peluches?|norbert|arnold|lenny and carl|gustav|garfunkel)/i
-  ) {
+  } else if (regTeddy.test(selectElement.value)) {
     showAllTeddy();
     return;
-  }
-  
-  else if (/(furnitures?|meubles?|tables?|chaises?|planches?)/i) {
+  } else if (regFurniture.test(selectElement.value)) {
     showAllFurniture();
     return;
   }
