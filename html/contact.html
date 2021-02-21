@@ -59,7 +59,11 @@
 
     <script>
         let panier = document.getElementById("nombreDeProduit");
-        panier.innerHTML = `(${localStorage.getItem("quantité de produit")})`;
+        if (localStorage.getItem("quantité de produit") === null) {
+            panier.innerHTML = ``
+        } else {
+            panier.innerHTML = `${localStorage.getItem("quantité de produit")}`;
+        }
     </script>
     <script src="../js/panier.js"></script>
     <script src="../node_modules/swup/dist/swup.min.js"></script>

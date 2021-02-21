@@ -1,8 +1,8 @@
 let currentProduct = null;
 
-/*-------------- récuperation de l'ID --------------*/
+/***---------------*** récuperation de l'ID ***---------------***/
 
-/*****  *****/
+/***** récupération des données *****/
 
 const id = new URLSearchParams(window.location.search).get("id");
 const type = new URLSearchParams(window.location.search).get("type");
@@ -10,7 +10,7 @@ const type = new URLSearchParams(window.location.search).get("type");
 console.log(id);
 console.log(type);
 
-/*-------------- récuperation de l'ID --------------*/
+/***---------------*** récupération de l'ID ***---------------***/
 
 const getProductCamera = async () => {
   let response = await fetch(`http://localhost:3000/api/cameras/${id}`);
@@ -39,7 +39,7 @@ const getProductFurniture = async () => {
   }
 };
 
-/*-------------- Récupérer un Objet JSON --------------*/
+/***---------------*** Récupérer un Objet JSON ***---------------***/
 
 /***** JSON Camera *****/
 
@@ -83,7 +83,7 @@ switch (type) {
     break;
 }
 
-/*-------------- LocalStorage pour le panier --------------*/
+/***---------------*** LocalStorage pour le panier ***---------------***/
 
 const createButton = () => {
   const button = document.createElement("button");
@@ -158,7 +158,7 @@ const createButton = () => {
     if(!quantitéStorage){
       panier.innerHTML = "";
     } else {
-      panier.innerHTML = `(${quantitéStorage})`;
+      panier.innerHTML = `${quantitéStorage}`;
     }
     console.log(quantitéStorage);
     
@@ -168,7 +168,7 @@ const createButton = () => {
 
 createButton();
 
-/*-------------- Afficher les différents Objets --------------*/
+/***---------------*** Afficher les différents Objets ***---------------***/
 
 
 

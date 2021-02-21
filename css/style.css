@@ -2,6 +2,42 @@
 /*# sourceMappingURL=main.scss.map */
 /*------------------ Variables ------------------*/
 /*------------------ Mixins ------------------*/
+/*------------------ KeyFrames ------------------*/
+@keyframes mouvingButton {
+  0% {
+    background: linear-gradient(-45deg, #f3e9f1, #f3e9f1, #f3e9f1, #f3e9f1, #bd86b2, #f3e9f1, #f3e9f1, #f3e9f1, #f3e9f1, #f3e9f1, #bd86b2);
+  }
+  10% {
+    background: linear-gradient(-45deg, #f3e9f1, #f3e9f1, #f3e9f1, #bd86b2, #f3e9f1, #f3e9f1, #f3e9f1, #f3e9f1, #f3e9f1, #bd86b2, #f3e9f1);
+  }
+  20% {
+    background: linear-gradient(-45deg, #f3e9f1, #f3e9f1, #bd86b2, #f3e9f1, #f3e9f1, #f3e9f1, #f3e9f1, #f3e9f1, #bd86b2, #f3e9f1, #f3e9f1);
+  }
+  30% {
+    background: linear-gradient(-45deg, #f3e9f1, #bd86b2, #f3e9f1, #f3e9f1, #f3e9f1, #f3e9f1, #f3e9f1, #bd86b2, #f3e9f1, #f3e9f1, #f3e9f1);
+  }
+  40% {
+    background: linear-gradient(-45deg, #f3e9f1, #f3e9f1, #f3e9f1, #f3e9f1, #f3e9f1, #bd86b2, #f3e9f1, #f3e9f1, #f3e9f1, #f3e9f1);
+  }
+  50% {
+    background: linear-gradient(-45deg, #f3e9f1, #f3e9f1, #f3e9f1, #f3e9f1, #bd86b2, #f3e9f1, #f3e9f1, #f3e9f1, #f3e9f1, #f3e9f1, #bd86b2);
+  }
+  60% {
+    background: linear-gradient(-45deg, #f3e9f1, #f3e9f1, #f3e9f1, #bd86b2, #f3e9f1, #f3e9f1, #f3e9f1, #f3e9f1, #f3e9f1, #bd86b2, #f3e9f1);
+  }
+  70% {
+    background: linear-gradient(-45deg, #f3e9f1, #f3e9f1, #bd86b2, #f3e9f1, #f3e9f1, #f3e9f1, #f3e9f1, #f3e9f1, #bd86b2, #f3e9f1, #f3e9f1);
+  }
+  80% {
+    background: linear-gradient(-45deg, #f3e9f1, #bd86b2, #f3e9f1, #f3e9f1, #f3e9f1, #f3e9f1, #bd86b2, #f3e9f1, #f3e9f1, #f3e9f1, #f3e9f1);
+  }
+  90% {
+    background: linear-gradient(-45deg, #bd86b2, #f3e9f1, #f3e9f1, #f3e9f1, #f3e9f1, #bd86b2, #f3e9f1, #f3e9f1, #f3e9f1, #f3e9f1, #f3e9f1);
+  }
+  100% {
+    background: linear-gradient(-45deg, #bd86b2, #f3e9f1, #f3e9f1, #f3e9f1, #bd86b2, #f3e9f1, #f3e9f1, #f3e9f1, #f3e9f1, #f3e9f1, #f3e9f1);
+  }
+}
 /*------------------ Mise en Forme Génerale ------------------*/
 * {
   padding: 0;
@@ -32,9 +68,13 @@ img {
 header,
 footer {
   position: relative;
-  height: 20vh;
+  height: 28vh;
   width: 100%;
   background: #f3e9f1;
+}
+header .logo,
+footer .logo {
+  padding-bottom: 80px;
 }
 header .logo a,
 footer .logo a {
@@ -100,6 +140,7 @@ footer .menu-nav ul li a {
 }
 header .menu-nav .panier,
 footer .menu-nav .panier {
+  position: relative;
   justify-content: flex-end;
   padding-right: 10%;
   padding-bottom: 40px;
@@ -120,6 +161,35 @@ footer .menu-nav .panier .h2 {
   font-size: 35px;
   margin-left: 5%;
   color: black;
+}
+header .menu-nav .panier .h2,
+footer .menu-nav .panier .h2 {
+  font-size: 20px;
+  position: absolute;
+  right: 38%;
+  top: -10px;
+  color: #f1f1f1;
+  background: #ab659d;
+  border-radius: 50%;
+  padding: 0 10px;
+}
+@media screen and (max-width: 1024px) {
+  header .menu-nav .panier .h2,
+footer .menu-nav .panier .h2 {
+    right: 28%;
+  }
+}
+@media screen and (max-width: 768px) {
+  header .menu-nav .panier .h2,
+footer .menu-nav .panier .h2 {
+    right: 18%;
+  }
+}
+@media screen and (max-width: 320px) {
+  header .menu-nav .panier .h2,
+footer .menu-nav .panier .h2 {
+    right: 2%;
+  }
 }
 
 /********** Section **********/
@@ -220,7 +290,7 @@ section .produits {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-bottom: 20vh;
+  margin-bottom: 5vh;
 }
 section .produits #info {
   width: 30%;
@@ -265,8 +335,7 @@ section .produit .titre-produit {
 section .produit .image {
   width: 100%;
   text-align: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px auto;
 }
 section .produit .image .img-produit {
   text-align: center;
@@ -280,6 +349,11 @@ section .produit .image .img {
 }
 section .produit .image .img-pdrt {
   height: 500px;
+}
+@media screen and (min-width: 1024px) {
+  section .produit .image {
+    width: 90%;
+  }
 }
 section .produit .quantiter {
   text-align: left;
@@ -380,6 +454,10 @@ section .produit #buttonContainer .button:active {
   transition: 0s;
   transform: scale(1);
 }
+section .produit #buttonContainer .button:hover {
+  animation: 1s mouvingButton 0.06s infinite reverse linear;
+  box-shadow: 10px 10px 20px;
+}
 section .produit #buttonContainer .voir-plus {
   width: 50%;
   border: 1px solid black;
@@ -435,9 +513,27 @@ section .produit-ajouter .pdrt-ajouter .Suprimer {
 }
 section .produit-ajouter .pdrt-ajouter .Suprimer .quant {
   width: 80px;
+  padding-left: 30px;
+  border-radius: 5px;
 }
 section .produit-ajouter .pdrt-ajouter .Suprimer .supre {
   padding: 0 20px;
+  border: none;
+  border-radius: 5px;
+}
+@media screen and (min-width: 1024px) {
+  section .produit-ajouter .pdrt-ajouter .Suprimer {
+    margin-bottom: 30px;
+  }
+  section .produit-ajouter .pdrt-ajouter .Suprimer .quant {
+    height: 50px;
+    font-size: 20px;
+  }
+  section .produit-ajouter .pdrt-ajouter .Suprimer .supre {
+    height: 50px;
+    font-size: 20px;
+    padding: 0 30px;
+  }
 }
 section .produit-ajouter .pdrt-ajouter p {
   color: white;
@@ -445,7 +541,9 @@ section .produit-ajouter .pdrt-ajouter p {
   font-size: larger;
 }
 section .produit-ajouter .supr {
-  margin-left: 10px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 30px;
   padding: 5px 15px;
 }
 section .produit-ajouter p.prix-total {
@@ -464,18 +562,14 @@ section .produit-ajouter {
   background: gray;
 }
 @media screen and (max-width: 1024px) {
-  section .formulaire .formulaire,
-section .formulaire .produit-ajouter,
-section .produit-ajouter .formulaire,
-section .produit-ajouter .produit-ajouter {
+  section .formulaire,
+section .produit-ajouter {
     width: 75%;
   }
 }
 @media screen and (max-width: 768px) {
-  section .formulaire .formulaire,
-section .formulaire .produit-ajouter,
-section .produit-ajouter .formulaire,
-section .produit-ajouter .produit-ajouter {
+  section .formulaire,
+section .produit-ajouter {
     width: 90%;
   }
 }
@@ -492,6 +586,15 @@ section .produit-ajouter h2 {
 section .formulaire .form,
 section .produit-ajouter .form {
   margin-top: 50px;
+  color: #f1f1f1;
+}
+section .formulaire .form h5,
+section .produit-ajouter .form h5 {
+  color: #d8d8d8;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 20px;
+  margin-left: 30px;
 }
 section .formulaire .form .commande,
 section .produit-ajouter .form .commande {
@@ -502,7 +605,6 @@ section .produit-ajouter .form .commande {
 }
 section .formulaire .form .commande label,
 section .produit-ajouter .form .commande label {
-  color: white;
   font-size: x-large;
 }
 section .formulaire .form .commande input,
@@ -539,13 +641,8 @@ section .produit-ajouter .passez-commande .button:active {
 }
 section .formulaire .passez-commande .button:hover,
 section .produit-ajouter .passez-commande .button:hover {
+  animation: 1s mouvingButton 0.06s infinite reverse linear;
   box-shadow: 10px 10px 20px;
-}
-@media screen and (max-width: 768px) {
-  section .produit-ajouter,
-section .formulaire {
-    width: 90%;
-  }
 }
 section .contact .info-contact {
   margin-bottom: 190px;

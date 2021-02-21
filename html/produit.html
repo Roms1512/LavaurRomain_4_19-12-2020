@@ -11,13 +11,14 @@
       integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
       crossorigin="anonymous"
     />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   </head>
   <body>
     <main id="swup" class="transition-fade">
       <!-- En tête -->
       <header>
         <!-- logo -->
-        <div class="logo">
+        <div class="logo" data-aos="fade-down" data-aos-duration="1000">
           <a href="../index.html" class="logo">
             <i class="fas fa-shopping-cart icone-logo"></i>
             <h1>Orinoco</h1>
@@ -26,14 +27,31 @@
         <!-- nav -->
         <div class="menu-nav">
           <ul>
-            <li><a href="./produits.html" id="all-product">Produits</a></li>
+            <li
+              data-aos="zoom-in-right"
+              data-aos-duration="1000"
+              data-aos-delay="400"
+            >
+              <a href="./produits.html" id="all-product">Produits</a>
+            </li>
           </ul>
           <!-- panier -->
-          <div class="panier">
+          <div
+            class="panier"
+            data-aos="zoom-in-left"
+            data-aos-duration="1000"
+            data-aos-delay="700"
+          >
             <a href="./panier.html">
               <i class="fas fa-shopping-cart icone-logo"></i>
               <h2>Panier</h2>
-              <span id="nombreDeProduit" class="h2"></span>
+              <span
+                id="nombreDeProduit"
+                class="h2"
+                data-aos="flip-left"
+                data-aos-delay="1200"
+                data-aos-duration="1000"
+              ></span>
             </a>
           </div>
         </div>
@@ -41,10 +59,20 @@
 
       <!-- Section produit -->
       <section class="produits">
-        <div class="main">
+        <div
+          class="main"
+          data-aos="flip-left"
+          data-aos-duration="1000"
+          data-aos-delay="1200"
+        >
           <h1 class="intro">Produit</h1>
         </div>
-        <div class="produit seul">
+        <div
+          class="produit seul"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="1200"
+        >
           <h2 class="titre-produit"></h2>
           <div class="image">
             <img
@@ -75,13 +103,18 @@
 
     <script>
       let panier = document.getElementById("nombreDeProduit");
-      panier.innerHTML = `(${localStorage.getItem("quantité de produit")})`;
+      if (localStorage.getItem("quantité de produit") === null) {
+        panier.innerHTML = ``;
+      } else {
+        panier.innerHTML = `${localStorage.getItem("quantité de produit")}`;
+      }
     </script>
     <script src="../js/creationProduit.js"></script>
     <script src="../js/produit.js"></script>
     <script src="../node_modules/swup/dist/swup.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-      const swup = new Swup();
+      AOS.init();
     </script>
   </body>
 </html>

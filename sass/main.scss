@@ -19,6 +19,44 @@ $dégradé: #d6843c, #8f5bfe;
   }
 }
 
+/*------------------ KeyFrames ------------------*/
+
+@keyframes mouvingButton{
+  0% {
+    background:linear-gradient(-45deg, $color-principal,$color-principal,$color-principal,$color-principal,darken($color: $color-principal, $amount: 30),$color-principal,$color-principal,$color-principal,$color-principal,$color-principal,darken($color: $color-principal, $amount: 30));
+  }
+  10%{
+    background:linear-gradient(-45deg, $color-principal,$color-principal,$color-principal,darken($color: $color-principal, $amount: 30),$color-principal,$color-principal,$color-principal,$color-principal,$color-principal,darken($color: $color-principal, $amount: 30),$color-principal,);
+  }
+  20%{
+    background:linear-gradient(-45deg, $color-principal,$color-principal,darken($color: $color-principal, $amount: 30),$color-principal,$color-principal,$color-principal,$color-principal,$color-principal,darken($color: $color-principal, $amount: 30),$color-principal,$color-principal,);
+  }
+  30%{
+    background:linear-gradient(-45deg, $color-principal,darken($color: $color-principal, $amount: 30),$color-principal,$color-principal,$color-principal,$color-principal,$color-principal,darken($color: $color-principal, $amount: 30),$color-principal,$color-principal,$color-principal,);
+  }
+  40%{
+    background:linear-gradient(-45deg, $color-principal,$color-principal,$color-principal,$color-principal,$color-principal,darken($color: $color-principal, $amount: 30),$color-principal,$color-principal,$color-principal,$color-principal,);
+  }
+  50%{
+    background:linear-gradient(-45deg, $color-principal,$color-principal,$color-principal,$color-principal,darken($color: $color-principal, $amount: 30),$color-principal,$color-principal,$color-principal,$color-principal,$color-principal,darken($color: $color-principal, $amount: 30));
+  }
+  60%{
+    background:linear-gradient(-45deg, $color-principal,$color-principal,$color-principal,darken($color: $color-principal, $amount: 30),$color-principal,$color-principal,$color-principal,$color-principal,$color-principal,darken($color: $color-principal, $amount: 30),$color-principal,);
+  }
+  70%{
+    background:linear-gradient(-45deg, $color-principal,$color-principal,darken($color: $color-principal, $amount: 30),$color-principal,$color-principal,$color-principal,$color-principal,$color-principal,darken($color: $color-principal, $amount: 30),$color-principal,$color-principal,);
+  }
+  80%{
+    background:linear-gradient(-45deg, $color-principal,darken($color: $color-principal, $amount: 30),$color-principal,$color-principal,$color-principal,$color-principal,darken($color: $color-principal, $amount: 30),$color-principal,$color-principal,$color-principal,$color-principal,);
+  }
+  90%{
+    background:linear-gradient(-45deg, darken($color: $color-principal, $amount: 30),$color-principal,$color-principal,$color-principal,$color-principal,darken($color: $color-principal, $amount: 30),$color-principal,$color-principal,$color-principal,$color-principal,$color-principal,);
+  }
+  100% {
+    background:linear-gradient(-45deg, darken($color: $color-principal, $amount: 30),$color-principal,$color-principal,$color-principal,darken($color: $color-principal, $amount: 30),$color-principal,$color-principal,$color-principal,$color-principal,$color-principal,$color-principal,);
+  }
+}
+
 /*------------------ Mise en Forme Génerale ------------------*/
 
 * {
@@ -52,12 +90,13 @@ img {
 header,
 footer {
   position: relative;
-  height: 20vh;
+  height: 28vh;
   width: 100%;
   background: $color-principal;
 
   //* Logo *//
   .logo {
+    padding-bottom: 80px;
     a {
       transition: all 0.4s;
       &:hover {
@@ -107,6 +146,7 @@ footer {
     }
 
     .panier {
+      position: relative;
       justify-content: flex-end;
       padding-right: 10%;
       padding-bottom: 40px;
@@ -123,6 +163,25 @@ footer {
         font-size: 35px;
         margin-left: 5%;
         color: black;
+      }
+      .h2 {
+        font-size: 20px;
+        position: absolute;
+        right: 38%;
+        top: -10px;
+        color: $color-text;
+        background: darken($color: $color-principal, $amount: 40) ;
+        border-radius: 50%;
+        padding: 0 10px;
+        @media screen and(max-width: 1024px) {
+          right: 28%;
+        }
+        @media screen and(max-width: 768px) {
+          right: 18%;
+        }
+        @media screen and(max-width: 320px) {
+          right: 2%;
+        }
       }
     }
   }
@@ -225,7 +284,7 @@ section {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-bottom: 20vh;
+    margin-bottom: 5vh;
     #info {
       width: 30%;
       padding: 0 20px;
@@ -273,8 +332,7 @@ section {
     .image {
       width: 100%;
       text-align: center;
-      margin-top: 20px;
-      margin-bottom: 20px;
+      margin: 20px auto;
       .img-produit {
         text-align: center;
         width: 80%;
@@ -288,6 +346,9 @@ section {
       .img-pdrt {
         height: 500px;
       }
+      @media screen and(min-width:1024px) {
+        width: 90%;
+      }
     }
 
     .quantiter {
@@ -295,6 +356,7 @@ section {
       color: white;
       font-size: xx-large;
     }
+
     .suprimer {
       display: flex;
       justify-content: center;
@@ -379,6 +441,10 @@ section {
         background: $color-principal;
         transition: 0.3s;
         @include boutton();
+        &:hover {
+          animation: 1s mouvingButton 0.06s infinite reverse linear;
+          box-shadow: 10px 10px 20px;
+        }
       }
       .voir-plus {
         width: 50%;
@@ -447,9 +513,27 @@ section {
         height: 30px;
         .quant {
           width: 80px;
+          padding-left: 30px;
+          border-radius: 5px;
         }
         .supre {
           padding: 0 20px;
+          border: none;
+          border-radius: 5px;
+        }
+      }
+      @media screen and(min-width:1024px) {
+        .Suprimer {
+          margin-bottom: 30px;
+          .quant{
+            height: 50px;
+            font-size: 20px;
+          }
+          .supre{
+            height: 50px;
+            font-size: 20px;
+            padding: 0 30px;
+          }
         }
       }
     }
@@ -461,7 +545,9 @@ section {
     }
     
     .supr {
-      margin-left: 10px;
+      margin-left: 50%;
+      transform: translateX(-50%);
+      margin-bottom: 30px;
       padding: 5px 15px;
     }
 
@@ -484,17 +570,11 @@ section {
     background: lighten($color-secondary, 20);
 
     @media screen and(max-width: 1024px) {
-      .formulaire,
-      .produit-ajouter {
         width: 75%;
-      }
     }
 
     @media screen and(max-width: 768px) {
-      .formulaire,
-      .produit-ajouter {
         width: 90%;
-      }
     }
 
     h2 {
@@ -508,13 +588,20 @@ section {
     }
     .form {
       margin-top: 50px;
+      color: $color-text;
+      h5 {
+        color: darken($color: $color-text, $amount: 10);
+        width: 100%;
+        text-align: left; 
+        margin-bottom: 20px;
+        margin-left: 30px;
+      }
       .commande {
         display: flex;
         justify-content: space-between;
         margin-left: 10%;
         margin-right: 10%;
         label {
-          color: white;
           font-size: x-large;
         }
         input {
@@ -539,18 +626,13 @@ section {
         @include boutton();
         border: none;
         &:hover {
+          animation: 1s mouvingButton 0.06s infinite reverse linear;
           box-shadow: 10px 10px 20px;
         }
       }
     }
   }
 
-  @media screen and(max-width: 768px) {
-    .produit-ajouter,
-    .formulaire {
-      width: 90%;
-    }
-  }
 
   //* Contact *//
   .contact {

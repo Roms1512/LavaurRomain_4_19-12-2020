@@ -47,7 +47,7 @@ const createCamera = (Camera) => {
   fourDiv.appendChild(firstA);
 
   firstH2.innerHTML = Camera.name;
-  secondP.innerHTML = `${Camera.price} €`;
+  secondP.innerHTML = `${Camera.price /100},00 €`;
 
   Camera.lenses.forEach((element) => {
     let option = document.createElement("option");
@@ -103,7 +103,7 @@ const createTeddy = (Teddy) => {
   fourDiv.appendChild(firstA);
 
   firstH2.innerHTML = Teddy.name;
-  secondP.innerHTML = `${Teddy.price} €`;
+  secondP.innerHTML = `${Teddy.price /100},00 €`;
 
   Teddy.colors.forEach((element) => {
     let option = document.createElement("option");
@@ -158,7 +158,7 @@ const createFurniture = (Furniture) => {
   fourDiv.appendChild(firstA);
 
   firstH2.innerHTML = Furniture.name;
-  secondP.innerHTML = `${Furniture.price} €`;
+  secondP.innerHTML = `${Furniture.price /100},00 €`;
 
   Furniture.varnish.forEach((element) => {
     let option = document.createElement("option");
@@ -194,7 +194,7 @@ const cameras = (camera) => {
 
   firstH2.innerHTML = camera.name;
   firstP.innerHTML = camera.description;
-  secondP.innerHTML = `${camera.price} €`;
+  secondP.innerHTML = `${camera.price /100},00 €`;
 };
 
 /***** Objet Teddy *****/
@@ -222,7 +222,7 @@ const teddys = (teddy) => {
 
   firstH2.innerHTML = teddy.name;
   firstP.innerHTML = teddy.description;
-  secondP.innerHTML = `${teddy.price} €`;
+  secondP.innerHTML = `${teddy.price /100},00 €`;
 };
 
 /***** Objet Furniture *****/
@@ -250,7 +250,7 @@ const furnitures = (furniture) => {
 
   firstH2.innerHTML = furniture.name;
   firstP.innerHTML = furniture.description;
-  secondP.innerHTML = `${furniture.price} €`;
+  secondP.innerHTML = `${furniture.price /100},00 €`;
 };
 
 /*-------------- création du boutton ajouter au panier --------------*/
