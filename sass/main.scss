@@ -682,8 +682,21 @@ section {
       }
 
       h3 {
+        font-size: x-large;
         margin-top: 10px;
       }
+
+      .commande {
+        .titreProduit {
+          font-size: large;
+        }
+      }
+
+      .merci {
+        font-size: x-large;
+        margin-top: 30px;
+      }
+
       @media screen and(max-width:1250px) {
         width: 50vw;
       }

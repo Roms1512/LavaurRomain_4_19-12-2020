@@ -16,8 +16,6 @@ function getProduct() {
   /***** Les Produits dans le Panier *****/
 
   allProduit.forEach((element) => {
-    // prixTotal.innerHTML = `${element.price * element.quantity /100} €`;
-
     //***** Afficher les produits *****//
 
     const currentProduct = document.createElement("div");

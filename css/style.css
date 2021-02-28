@@ -685,7 +685,15 @@ section .modal .caption h2 {
   margin-top: 20px;
 }
 section .modal .caption h3 {
+  font-size: x-large;
   margin-top: 10px;
+}
+section .modal .caption .commande .titreProduit {
+  font-size: large;
+}
+section .modal .caption .merci {
+  font-size: x-large;
+  margin-top: 30px;
 }
 @media screen and (max-width: 1250px) {
   section .modal .caption {

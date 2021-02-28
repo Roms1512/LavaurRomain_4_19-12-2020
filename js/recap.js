@@ -1,16 +1,13 @@
-// const modal = document.querySelector('.modal');
-// const caption = document.querySelector('.caption');
+const basket = JSON.parse(localStorage.getItem("produit"));
+const recap = document.getElementById("commande");
 
-// const commande = document.getElementById('submit');
+basket.forEach((element) => {
+  const infoProduit = document.createElement("div");
+  infoProduit.innerHTML = `<h3 class="titreProduit">- ${element.quantity} ${element.name}</h3><p id:"${
+    element.id
+  }">Total : ${setTotalPrice()}</p>`;
 
-// commande.addEventListener('click', (e)=> {
-//   modal.classList.add('open');
-//   caption.classList.add('open');
-// });
+  recap.appendChild(infoProduit);
+});
 
-// modal.addEventListener('click', (e)=> {
-//   if(e.target.classList.contains('modal')) {
-//     modal.classList.remove('open');
-//     caption.classList.remove('open');
-//   }
-// })
+console.log(basket);
