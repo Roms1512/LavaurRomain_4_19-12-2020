@@ -685,14 +685,16 @@ section {
         font-size: x-large;
         margin-top: 10px;
       }
-
+      
       .commande {
         .titreProduit {
           font-size: large;
         }
       }
-
+      
       .merci {
+        position: absolute;
+        bottom: 25px;
         font-size: x-large;
         margin-top: 30px;
       }
