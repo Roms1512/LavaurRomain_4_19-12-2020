@@ -24,39 +24,181 @@ $refuser: rgb(246, 39, 39);
 
 /*------------------ KeyFrames ------------------*/
 
-@keyframes mouvingButton{
+@keyframes mouvingButton {
   0% {
-    background:linear-gradient(-45deg, $color-principal,$color-principal,$color-principal,$color-principal,darken($color: $color-principal, $amount: 30),$color-principal,$color-principal,$color-principal,$color-principal,$color-principal,darken($color: $color-principal, $amount: 30));
+    background: linear-gradient(
+      -45deg,
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      darken($color: $color-principal, $amount: 30),
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      darken($color: $color-principal, $amount: 30)
+    );
   }
-  10%{
-    background:linear-gradient(-45deg, $color-principal,$color-principal,$color-principal,darken($color: $color-principal, $amount: 30),$color-principal,$color-principal,$color-principal,$color-principal,$color-principal,darken($color: $color-principal, $amount: 30),$color-principal,);
+  10% {
+    background: linear-gradient(
+      -45deg,
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      darken($color: $color-principal, $amount: 30),
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      darken($color: $color-principal, $amount: 30),
+      $color-principal
+    );
   }
-  20%{
-    background:linear-gradient(-45deg, $color-principal,$color-principal,darken($color: $color-principal, $amount: 30),$color-principal,$color-principal,$color-principal,$color-principal,$color-principal,darken($color: $color-principal, $amount: 30),$color-principal,$color-principal,);
+  20% {
+    background: linear-gradient(
+      -45deg,
+      $color-principal,
+      $color-principal,
+      darken($color: $color-principal, $amount: 30),
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      darken($color: $color-principal, $amount: 30),
+      $color-principal,
+      $color-principal
+    );
   }
-  30%{
-    background:linear-gradient(-45deg, $color-principal,darken($color: $color-principal, $amount: 30),$color-principal,$color-principal,$color-principal,$color-principal,$color-principal,darken($color: $color-principal, $amount: 30),$color-principal,$color-principal,$color-principal,);
+  30% {
+    background: linear-gradient(
+      -45deg,
+      $color-principal,
+      darken($color: $color-principal, $amount: 30),
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      darken($color: $color-principal, $amount: 30),
+      $color-principal,
+      $color-principal,
+      $color-principal
+    );
   }
-  40%{
-    background:linear-gradient(-45deg, $color-principal,$color-principal,$color-principal,$color-principal,$color-principal,darken($color: $color-principal, $amount: 30),$color-principal,$color-principal,$color-principal,$color-principal,);
+  40% {
+    background: linear-gradient(
+      -45deg,
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      darken($color: $color-principal, $amount: 30),
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      $color-principal
+    );
   }
-  50%{
-    background:linear-gradient(-45deg, $color-principal,$color-principal,$color-principal,$color-principal,darken($color: $color-principal, $amount: 30),$color-principal,$color-principal,$color-principal,$color-principal,$color-principal,darken($color: $color-principal, $amount: 30));
+  50% {
+    background: linear-gradient(
+      -45deg,
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      darken($color: $color-principal, $amount: 30),
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      darken($color: $color-principal, $amount: 30)
+    );
   }
-  60%{
-    background:linear-gradient(-45deg, $color-principal,$color-principal,$color-principal,darken($color: $color-principal, $amount: 30),$color-principal,$color-principal,$color-principal,$color-principal,$color-principal,darken($color: $color-principal, $amount: 30),$color-principal,);
+  60% {
+    background: linear-gradient(
+      -45deg,
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      darken($color: $color-principal, $amount: 30),
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      darken($color: $color-principal, $amount: 30),
+      $color-principal
+    );
   }
-  70%{
-    background:linear-gradient(-45deg, $color-principal,$color-principal,darken($color: $color-principal, $amount: 30),$color-principal,$color-principal,$color-principal,$color-principal,$color-principal,darken($color: $color-principal, $amount: 30),$color-principal,$color-principal,);
+  70% {
+    background: linear-gradient(
+      -45deg,
+      $color-principal,
+      $color-principal,
+      darken($color: $color-principal, $amount: 30),
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      darken($color: $color-principal, $amount: 30),
+      $color-principal,
+      $color-principal
+    );
   }
-  80%{
-    background:linear-gradient(-45deg, $color-principal,darken($color: $color-principal, $amount: 30),$color-principal,$color-principal,$color-principal,$color-principal,darken($color: $color-principal, $amount: 30),$color-principal,$color-principal,$color-principal,$color-principal,);
+  80% {
+    background: linear-gradient(
+      -45deg,
+      $color-principal,
+      darken($color: $color-principal, $amount: 30),
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      darken($color: $color-principal, $amount: 30),
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      $color-principal
+    );
   }
-  90%{
-    background:linear-gradient(-45deg, darken($color: $color-principal, $amount: 30),$color-principal,$color-principal,$color-principal,$color-principal,darken($color: $color-principal, $amount: 30),$color-principal,$color-principal,$color-principal,$color-principal,$color-principal,);
+  90% {
+    background: linear-gradient(
+      -45deg,
+      darken($color: $color-principal, $amount: 30),
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      darken($color: $color-principal, $amount: 30),
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      $color-principal
+    );
   }
   100% {
-    background:linear-gradient(-45deg, darken($color: $color-principal, $amount: 30),$color-principal,$color-principal,$color-principal,darken($color: $color-principal, $amount: 30),$color-principal,$color-principal,$color-principal,$color-principal,$color-principal,$color-principal,);
+    background: linear-gradient(
+      -45deg,
+      darken($color: $color-principal, $amount: 30),
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      darken($color: $color-principal, $amount: 30),
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      $color-principal,
+      $color-principal
+    );
   }
 }
 
@@ -173,7 +315,7 @@ footer {
         right: 38%;
         top: -10px;
         color: $color-text;
-        background: darken($color: $color-principal, $amount: 40) ;
+        background: darken($color: $color-principal, $amount: 40);
         border-radius: 50%;
         padding: 0 10px;
         @media screen and(max-width: 1024px) {
@@ -504,7 +646,6 @@ section {
   //* mise en forme des produits dans le panier *//
   .produit-ajouter {
     width: 100%;
-
     // Produit ajouter au panier
     .pdrt-ajouter {
       margin: 50px 10px;
@@ -514,25 +655,36 @@ section {
         justify-content: space-between;
         align-items: flex-start;
         height: 30px;
+        // selecteur de quantiter
         .quant {
           width: 80px;
           padding-left: 30px;
           border-radius: 5px;
         }
+
+        // boutton suprimer
         .supre {
+          cursor: pointer;
           padding: 0 20px;
           border: none;
           border-radius: 5px;
         }
       }
+
+      p {
+        color: white;
+        text-align: center;
+        font-size: larger;
+      }
+
       @media screen and(min-width:1024px) {
         .Suprimer {
           margin-bottom: 30px;
-          .quant{
+          .quant {
             height: 50px;
             font-size: 20px;
           }
-          .supre{
+          .supre {
             height: 50px;
             font-size: 20px;
             padding: 0 30px;
@@ -540,13 +692,8 @@ section {
         }
       }
     }
-    
-    .pdrt-ajouter p {
-      color: white;
-      text-align: center;
-      font-size: larger;
-    }
-    
+
+    // vider le panier
     .supr {
       margin-left: 50%;
       transform: translateX(-50%);
@@ -554,6 +701,7 @@ section {
       padding: 5px 15px;
     }
 
+    // Prix total du produit
     p.prix-total {
       color: $color-text;
       text-align: right;
@@ -573,11 +721,11 @@ section {
     background: lighten($color-secondary, 20);
 
     @media screen and(max-width: 1024px) {
-        width: 75%;
+      width: 75%;
     }
 
     @media screen and(max-width: 768px) {
-        width: 90%;
+      width: 90%;
     }
 
     h2 {
@@ -593,10 +741,10 @@ section {
       margin-top: 50px;
       color: $color-text;
       h5 {
-        color: $colorText2;
-        font-size: large;
+        color: darken($color: $color-text, $amount: 10);
+        font-size: larger;
         width: 100%;
-        text-align: left; 
+        text-align: left;
         margin-bottom: 20px;
         margin-left: 30px;
       }
@@ -636,7 +784,6 @@ section {
       }
     }
   }
-
 
   //* Contact *//
   .contact {
@@ -685,13 +832,15 @@ section {
         font-size: x-large;
         margin-top: 10px;
       }
-      
+
       .commande {
+        display: flex;
+        flex-direction: column-reverse;
         .titreProduit {
           font-size: large;
         }
       }
-      
+
       .merci {
         position: absolute;
         bottom: 25px;
@@ -708,7 +857,6 @@ section {
       @media screen and(max-width:375px) {
         width: 90vw;
       }
-      
     }
     .caption.open {
       transform: scale(1) rotate(0);

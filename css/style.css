@@ -517,9 +517,15 @@ section .produit-ajouter .pdrt-ajouter .Suprimer .quant {
   border-radius: 5px;
 }
 section .produit-ajouter .pdrt-ajouter .Suprimer .supre {
+  cursor: pointer;
   padding: 0 20px;
   border: none;
   border-radius: 5px;
+}
+section .produit-ajouter .pdrt-ajouter p {
+  color: white;
+  text-align: center;
+  font-size: larger;
 }
 @media screen and (min-width: 1024px) {
   section .produit-ajouter .pdrt-ajouter .Suprimer {
@@ -534,11 +540,6 @@ section .produit-ajouter .pdrt-ajouter .Suprimer .supre {
     font-size: 20px;
     padding: 0 30px;
   }
-}
-section .produit-ajouter .pdrt-ajouter p {
-  color: white;
-  text-align: center;
-  font-size: larger;
 }
 section .produit-ajouter .supr {
   margin-left: 50%;
@@ -590,8 +591,8 @@ section .produit-ajouter .form {
 }
 section .formulaire .form h5,
 section .produit-ajouter .form h5 {
-  color: #000;
-  font-size: large;
+  color: #d8d8d8;
+  font-size: larger;
   width: 100%;
   text-align: left;
   margin-bottom: 20px;
@@ -687,6 +688,10 @@ section .modal .caption h2 {
 section .modal .caption h3 {
   font-size: x-large;
   margin-top: 10px;
+}
+section .modal .caption .commande {
+  display: flex;
+  flex-direction: column-reverse;
 }
 section .modal .caption .commande .titreProduit {
   font-size: large;
