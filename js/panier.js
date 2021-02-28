@@ -29,7 +29,7 @@ function getProduct() {
       element.image
     }" alt="Image du produit mit dans le panier" width ="100%"></div><div class="Suprimer"><input id="quantiter-${
       element.id
-    }" type="number" min="1" max="10" value="${
+    }" type="number" min="1" max="10" aria-label="Produit" value="${
       element.quantity
     }" class="quant"><button id="suprimerProduit-${
       element.id
@@ -38,7 +38,27 @@ function getProduct() {
     }">${(element.price * element.quantity) / 100}</span>,00 €</p></div>`;
     produitAjouter.appendChild(currentProduct);
 
-    //***** supprimer produit par produit *****//
+    //***** Augmenter la quantité de produit *****//
+
+    let quantProd = document.getElementById(`quantiter-${element.id}`);
+    quantProd.addEventListener("change", (e) => {
+      let name = element.name;
+      let currentBasket = JSON.parse(localStorage.getItem("produit"));
+      currentBasket.forEach((el) => {
+        if (el.name == name) {
+          el.quantity = parseInt(quantProd.value);
+          return;
+        }
+      });
+      localStorage.setItem("produit", JSON.stringify(currentBasket));
+
+      let priceElement = document.getElementById(`prix-${element.id}`);
+      priceElement.innerHTML =
+        (element.price * parseInt(quantProd.value)) / 100;
+      setTotalPrice();
+    });
+
+    //***** supprimer produit *****//
 
     let supProduct = document.getElementById(`suprimerProduit-${element.id}`);
     console.log(supProduct);
@@ -47,7 +67,6 @@ function getProduct() {
       console.log(element.name);
       let productName = element.name;
       let basketToUpdate = JSON.parse(localStorage.getItem("produit"));
-      let quantiteProduit = JSON.parse(localStorage.getItem('quantité de produit'));
       for (let i = 0; i < basketToUpdate.length; i++) {
         const elt = basketToUpdate[i];
         if (elt.name == productName) {
@@ -57,7 +76,7 @@ function getProduct() {
       }
       localStorage.setItem("produit", JSON.stringify(basketToUpdate));
       document.getElementById(`produitSeul-${element.id}`).remove();
-      
+
       setTotalPrice();
     });
     console.log(element.quantity);
@@ -80,29 +99,120 @@ getProduct();
 /********** Valider le Formulaire **********/
 
 function valid(data) {
-  let client = [];
-  console.log(client);
+  //* Regex *//
+  let regexName = /^[A-Za-z][a-z\é\è\ê\-]+$/;
+  let regexNameAndNumber = /([0-9]{1,3}) ?([a-zA-Z,\., ?]+)*/;
+  let regexMail = /[a-zA-Z0-9]+@.+[a-z]\.[a-z]{2,3}/;
 
-  let regexName = /[^a-zA-Z]+[a-z]/;
-  let regexNameAndNumber = /[[:alnum:]]/i;
-  let regexMail = /[a-zA-Z0-9]+@.+[a-z]\.[a-z]{2,4}/;
+  //* Input *//
+  let lastName = document.getElementById("lastName");
+  let firstName = document.getElementById("firstName");
+  let adress = document.getElementById("adress");
+  let city = document.getElementById("city");
+  let mail = document.getElementById("mail");
 
-  // console.log(regexName.test(lastName.value));
-
+  //* Formulaire *//
   let submit = document.getElementById("submit");
   submit.addEventListener("click", (e) => {
-    let personne = JSON.parse(localStorage.getItem("client"));
+    e.preventDefault();
+
+    // console.log(regexName.test(lastName.value));
+    // console.log(regexName.test(firstName.value));
+    // console.log(regexNameAndNumber.test(adress.value));
+    // console.log(regexName.test(city.value));
+    // console.log(regexMail.test(mail.value));
+
+    const form = document.querySelector("#valid"); // console.log(form);
+    //***** Test du Formulaire *****//
+
+    //*** Si Fonctionnelle ***/
     if (
-      document.commande == regexName.test(lastName.value) &&
-      document.commande == regexName.test(firstName.value) &&
-      document.commande == regexNameAndNumber.test(adress.value) &&
-      document.commande == regexName.test(city.value) &&
-      document.commande == regexMail.test(mail.value)
+      regexName.test(lastName.value) &&
+      regexName.test(firstName.value) &&
+      regexNameAndNumber.test(adress.value) &&
+      regexName.test(city.value) &&
+      regexMail.test(mail.value)
     ) {
-      document.commande.submit();
-      
+      //***  manipuler le formulaire rapidement et facilement ***/
+      const formContent = Object.fromEntries(new FormData(form)); // console.log(formContent);
+
+      const basket = localStorage.getItem("produit");
+
+      //***  Rentrer les données du client ***/
+      const paramsOrder = {
+        utilisateur: formContent, //Données entrées dans le formulaire
+        products: basket, //Correspond au panier
+      };
+
+      let paramsOrder_json = JSON.stringify(paramsOrder);
+      sessionStorage.setItem("client", paramsOrder_json);
+
+      paramsOrder_json = sessionStorage.getItem("client");
+      let user = JSON.parse(paramsOrder_json);
+
+
+      // ********** Récap de la Commande ********** //
+
+      function popUp() {
+        const modal = document.querySelector(".modal");
+        const caption = document.querySelector(".caption");
+  
+        const commande = document.getElementById("submit");
+  
+        commande.addEventListener("click", (e) => {
+          modal.classList.add("open");
+          caption.classList.add("open");
+        });
+  
+        modal.addEventListener("click", (e) => {
+          if (e.target.classList.contains("modal")) {
+            modal.classList.remove("open");
+            caption.classList.remove("open");
+          }
+        });
+      } popUp()
+
+
+      console.log(user);
       console.log("Merci d'avoir passer Commande");
+      // window.location.reload();
       return;
+    }
+
+    //*** Si C'est Pas Fonctionnelle ***/
+    else {
+      console.log("Formulaire mal remplit");
+
+      //* Montré lequels n'ai pas bon *//
+      if (regexName.test(lastName.value) == false) {
+        lastName.style.border = "4px solid rgb(246, 39, 39)";
+      } else {
+        lastName.style.border = "4px solid rgb(23, 175, 23)";
+      }
+
+      if (regexName.test(firstName.value) == false) {
+        firstName.style.border = "4px solid rgb(246, 39, 39)";
+      } else {
+        firstName.style.border = "4px solid rgb(23, 175, 23)";
+      }
+
+      if (regexNameAndNumber.exec(adress.value) == null) {
+        adress.style.border = "4px solid rgb(246, 39, 39)";
+      } else {
+        adress.style.border = "4px solid rgb(23, 175, 23)";
+      }
+
+      if (regexName.test(city.value) == false) {
+        city.style.border = "4px solid rgb(246, 39, 39)";
+      } else {
+        city.style.border = "4px solid rgb(23, 175, 23)";
+      }
+
+      if (regexMail.test(mail.value) == false) {
+        mail.style.border = "4px solid rgb(246, 39, 39)";
+      } else {
+        mail.style.border = "4px solid rgb(23, 175, 23)";
+      }
     }
   });
 }

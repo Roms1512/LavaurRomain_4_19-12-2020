@@ -34,6 +34,7 @@ const createCamera = (Camera) => {
   document.getElementById("produits").appendChild(firstDiv);
 
   firstImg.src = Camera.imageUrl;
+  firstImg.alt = "Photo d'une caméra";
 
   firstA.setAttribute(`href`, `../html/produit.html?id=${Camera._id}&type=cam`);
   firstA.innerHTML = "voir le produit";
@@ -87,6 +88,7 @@ const createTeddy = (Teddy) => {
   document.getElementById("produits").appendChild(firstDiv);
 
   firstImg.src = Teddy.imageUrl;
+  firstImg.alt = "Photo d'un ours en peluche";
 
   firstA.setAttribute(
     `href`,
@@ -148,6 +150,7 @@ const createFurniture = (Furniture) => {
   document.getElementById("produits").appendChild(firstDiv);
 
   firstImg.src = Furniture.imageUrl;
+  firstImg.alt = "Photo d'un meuble en bois";
 
   firstDiv.appendChild(firstH2);
   firstDiv.appendChild(secondDiv);
@@ -185,6 +188,7 @@ const cameras = (camera) => {
   let firstSelect = document.querySelector('.choix');
 
   firstImg.src = camera.imageUrl;
+  firstImg.alt = "Photo de la caméra";
 
   camera.lenses.forEach((element) => {
     let option = document.createElement("option");
@@ -213,6 +217,7 @@ const teddys = (teddy) => {
   let firstSelect = document.querySelector('.choix');
 
   firstImg.src = teddy.imageUrl;
+  firstImg.alt = "Photo de ours en peluche";
 
   teddy.colors.forEach((element) => {
     let option = document.createElement("option");
@@ -241,6 +246,7 @@ const furnitures = (furniture) => {
   let firstSelect = document.querySelector('.choix');
 
   firstImg.src = furniture.imageUrl;
+  firstImg.alt = "Photo du meuble";
 
   furniture.varnish.forEach((element) => {
     let option = document.createElement("option");
@@ -252,7 +258,3 @@ const furnitures = (furniture) => {
   firstP.innerHTML = furniture.description;
   secondP.innerHTML = `${furniture.price /100},00 €`;
 };
-
-/*-------------- création du boutton ajouter au panier --------------*/
-
-/***** Boutton *****/

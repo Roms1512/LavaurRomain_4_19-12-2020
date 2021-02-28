@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Orinoco</title>
+
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+      integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body>
+    <main id="swup" class="transition-fade">
+      <!-- En tête -->
+      <header>
+        <!-- logo -->
+        <div class="logo" data-aos="fade-down" data-aos-duration="1000">
+          <a href="../index.html" class="logo">
+            <i class="fas fa-shopping-cart icone-logo"></i>
+            <h1>Orinoco</h1>
+          </a>
+        </div>
+        <!-- nav -->
+        <div class="menu-nav">
+          <ul>
+            <li
+              data-aos="zoom-in-right"
+              data-aos-duration="1000"
+              data-aos-delay="400"
+            >
+              <a href="./produits.html" id="all-product">Produits</a>
+            </li>
+          </ul>
+          <!-- panier -->
+          <div
+            class="panier"
+            data-aos="zoom-in-left"
+            data-aos-duration="1000"
+            data-aos-delay="700"
+          >
+            <a href="">
+              <i class="fas fa-shopping-cart icone-logo"></i>
+              <h2>Panier</h2>
+              <span
+                id="nombreDeProduit"
+                class="h2"
+                data-aos="flip-left"
+                data-aos-delay="1200"
+                data-aos-duration="1000"
+              ></span>
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <section>
+       
+      </section>
+
+      <footer>
+        <nav class="nav-footer">
+          <ul>
+            <li><a href="./contact.html">Contactez - nous</a></li>
+            <li><a href="">À propos</a></li>
+          </ul>
+        </nav>
+      </footer>
+    </main>
+
+    <script>
+      let panier = document.getElementById("nombreDeProduit");
+      if (localStorage.getItem("quantité de produit") === null) {
+        panier.innerHTML = ``;
+      } else {
+        panier.innerHTML = `${localStorage.getItem("quantité de produit")}`;
+      }
+    </script>
+    <script src="../js/creationProduit.js"></script>
+    <script src="../js/panier.js"></script>
+    <script src="../node_modules/swup/dist/swup.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>

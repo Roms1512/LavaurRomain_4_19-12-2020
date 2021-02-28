@@ -155,12 +155,12 @@ const createButton = () => {
     
     quantitéStorage++;
     localStorage.setItem("quantité de produit", quantitéStorage);
-    if(!quantitéStorage){
-      panier.innerHTML = "";
-    } else {
-      panier.innerHTML = `${quantitéStorage}`;
-    }
-    console.log(quantitéStorage);
+      if(!quantitéStorage){
+        panier.innerHTML = "";
+      } else {
+        panier.innerHTML = `${quantitéStorage}`;
+      }
+      console.log(quantitéStorage);
     
   });
   buttonContainer.appendChild(button);
