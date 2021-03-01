@@ -108,6 +108,7 @@ const createButton = () => {
           name: currentProduct.name,
           image: currentProduct.imageUrl,
           id: currentProduct._id,
+          type: type,
           price: currentProduct.price,
           quantity: 1
         };
@@ -136,6 +137,7 @@ const createButton = () => {
             name: currentProduct.name,
             image: currentProduct.imageUrl,
             id: currentProduct._id,
+            type: type,
             price: currentProduct.price,
             quantity: 1
           };

@@ -58,8 +58,7 @@ function getProduct() {
 
     //***** supprimer produit *****//
 
-    let supProduct = document.getElementById(`suprimerProduit-${element.id}`);
-    console.log(supProduct);
+    let supProduct = document.getElementById(`suprimerProduit-${element.id}`); // console.log(supProduct);
 
     supProduct.addEventListener("click", (e) => {
       console.log(element.name);
@@ -76,8 +75,7 @@ function getProduct() {
       document.getElementById(`produitSeul-${element.id}`).remove();
 
       setTotalPrice();
-    });
-    console.log(element.quantity);
+    }); // console.log(element.quantity);
 
     //***** vider le panier *****//
 
@@ -114,13 +112,8 @@ function valid(data) {
   submit.addEventListener("click", (e) => {
     e.preventDefault();
 
-    // console.log(regexName.test(lastName.value));
-    // console.log(regexName.test(firstName.value));
-    // console.log(regexNameAndNumber.test(adress.value));
-    // console.log(regexName.test(city.value));
-    // console.log(regexMail.test(mail.value));
-
     const form = document.querySelector("#valid"); // console.log(form);
+
     //***** Test du Formulaire *****//
 
     //*** Si Fonctionnelle ***/
@@ -132,11 +125,13 @@ function valid(data) {
       regexMail.test(mail.value)
     ) {
       //***  manipuler le formulaire rapidement et facilement ***/
+
       const formContent = Object.fromEntries(new FormData(form)); // console.log(formContent);
 
       const basket = localStorage.getItem("produit");
 
       //***  Rentrer les données du client ***/
+
       const paramsOrder = {
         utilisateur: formContent, //Données entrées dans le formulaire
         products: basket, //Correspond au panier
@@ -149,34 +144,92 @@ function valid(data) {
       let user = JSON.parse(paramsOrder_json);
 
 
-      // ********** Récap de la Commande ********** //
+      /********** Méthodes POST **********/
 
-      function popUp() {
-        const modal = document.querySelector(".modal");
-        const caption = document.querySelector(".caption");
-  
-        const commande = document.getElementById("submit");
-  
-        commande.addEventListener("click", (e) => {
-          modal.classList.add("open");
-          caption.classList.add("open");
-        });
-  
-        modal.addEventListener("click", (e) => {
-          if (e.target.classList.contains("modal")) {
-            modal.classList.remove("open");
-            caption.classList.remove("open");
+      function methodePost() {
+
+        //*** Tableau de données Vide ***/
+        let cameraIds = [];
+        let teddyIds = [];
+        let furnitureIds = [];
+        
+        const basket = JSON.parse(localStorage.getItem("produit"));
+
+        //*** Boucle qui parcours le panier ***//
+
+        basket.forEach((element) => {
+          /********** Type de donnée **********/
+
+          // pour chaque elements verifier le type
+          if (element.type == "cam") {
+            cameraIds.push(element.id);
+            return;
+          } else if (element.type == "teddy") {
+            teddyIds.push(element.id);
+            return;
+          } else if (element.type == "furniture") {
+            furnitureIds.push(element.id);
+            return;
+          }
+
+          /********** POST des données **********/
+
+          // boucle si vide
+          if (cameraIds.length > 1) {
+            paramsOrder = {
+              utilisateur: formContent,
+              products: cameraIds,
+            };
+
+            /********** POST des données  -  Caméras **********/
+
+            let response = fetch(
+              POST,
+              "http://localhost:3000/api/cameras"
+            ).then(JSON.stringify(paramsOrder));
+            console.log(response);
+          } else if (teddyIds.length > 1) {
+            paramsOrder = {
+              utilisateur: formContent,
+              products: teddyIds,
+            };
+
+            /********** POST des données  -  Teddy **********/
+
+            let response = fetch(
+              POST,
+              "http://localhost:3000/api/cameras"
+            ).then(JSON.stringify(paramsOrder));
+            console.log(response);
+          } else if (furnitureIds.length > 1) {
+            paramsOrder = {
+              utilisateur: formContent,
+              products: furnitureIds,
+            };
+
+            /********** POST des données  -  Furnitures **********/
+
+            let response = fetch(
+              POST,
+              "http://localhost:3000/api/cameras"
+            ).then(JSON.stringify(paramsOrder));
+            console.log(response);
           }
         });
-      } popUp()
+        console.log(cameraIds);
+        console.log(teddyIds);
+        console.log(furnitureIds);
+      }
+      methodePost();
 
+      // ********** Récap de la Commande ********** //
+
+      popUp();
 
       console.log(user);
       console.log("Merci d'avoir passer Commande");
-      // window.location.reload();
       return;
     }
-
     //*** Si C'est Pas Fonctionnelle ***/
     else {
       console.log("Formulaire mal remplit");
@@ -215,6 +268,24 @@ function valid(data) {
   });
 }
 valid();
+
+/********** Pop Up **********/
+
+function popUp() {
+  const modal = document.querySelector(".modal");
+  const caption = document.querySelector(".caption");
+
+  const commande = document.getElementById("submit");
+  modal.classList.add("open");
+  caption.classList.add("open");
+
+  modal.addEventListener("click", (e) => {
+    if (e.target.classList.contains("modal")) {
+      modal.classList.remove("open");
+      caption.classList.remove("open");
+    }
+  });
+}
 
 /********** Afficher le Prix **********/
 

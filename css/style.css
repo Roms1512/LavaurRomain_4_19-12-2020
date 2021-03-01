@@ -691,7 +691,7 @@ section .modal .caption h3 {
 }
 section .modal .caption .commande {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
 }
 section .modal .caption .commande .titreProduit {
   font-size: large;

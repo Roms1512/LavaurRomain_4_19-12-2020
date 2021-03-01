@@ -61,6 +61,7 @@
 
       <!-- Section Panier -->
       <section>
+        <!-- Titre -->
         <div
           class="main"
           data-aos="flip-left"
@@ -171,6 +172,7 @@
           </form>
         </div>
 
+        <!-- Retour à la boutique -->
         <div class="panier">
           <a href="./produits.html" class="button-panier">Boutique</a>
         </div>
@@ -203,9 +205,6 @@
       } else {
         panier.innerHTML = `${localStorage.getItem("quantité de produit")}`;
       }
-      // if (nbrProduit == element.quantity) {
-      //   nbrProduit.innerHTML = parseInt(quantProd.value);
-      // }
     </script>
     <script src="../js/creationProduit.js"></script>
     <script src="../js/panier.js"></script>
