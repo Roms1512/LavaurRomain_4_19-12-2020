@@ -143,7 +143,6 @@ function valid(data) {
       paramsOrder_json = sessionStorage.getItem("client");
       let user = JSON.parse(paramsOrder_json);
 
-
       /********** Méthodes POST **********/
 
       function methodePost() {
