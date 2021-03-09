@@ -212,6 +212,10 @@ $refuser: rgb(246, 39, 39);
   font-family: "Finger Paint", cursive;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: $color-secondary;
 }
@@ -731,7 +735,7 @@ section {
     h2 {
       margin: auto;
       width: 60%;
-      color: white;
+      color: $color-text;
       text-align: center;
       border-radius: 10px;
       border: 3px solid $color-principal;
@@ -748,7 +752,7 @@ section {
         margin-bottom: 20px;
         margin-left: 30px;
       }
-      .commande {
+      .commandes {
         display: flex;
         justify-content: space-between;
         margin-left: 10%;
@@ -834,14 +838,20 @@ section {
       }
 
       .commande {
+        height: 30vh;
         display: flex;
         flex-direction: column;
+        overflow: scroll;
         .titreProduit {
           font-size: large;
         }
       }
 
       .merci {
+        height: 10%;
+        width: 100%;
+        text-align: center;
+        background: white;
         position: absolute;
         bottom: 25px;
         font-size: x-large;
@@ -865,6 +875,34 @@ section {
   .modal.open {
     opacity: 1;
     pointer-events: all;
+  }
+
+  //* Commande Confirmer *//
+  .cmnd, .commande {
+    width: 100%;
+  }
+  .cmnd {
+    color: $colorText2;
+    text-align: center;
+  }
+  .commande {
+    color: $color-text;
+    text-align: left;
+    color: $colorText2;
+    margin-bottom: 50px;
+    .info-pdrt {
+      text-align: center;
+      margin-top: 30px;
+      padding-bottom: 20px;
+      width: 40%;
+      background: $color-principal;
+      border-radius: 20px;
+      .idProduit {
+        margin-top: 10px;
+        margin-bottom: 20px;
+        text-decoration: underline;
+      }
+    }
   }
 }
 

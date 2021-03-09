@@ -52,7 +52,7 @@ const createCamera = (Camera) => {
 
   Camera.lenses.forEach((element) => {
     let option = document.createElement("option");
-    option.innerHTML = `Tailles : ${element}`;
+    option.innerHTML = `Lentilles : ${element}`;
     firstSelect.appendChild(option);
   });
   
@@ -165,7 +165,7 @@ const createFurniture = (Furniture) => {
 
   Furniture.varnish.forEach((element) => {
     let option = document.createElement("option");
-    option.innerHTML = `Couleurs : ${element}`;
+    option.innerHTML = `Vernis : ${element}`;
     firstSelect.appendChild(option);
   });
 };
@@ -192,7 +192,7 @@ const cameras = (camera) => {
 
   camera.lenses.forEach((element) => {
     let option = document.createElement("option");
-    option.innerHTML = `Tailles : ${element}`;
+    option.innerHTML = `Lentilles : ${element}`;
     firstSelect.appendChild(option);
   });
 
@@ -221,7 +221,7 @@ const teddys = (teddy) => {
 
   teddy.colors.forEach((element) => {
     let option = document.createElement("option");
-    option.innerHTML = `Tailles : ${element}`;
+    option.innerHTML = `Couleurs : ${element}`;
     firstSelect.appendChild(option);
   });
 
@@ -250,7 +250,7 @@ const furnitures = (furniture) => {
 
   furniture.varnish.forEach((element) => {
     let option = document.createElement("option");
-    option.innerHTML = `Tailles : ${element}`;
+    option.innerHTML = `Vernis : ${element}`;
     firstSelect.appendChild(option);
   });
 

@@ -44,7 +44,7 @@
             data-aos-duration="1000"
             data-aos-delay="700"
           >
-            <a href="">
+            <a href="./panier.html">
               <i class="fas fa-shopping-cart icone-logo"></i>
               <h2>Panier</h2>
               <span
@@ -60,7 +60,18 @@
       </header>
 
       <section>
-       
+        <!-- Titre -->
+        <div
+          class="main"
+          data-aos="flip-left"
+          data-aos-duration="1000"
+          data-aos-delay="1200"
+        >
+          <h1 class="intro">Détail de commande</h1>
+        </div>
+       <div class="commande" id="commande">
+
+       </div>
       </section>
 
       <footer>
@@ -81,9 +92,7 @@
         panier.innerHTML = `${localStorage.getItem("quantité de produit")}`;
       }
     </script>
-    <script src="../js/creationProduit.js"></script>
-    <script src="../js/panier.js"></script>
-    <script src="../node_modules/swup/dist/swup.min.js"></script>
+    <script src="../js/recap.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init();

@@ -101,19 +101,7 @@
             <h5>Tous les champs sont obligatoire</h5>
           </div>
           <form class="form" id="valid" name="commande">
-            <div class="commande">
-              <label>Nom : </label>
-              <input
-                type="text"
-                required
-                minlength="3"
-                placeholder="Dupont, ..."
-                id="lastName"
-                name="lastName"
-                aria-label="Nom"
-              />
-            </div>
-            <div class="commande">
+            <div class="commandes">
               <label>Prénom : </label>
               <input
                 type="text"
@@ -125,19 +113,31 @@
                 aria-label="Prénom"
               />
             </div>
-            <div class="commande">
+            <div class="commandes">
+              <label>Nom : </label>
+              <input
+                type="text"
+                required
+                minlength="3"
+                placeholder="Dupont, ..."
+                id="lastName"
+                name="lastName"
+                aria-label="Nom"
+              />
+            </div>
+            <div class="commandes">
               <label>adresse : </label>
               <input
                 type="text"
                 required
                 minlength="3"
                 placeholder="7 rue les plaines, ..."
-                id="adress"
-                name="adress"
+                id="address"
+                name="address"
                 aria-label="Adresse Postale"
               />
             </div>
-            <div class="commande">
+            <div class="commandes">
               <label>Ville : </label>
               <input
                 type="text"
@@ -149,14 +149,14 @@
                 aria-label="Ville"
               />
             </div>
-            <div class="commande">
+            <div class="commandes">
               <label>adresse mail : </label>
               <input
                 type="email"
                 required
                 placeholder="exemple-1234@gmail.com, ..."
-                id="mail"
-                name="mail"
+                id="email"
+                name="email"
                 aria-label="Adresse Email"
               />
             </div>
@@ -182,8 +182,8 @@
           <div class="caption">
             <h2>Commande validé</h2>
             <h3>Vous avez Commandé :</h3>
-            <div id="commande" class="commande"></div>
-            <a href="./confirmation.html" class="merci">Voir Récapitulatifs</a>
+            <div id="commande" class="cmnd"></div>
+            <a href="./confirmation.html" class="merci">Détail de la commande</a>
           </div>
         </div>
       </section>
@@ -208,7 +208,6 @@
     </script>
     <script src="../js/creationProduit.js"></script>
     <script src="../js/panier.js"></script>
-    <script src="../js/recap.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init();
