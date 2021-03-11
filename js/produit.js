@@ -68,6 +68,58 @@ const showFurniture = () => {
   });
 };
 
+/***** garder un element dans le local storage *****/
+const ajouter = () => {
+  let equivalence = false;
+  let currentBasket = JSON.parse(localStorage.getItem("produit"));
+
+  // condition si null //
+  if (currentBasket == null) {
+    let basket = [];
+    let product = {
+      name: currentProduct.name,
+      image: currentProduct.imageUrl,
+      id: currentProduct._id,
+      type: type,
+      price: currentProduct.price,
+      quantity: 1,
+    };
+    console.log("nouveau produit");
+    basket.push(product);
+    localStorage.setItem("produit", JSON.stringify(basket));
+
+    // sinon parcourrir le tableau //
+  } else {
+    currentBasket.forEach((element) => {
+      // si equivalant
+      if (element.name === currentProduct.name) {
+        element.quantity++;
+        localStorage.setItem("produit", JSON.stringify(currentBasket));
+        console.log("produit existant");
+        equivalence = false;
+        return;
+      } else {
+        equivalence = true;
+      }
+    });
+
+    if (equivalence) {
+      // pas d'equivalance
+      let product = {
+        name: currentProduct.name,
+        image: currentProduct.imageUrl,
+        id: currentProduct._id,
+        type: type,
+        price: currentProduct.price,
+        quantity: 1,
+      };
+      currentBasket.push(product);
+      console.log("ajout panier");
+      localStorage.setItem("produit", JSON.stringify(currentBasket));
+    }
+  }
+};
+
 switch (type) {
   case "cam":
     showCamera();
@@ -83,94 +135,37 @@ switch (type) {
     break;
 }
 
+//////////////////////////
+/// EVENT LISTENER !!! ///
+//////////////////////////
+
 /***---------------*** LocalStorage pour le panier ***---------------***/
 
-const createButton = () => {
-  const button = document.createElement("button");
-  button.classList.add("button");
-  button.setAttribute("id", "bouttonPanier");
-  button.innerHTML = `Ajoutez au panier`;
+const button = document.createElement("button");
+button.classList.add("button");
+button.setAttribute("id", "bouttonPanier");
+button.innerHTML = `Ajoutez au panier`;
 
-  const buttonContainer = document.getElementById("buttonContainer");
-  
-  /*-------------- écoute de l'événement --------------*/
-  
-  button.addEventListener("click", (e) => {
-    /***** garder un element dans le local storage *****/
-    const ajouté = () => {
-      let equivalence = false;
-      let currentBasket = JSON.parse(localStorage.getItem("produit"));
-      
-      // condition si null //
-      if (currentBasket == null) {
-        let basket = [];
-        let product = {
-          name: currentProduct.name,
-          image: currentProduct.imageUrl,
-          id: currentProduct._id,
-          type: type,
-          price: currentProduct.price,
-          quantity: 1
-        };
-        console.log('nouveau produit');
-        basket.push(product);
-        localStorage.setItem("produit", JSON.stringify(basket));
-        
-        // sinon parcourrir le tableau //
-      } else {
-        currentBasket.forEach((element) => {
-          // si equivalant
-          if (element.name === currentProduct.name) {
-            element.quantity++;
-            localStorage.setItem("produit", JSON.stringify(currentBasket));
-            console.log('produit existant');
-            equivalence = false;
-            return;
-          } else {
-            equivalence = true;
-          }
-        });
+const buttonContainer = document.getElementById("buttonContainer");
 
-        if(equivalence){
-          // pas d'equivalance
-          let product = {
-            name: currentProduct.name,
-            image: currentProduct.imageUrl,
-            id: currentProduct._id,
-            type: type,
-            price: currentProduct.price,
-            quantity: 1
-          };
-          currentBasket.push(product);
-          console.log('ajout panier');
-          localStorage.setItem("produit", JSON.stringify(currentBasket));
-        }
-      };
-    };
-    ajouté();
+/*-------------- écoute de l'événement --------------*/
 
-    /***** Afficher le nombre de produit dans le panier *****/
-    
-    let panier = document.getElementById("nombreDeProduit");
-    panier.innerHTML = localStorage.getItem("quantité de produit");
-    let quantitéStorage = localStorage.getItem("quantité de produit");
-    
-    quantitéStorage++;
-    localStorage.setItem("quantité de produit", quantitéStorage);
-      if(!quantitéStorage){
-        panier.innerHTML = "";
-      } else {
-        panier.innerHTML = `${quantitéStorage}`;
-      }
-      console.log(quantitéStorage);
-    
-  });
-  buttonContainer.appendChild(button);
-};
+button.addEventListener("click", (e) => {
+  ajouter();
 
-createButton();
+  /***** Afficher le nombre de produit dans le panier *****/
 
-/***---------------*** Afficher les différents Objets ***---------------***/
+  let panier = document.getElementById("nombreDeProduit");
+  panier.innerHTML = localStorage.getItem("quantité de produit");
+  let quantitéStorage = localStorage.getItem("quantité de produit");
 
-
-
+  quantitéStorage++;
+  localStorage.setItem("quantité de produit", quantitéStorage);
+  if (!quantitéStorage) {
+    panier.innerHTML = "";
+  } else {
+    panier.innerHTML = `${quantitéStorage}`;
+  }
+  console.log(quantitéStorage);
+});
+buttonContainer.appendChild(button);

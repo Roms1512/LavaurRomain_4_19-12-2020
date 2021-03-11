@@ -7,7 +7,7 @@ const produitAjouter = document.getElementById("pdrt-ajouter");
 /********** Mettre les Produits dans le Panier **********/
 
 function getProduct() {
-
+  
   // pas d'objet dans le panier
   if (allProduit == null || allProduit.length < 1) {
     produitAjouter.innerHTML = "<p>Aucun produit dans le panier</p>";
@@ -19,10 +19,9 @@ getProduct();
 
 function productPanier(params) {
   allProduit.forEach((element) => {
-  
     //***** Afficher les produits *****//
     const currentProduct = document.createElement("div");
-  
+
     currentProduct.innerHTML = `<div class="produit seul" id="produitSeul-${
       element.id
     }"><h3 class="titre-produit">${
@@ -39,9 +38,9 @@ function productPanier(params) {
       element.id
     }">${(element.price * element.quantity) / 100}</span>,00 €</p></div>`;
     produitAjouter.appendChild(currentProduct);
-  
   });
-} productPanier()
+}
+productPanier();
 
 /********** Pop Up **********/
 
@@ -194,7 +193,7 @@ submit.addEventListener("click", (e) => {
 
   const form = document.querySelector("#valid"); // console.log(form);
 
-  //***** Test du Formulaire *****//
+  //********** Test du Formulaire **********//
 
   //*** Si Fonctionnelle ***/
   if (
@@ -278,7 +277,7 @@ submit.addEventListener("click", (e) => {
 allProduit.forEach((element) => {
   //***** Augmenter la quantité de produit *****//
   let quantProd = document.getElementById(`quantiter-${element.id}`);
-  
+
   quantProd.addEventListener("change", (e) => {
     let name = element.name;
     let currentBasket = JSON.parse(localStorage.getItem("produit"));
@@ -291,11 +290,9 @@ allProduit.forEach((element) => {
     localStorage.setItem("produit", JSON.stringify(currentBasket));
 
     let priceElement = document.getElementById(`prix-${element.id}`);
-    priceElement.innerHTML =
-      (element.price * parseInt(quantProd.value)) / 100;
+    priceElement.innerHTML = (element.price * parseInt(quantProd.value)) / 100;
     setTotalPrice();
   });
-
 
   //***** supprimer produit *****//
   let supProduct = document.getElementById(`suprimerProduit-${element.id}`); // console.log(supProduct);
@@ -317,16 +314,13 @@ allProduit.forEach((element) => {
     setTotalPrice();
   }); // console.log(element.quantity);
 
-
   //***** vider le panier *****//
   let suprimer = document.getElementById("suprimer");
 
   suprimer.addEventListener("click", (e) => {
     localStorage.clear();
     console.log("votre panier et vide");
-    confirm(
-      `Vous avez suprimer ${element.quantity} produit du panier 😱😱😱`
-    );
+    confirm(`Vous avez suprimer ${element.quantity} produit du panier 😱😱😱`);
     window.location.reload();
   });
 });

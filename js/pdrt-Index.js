@@ -18,7 +18,7 @@ addEvent();
 const selectElement = document.getElementById("product");
 
 const regCamera = /(cameras?|zurss?|hirsch?|franck?|kuros?|katatone?)/i;
-const regTeddy = /(teddy?|ours?|oursons?|peluches?|norbert?|arnold?|lenny and carl|gustav?|garfunkel?)/i;
+const regTeddy = /(teddies?|teddy?|ours?|oursons?|peluches?|norbert?|arnold?|lenny and carl|gustav?|garfunkel?)/i;
 const regFurniture = /(furnitures?|meubles?|tables?|chaises?|planches?)/i;
 
 selectElement.addEventListener("change", (event) => {
