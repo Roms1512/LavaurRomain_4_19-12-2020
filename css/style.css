@@ -693,13 +693,15 @@ section .modal .caption h3 {
   font-size: x-large;
   margin-top: 10px;
 }
-section .modal .caption .commande {
+section .modal .caption .cmnd {
   height: 30vh;
+  background: #f3e9f1;
+  position: relative;
+  overflow: scroll;
   display: flex;
   flex-direction: column;
-  overflow: scroll;
 }
-section .modal .caption .commande .titreProduit {
+section .modal .caption .cmnd .titreProduit {
   font-size: large;
 }
 section .modal .caption .merci {

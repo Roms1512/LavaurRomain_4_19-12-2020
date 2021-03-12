@@ -83,10 +83,7 @@ function methodePost() {
   let teddyIds = [];
   let furnitureIds = [];
 
-  console.log("bonjours ici moi");
-
   //*** Boucle qui parcours le panier ***//
-
   allProduit.forEach((element) => {
     /********** Type de donnée **********/
 
@@ -98,8 +95,6 @@ function methodePost() {
     } else if (element.type == "furniture") {
       furnitureIds.push(element.id);
     }
-
-    console.log(cameraIds);
 
     /********** POST des données **********/
 
@@ -123,10 +118,6 @@ function donnePost(idArray, type) {
   let headers = {
     "Content-Type": "application/json",
   };
-
-  console.log(formData);
-
-  console.log("donnePost");
 
   //   /********** POST des données  -  Caméras **********/
 

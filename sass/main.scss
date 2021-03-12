@@ -831,17 +831,19 @@ section {
         border-radius: 20px;
         margin-top: 20px;
       }
-
+      
       h3 {
         font-size: x-large;
         margin-top: 10px;
       }
-
-      .commande {
+      
+      .cmnd {
         height: 30vh;
+        background: $color-principal;
+        position: relative;
+        overflow: scroll;
         display: flex;
         flex-direction: column;
-        overflow: scroll;
         .titreProduit {
           font-size: large;
         }
