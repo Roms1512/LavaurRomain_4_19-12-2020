@@ -91,6 +91,7 @@
         </div>
       </section>
 
+      <!-- footer -->
       <footer>
         <nav class="nav-footer">
           <ul>
@@ -101,20 +102,9 @@
       </footer>
     </main>
 
-    <script>
-      let panier = document.getElementById("nombreDeProduit");
-      if (localStorage.getItem("quantité de produit") === null) {
-        panier.innerHTML = ``;
-      } else {
-        panier.innerHTML = `${localStorage.getItem("quantité de produit")}`;
-      }
-    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../js/numberProduct.js"></script>
     <script src="../js/creationProduit.js"></script>
     <script src="../js/produit.js"></script>
-    <script src="../node_modules/swup/dist/swup.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script>
   </body>
 </html>

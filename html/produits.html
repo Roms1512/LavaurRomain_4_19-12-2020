@@ -16,7 +16,6 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   </head>
   <body>
-    <main>
       <!-- En tête -->
       <header>
         <!-- logo -->
@@ -57,14 +56,17 @@
         </div>
       </header>
 
+      <!-- Section  -  titre Produits -->
       <section>
         <div class="main" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="1200">
           <h1 class="intro">Tous nos produits</h1>
         </div>
       </section>
 
+      <!-- section  -  Produits -->
       <section id="produits" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1200"></section>
 
+      <!-- footer -->
       <footer>
         <nav class="nav-footer">
           <ul>
@@ -73,22 +75,11 @@
           </ul>
         </nav>
       </footer>
-    </main>
 
-    <script>
-      let panier = document.getElementById("nombreDeProduit");
-      if (localStorage.getItem("quantité de produit") === null) {
-        panier.innerHTML = ``;
-      } else {
-        panier.innerHTML = `${localStorage.getItem("quantité de produit")}`;
-      }
-    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../js/numberProduct.js"></script>
     <script src="../js/creationProduit.js"></script>
     <script src="../js/index.js"></script>
     <script src="../js/produits.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script>
   </body>
 </html>

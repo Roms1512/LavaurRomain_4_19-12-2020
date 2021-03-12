@@ -36,6 +36,7 @@
                 </div>
         </header>
     
+        <!-- section contact -->
         <section>
             <div class="main contact">
                 <h1 class="intro">Contact</h1>
@@ -47,6 +48,7 @@
             </div>
         </section>
     
+        <!-- footer -->
         <footer>
             <nav class="nav-footer">
                 <ul>
@@ -55,21 +57,9 @@
                 </ul>
             </nav>
         </footer>
-    </main>
 
-    <script>
-        let panier = document.getElementById("nombreDeProduit");
-        if (localStorage.getItem("quantité de produit") === null) {
-            panier.innerHTML = ``
-        } else {
-            panier.innerHTML = `${localStorage.getItem("quantité de produit")}`;
-        }
-    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../js/numberProduct.js"></script>
     <script src="../js/panier.js"></script>
-    <script src="../node_modules/swup/dist/swup.min.js"></script>
-    <script>
-        import Swup from 'swup';
-        const swup = new Swup();
-    </script>
 </body>
 </html>

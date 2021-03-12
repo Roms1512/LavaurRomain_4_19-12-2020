@@ -16,9 +16,8 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   </head>
   <body>
-    <main id="swup" class="transition-fade">
       <!-- En tête -->
-      <header id="swup" class="transition-fade">
+      <header class="transition-fade">
         <!-- logo -->
         <div class="logo" data-aos="fade-down" data-aos-duration="1000">
           <a href="index.html" class="logo">
@@ -52,7 +51,13 @@
             <a href="./html/panier.html">
               <i class="fas fa-shopping-cart icone-logo"></i>
               <h2>Panier</h2>
-              <span id="nombreDeProduit" class="h2" data-aos="flip-left" data-aos-delay="1200" data-aos-duration="1000"></span>
+              <span
+                id="nombreDeProduit"
+                class="h2"
+                data-aos="flip-left"
+                data-aos-delay="1200"
+                data-aos-duration="1000"
+              ></span>
             </a>
           </div>
         </div>
@@ -60,11 +65,21 @@
 
       <!-- Section produits -->
       <section id="produits">
-        <div class="main" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="1200">
+        <div
+          class="main"
+          data-aos="flip-left"
+          data-aos-duration="1000"
+          data-aos-delay="1200"
+        >
           <h1 class="intro">Bienvenu chez Orinoco !</h1>
         </div>
 
-        <div class="recherche" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="1400">
+        <div
+          class="recherche"
+          data-aos="fade-down"
+          data-aos-duration="1000"
+          data-aos-delay="1400"
+        >
           <input
             type="search"
             name="search"
@@ -75,7 +90,12 @@
           <i class="fas fa-search"></i>
         </div>
 
-        <div class="produits" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1200">
+        <div
+          class="produits"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="1200"
+        >
           <div class="produit" id="info">
             <a href="#" id="produit1">
               <h2 class="">Caméras vintage</h2>
@@ -96,6 +116,7 @@
         </div>
       </section>
 
+      <!-- footer -->
       <footer>
         <nav class="nav-footer">
           <ul>
@@ -104,22 +125,11 @@
           </ul>
         </nav>
       </footer>
-    </main>
 
-    <script>
-      let panier = document.getElementById("nombreDeProduit");
-      if (localStorage.getItem("quantité de produit") === null) {
-        panier.innerHTML = ``;
-      } else {
-        panier.innerHTML = `${localStorage.getItem("quantité de produit")}`;
-      }
-    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../js/numberProduct.js"></script>
     <script src="./js/creationProduit.js"></script>
     <script src="./js/index.js"></script>
     <script src="./js/pdrt-Index.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script>
   </body>
 </html>
