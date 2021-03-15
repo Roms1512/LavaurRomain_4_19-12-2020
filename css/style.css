@@ -98,8 +98,8 @@ header .logo a .icone-logo::before,
 footer .logo a .icone-logo::before {
   font-size: 100px;
 }
-header .logo a h1,
-footer .logo a h1 {
+header .logo a h2,
+footer .logo a h2 {
   font-size: xxx-large;
 }
 header .menu-nav,
