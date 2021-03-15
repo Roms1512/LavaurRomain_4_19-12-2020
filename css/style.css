@@ -100,7 +100,7 @@ footer .logo a .icone-logo::before {
 }
 header .logo a h2,
 footer .logo a h2 {
-  font-size: xxx-large;
+  font-size: 40px;
 }
 header .menu-nav,
 footer .menu-nav {
@@ -474,7 +474,6 @@ section .produit #buttonContainer .voir-plus {
 }
 section .produit #buttonContainer .voir-plus:hover {
   transform: scale(1.04);
-  padding-left: -10px;
 }
 section .produit #buttonContainer .voir-plus:active {
   transform: scale(1);

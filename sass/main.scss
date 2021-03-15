@@ -261,7 +261,7 @@ footer {
         font-size: 100px;
       }
       h2 {
-        font-size: xxx-large;
+        font-size: 40px;
       }
     }
   }
@@ -606,7 +606,6 @@ section {
         transition: all 0.3s;
         &:hover {
           transform: scale(1.04);
-          padding-left: -10px;
         }
         &:active {
           transform: scale(1);
