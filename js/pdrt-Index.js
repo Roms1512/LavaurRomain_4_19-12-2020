@@ -23,14 +23,12 @@ const regFurniture = /(furnitures?|meubles?|tables?|chaises?|planches?)/i;
 
 selectElement.addEventListener("change", (event) => {
   event.preventDefault();
+
   if (regCamera.test(selectElement.value)) {
-    showAllCamera();
-    return;
-  } else if (regTeddy.test(selectElement.value)) {
-    showAllTeddy();
-    return;
+    return showAllCamera();
+  } else if (regTeddy.test(selectElement.value)) {   
+    return showAllTeddy();
   } else if (regFurniture.test(selectElement.value)) {
-    showAllFurniture();
-    return;
-  }
+    return showAllFurniture();
+  } 
 });

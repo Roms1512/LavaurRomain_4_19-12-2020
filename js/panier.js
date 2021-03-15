@@ -7,7 +7,6 @@ const produitAjouter = document.getElementById("pdrt-ajouter");
 /********** Mettre les Produits dans le Panier **********/
 
 function getProduct() {
-  
   // pas d'objet dans le panier
   if (allProduit == null || allProduit.length < 1) {
     produitAjouter.innerHTML = "<p>Aucun produit dans le panier</p>";
@@ -111,25 +110,36 @@ function methodePost() {
 }
 
 function donnePost(idArray, type) {
+  let contact = {
+    firstName : firstName.value,
+    lastName: lastName.value,
+    address: adress.value,
+    city: city.value,
+    email: mail.value
+  };
   let paramsOrder = {
-    formData,
-    idArray,
+    contact: contact,
+    products: idArray,
   };
   let headers = {
+    "Accept": "application/json, text/plain, */*",
     "Content-Type": "application/json",
   };
 
+  console.log(paramsOrder);
   //   /********** POST des données  -  Caméras **********/
 
   fetch(`http://localhost:3000/api/${type}/order`, {
-    method: "POST",
-    body: JSON.stringify(paramsOrder),
+    method: "post",
     headers: headers,
+    body: JSON.stringify(paramsOrder),
   })
     .then(function (response) {
       if (response.ok) {
-        console.log(response.json());
-        return response.json();
+        // res = response.json();
+        // console.log(res);
+        // sessionStorage.setItem("contact")
+        return response.json()
       } else {
         console.log("Error");
         return response.status;
@@ -137,6 +147,9 @@ function donnePost(idArray, type) {
     })
     .then(function (data) {
       console.log(data.orderId);
+      console.log(data.contact);
+      sessionStorage.setItem("orderId",data.orderId);
+      
     });
 }
 

@@ -765,6 +765,9 @@ section {
           padding: 5px 20px;
           border-radius: 20px;
         }
+        @media screen and(max-width:445px) {
+          flex-direction: column;
+        }
       }
     }
     .passez-commande {
@@ -839,6 +842,7 @@ section {
       
       .cmnd {
         height: 30vh;
+        width: 80%;
         background: $color-principal;
         position: relative;
         overflow: scroll;
@@ -892,19 +896,38 @@ section {
     text-align: left;
     color: $colorText2;
     margin-bottom: 50px;
-    .info-pdrt {
+    display: flex;
+    justify-content: center;
+    
+    .confirmation-pdrt {
+      padding: 10px 20px;
       text-align: center;
       margin-top: 30px;
       padding-bottom: 20px;
-      width: 40%;
+      width: 90%;
       background: $color-principal;
       border-radius: 20px;
+      .remerciement {
+        font-size: x-large;
+        margin-bottom: 50px;
+      }
       .idProduit {
         margin-top: 10px;
         margin-bottom: 20px;
+        .titreId {
+          text-decoration: underline;
+        }
+      }
+      .contProduit {
         text-decoration: underline;
       }
+      .contenuProduit {
+        .titreProduit {
+          text-decoration: underline;
+        }
+      }
     }
+    
   }
 }
 
@@ -940,6 +963,7 @@ footer {
 
       @media screen and(max-width: 768px) {
         li {
+          width: 40%;
           margin: 0 20px;
         }
       }

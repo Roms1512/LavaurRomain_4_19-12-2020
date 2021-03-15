@@ -619,6 +619,12 @@ section .produit-ajouter .form .commandes input {
   padding: 5px 20px;
   border-radius: 20px;
 }
+@media screen and (max-width: 445px) {
+  section .formulaire .form .commandes,
+section .produit-ajouter .form .commandes {
+    flex-direction: column;
+  }
+}
 section .formulaire .passez-commande,
 section .produit-ajouter .passez-commande {
   width: 100%;
@@ -695,6 +701,7 @@ section .modal .caption h3 {
 }
 section .modal .caption .cmnd {
   height: 30vh;
+  width: 80%;
   background: #f3e9f1;
   position: relative;
   overflow: scroll;
@@ -748,18 +755,33 @@ section .commande {
   text-align: left;
   color: #000;
   margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
 }
-section .commande .info-pdrt {
+section .commande .confirmation-pdrt {
+  padding: 10px 20px;
   text-align: center;
   margin-top: 30px;
   padding-bottom: 20px;
-  width: 40%;
+  width: 90%;
   background: #f3e9f1;
   border-radius: 20px;
 }
-section .commande .info-pdrt .idProduit {
+section .commande .confirmation-pdrt .remerciement {
+  font-size: x-large;
+  margin-bottom: 50px;
+}
+section .commande .confirmation-pdrt .idProduit {
   margin-top: 10px;
   margin-bottom: 20px;
+}
+section .commande .confirmation-pdrt .idProduit .titreId {
+  text-decoration: underline;
+}
+section .commande .confirmation-pdrt .contProduit {
+  text-decoration: underline;
+}
+section .commande .confirmation-pdrt .contenuProduit .titreProduit {
   text-decoration: underline;
 }
 
@@ -794,6 +816,7 @@ footer .nav-footer ul li:hover {
 }
 @media screen and (max-width: 768px) {
   footer .nav-footer ul li {
+    width: 40%;
     margin: 0 20px;
   }
 }
