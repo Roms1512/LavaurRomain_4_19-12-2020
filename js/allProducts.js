@@ -1,0 +1,3 @@
+showAllCamera();
+showAllTeddy();
+showAllFurniture();

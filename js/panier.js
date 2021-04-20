@@ -6,7 +6,7 @@ const produitAjouter = document.getElementById("pdrt-ajouter");
 
 /********** Mettre les Produits dans le Panier **********/
 
-function getProduct() {
+function noProduct() {
   // pas d'objet dans le panier
   if (allProduit == null || allProduit.length < 1) {
     produitAjouter.innerHTML = "<p>Aucun produit dans le panier</p>";
@@ -14,7 +14,7 @@ function getProduct() {
     return;
   }
 }
-getProduct();
+noProduct();
 
 function productPanier(params) {
   allProduit.forEach((element) => {
